@@ -1,5 +1,26 @@
 # AngularSAProject
 
+## Components Structure
+	1.Acasa
+		1.1 Header
+		 - Welcome Section
+		 - Slider
+		1.3 Button
+		1.4 3xCard
+		1.5 Footer
+	2.Despre noi
+		2.1 Header
+		 - Welcome section
+		2.2 2 x Card
+		2.3 Footer
+	3.Contact
+		3.1 Header
+		 - Welcome section
+		 - Informatii generale
+		 - Formular
+		3.2 Footer
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
 ## Development server
