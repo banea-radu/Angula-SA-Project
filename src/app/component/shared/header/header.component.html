@@ -1,5 +1,6 @@
 <header> 
-  <div class="container-lg d-flex flex-column flex-lg-row justify-content-between px-0 py-1"> 
+  <div class="container-lg d-flex flex-column flex-lg-row justify-content-between px-0 py-1">
+
     <div class="container-lg d-flex justify-content-between">
       <a class="m-2 text-white text-decoration-none" href="#">
         <strong> Tenis De Masă Sibiu </strong>
@@ -12,18 +13,20 @@
         </div>
       </nav>
     </div>
-    <nav id="links-menu-wrapper" class="d-none d-lg-flex align-items-center justify-content-end">
-      <ul id="links-menu-list" class="list-unstyled d-flex mb-0">
+
+    <nav [class.menu-open]="menuOpened" class="links-menu-wrapper d-none d-lg-flex align-items-center justify-content-end">
+      <ul [class.menu-open]="menuOpened" class="links-menu-list list-unstyled d-flex mb-0">
         <li>
-          <a href="#" class="d-block p-3 text-decoration-none text-black fw-semibold"> Home </a>
+          <a href="#" class="d-block p-3 text-decoration-none text-black fw-semibold text-white"> Home </a>
         </li>
         <li>
-          <a href="#" class="d-block p-3 text-decoration-none text-black fw-semibold"> About us </a>
+          <a href="#" class="d-block p-3 text-decoration-none text-black fw-semibold text-white"> About us </a>
         </li>
         <li>
-          <a href="#" class="d-block p-3 text-decoration-none text-black fw-semibold"> Contact </a>
+          <a href="#" class="d-block p-3 text-decoration-none text-black fw-semibold text-white"> Contact </a>
         </li>
       </ul>
     </nav>
+
   </div>
 </header>
