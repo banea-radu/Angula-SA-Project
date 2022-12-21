@@ -1,0 +1,37 @@
+header {
+	background-color:var(--background-main-color);
+	z-index: 3;	
+}
+
+	/* Ascunde link-uri si afiseaza iconita de meniu, la pachet cu checkbox-ul. */
+	header ul {
+		display: none;
+	}
+	
+   	/* input:checked ~ ul => aplica CSS-ul doar pe FRATII 'ul' (de acelasi nivel) lui input:checked aflati SUB el ca ordine. */
+	header input[type="checkbox"]:checked ~ ul {
+        display: block;
+	    width: 100%;
+	    position: fixed;
+      	/* Afiseaza meniul extins sub header, calculat ca dimensiunea header-ului */
+	    top: 55px;
+	    left: 0;
+	    background-color: #266464;
+	}
+
+	/* || Stilizare header - pentru desktop */
+	@media (min-width: 992px) {
+		/* Afiseaza link-uri si ascunde iconita de meniu, la pachet cu checkbox-ul. */
+		header ul {
+			display: flex;
+			margin-bottom: 0;
+		}
+		
+		header .material-icons {
+	        display: none;
+		}
+
+		header input[type="checkbox"] {
+			display: none;
+		}
+	}

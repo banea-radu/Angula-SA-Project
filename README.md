@@ -1,5 +1,10 @@
 # AngularSAProject
 
+## TODO:
+ - deploy netlify
+ - add netlify link to readme
+ - check favicon showing in browser tab
+
 ## Components Structure
 	1.Acasa
 		1.1 Header

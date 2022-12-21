@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	--background-main-color: #256D6C;
+	--text-hover-color: #fbb44c;
+}
+
+/* || Resetare proprietati default */
+body {
+	background-color: var(--background-main-color);
+}
