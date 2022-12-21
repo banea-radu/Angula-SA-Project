@@ -1,9 +1,9 @@
 :root {
 	--background-main-color: #256D6C;
-	--text-hover-color: #fbb44c;
+	/* --text-hover-color: #fbb44c; */
 }
 
-/* || Resetare proprietati default */
+/* || Reset default properties */
 body {
 	background-color: var(--background-main-color);
 }
