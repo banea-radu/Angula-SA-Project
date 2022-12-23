@@ -12,4 +12,10 @@ export class HeaderComponent {
     this.menuOpened = !this.menuOpened;
   }
 
+  closeMenu() {
+    if (this.menuOpened) {
+      this.menuOpened = false;
+    }
+  }
+
 }
