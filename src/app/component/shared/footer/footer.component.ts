@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  closeMenu() {
+    // this.menuOpened = this.menuService.closeMenu(this.menuOpened);
+    
+  }
+  
 }
