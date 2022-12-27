@@ -1,44 +1,40 @@
 <!-- <div class="d-flex flex-column"> -->
 
 <div class="main" *ngIf="!menuOpened">
+
   <section class="vh-100 d-flex align-items-center text-white">
-        <div class="container">
-            <h1> Bine ai venit! </h1>
-            <p>
+    <div class="container">
+      <h1> Bine ai venit! </h1>
+      <p>
         Sunt Claudia Bînţă, instructor tenis de masă de peste 20 ani și te învăț cu drag tainele acestui sport.
       </p>
       <p class="pb-2">
         Cursuri de tenis de masă pentru copii și adulţi în Sibiu!
       </p>
-            <!-- <a class="button text-white rounded p-2 border border-success border-1 bg-success bg-gradient link-warning text-decoration-none" href="#slider"> AFLĂ MAI MULTE </a> -->
-            <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('slider')"></app-button>
-        </div>
+      <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('slider')"></app-button>
+    </div>
   </section>
+
   <section id="slider" class="d-flex vh-100 align-items-center justify-content-center text-white">
     <div class="slider w-75 h-50 position-relative overflow-hidden border border-1 rounded d-flex align-items-center text-center">
-      <div class="slide w-100 position-absolute">
+      <div *ngIf="currentSlide == 1" class="slide w-100 position-absolute">
         <h1 class="p-3"> Care sunt beneficiile tenisului de masă? </h1>
-        <!-- <a class="text-white rounded p-2 bg-success bg-gradient link-warning text-decoration-none" href="#beneficii"> AFLĂ MAI MULTE </a> -->
         <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('beneficii')"></app-button>
       </div>
-      <div class="slide w-100 position-absolute">
+      <div *ngIf="currentSlide === 2" class="slide w-100 position-absolute">
         <h1 class="p-3"> De ce să practici tenis de masă? </h1>
-        <!-- <a class="text-white rounded p-2 bg-success bg-gradient link-warning text-decoration-none" href="#deCeTenis"> AFLĂ MAI MULTE </a> -->
         <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('deCeTenis')"></app-button>
       </div>
-      <div class="slide w-100 position-absolute">
+      <div *ngIf="currentSlide === 3" class="slide w-100 position-absolute">
         <h1 class="p-3"> Cursuri </h1>
-        <!-- <a class="text-white rounded p-2 bg-success bg-gradient link-warning text-decoration-none" href="#cursuri"> AFLĂ MAI MULTE </a> -->
         <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('cursuri')"></app-button>
       </div>
-      <div class="slide w-100 position-absolute">
+      <div *ngIf="currentSlide === 4" class="slide w-100 position-absolute">
         <h1 class="p-3"> Despre Noi </h1>
-        <!-- <a class="text-white rounded p-2 bg-success bg-gradient link-warning text-decoration-none" href="pages/about.html"> AFLĂ MAI MULTE </a> -->
         <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('cursuri')"></app-button>
       </div>
-      <div class="slide w-100 position-absolute">
+      <div *ngIf="currentSlide === 5" class="slide w-100 position-absolute">
         <h1 class="p-3"> Contact </h1>
-        <!-- <a class="text-white rounded p-2 bg-success bg-gradient link-warning text-decoration-none" href="pages/contact.html"> CONTACTEAZĂ-NE </a> -->
         <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('cursuri')"></app-button>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -51,6 +47,7 @@
       </button>
     </div>
   </section>
+<!--   
   <section class="beneficii bg-white pt-4 pb-2">
     <div id="beneficii" class="container mb-4 pt-4 border border-1 rounded">
       <h2 class="title text-center"> Care sunt beneficiile? </h2>
@@ -134,7 +131,8 @@
         </div>
       </div>
         </div>
-  </section>
+  </section> -->
+
 </div>
 
 <!-- <div> -->

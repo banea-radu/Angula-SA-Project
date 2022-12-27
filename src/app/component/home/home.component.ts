@@ -9,17 +9,32 @@ import { ViewportScroller } from '@angular/common';
 })
 export class HomeComponent {
   menuOpened: boolean = false;
+  totalSlides: number = 5; // total nmumber of slides
+  currentSlide:number = 1; // starting slide
 
   constructor(private menuService: MenuService, private viewportScroller: ViewportScroller) { }
   
   ngOnInit() {
+    // Subscribe to observable from MenuService
     this.menuService.menuOpenedObservable.subscribe(response => {
       this.menuOpened = response;
     });
+
+    // 
+    
   }
     
   goToElementId(elementId: string) {
     this.viewportScroller.scrollToAnchor(elementId);
+  }
+
+  nextSlide() {
+    if (this.currentSlide === this.totalSlides) {
+      this.currentSlide = 1;
+    } else {
+      this.currentSlide++;
+    }
+    // AICIIII -> next click event on button?
   }
 
 }
