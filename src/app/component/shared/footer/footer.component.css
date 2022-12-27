@@ -1,0 +1,23 @@
+footer::before {
+	content: '';
+	display: block;
+	background-color: rgb(25,135,84);
+	height: 0.2rem;
+}
+
+footer.menu-open {
+	animation: slide-up 500ms;
+}
+
+	@keyframes slide-up {
+		0% {
+			transform: translateY(100%);
+		}
+		100% {
+			transform: translateY(0%);
+		}
+	}
+	
+	.footer-links.menu-open {
+		display: none!important;
+	}

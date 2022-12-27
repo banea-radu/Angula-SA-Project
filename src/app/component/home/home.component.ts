@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
 import { MenuService } from 'src/app/service/menu.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +10,15 @@ import { MenuService } from 'src/app/service/menu.service';
 export class HomeComponent {
   menuOpened: boolean = false;
 
-  constructor( private viewportScroller: ViewportScroller) { }
+  constructor(private menuService: MenuService, private viewportScroller: ViewportScroller) { }
   
-  goToElementId(elementId: string): void {
+  ngOnInit() {
+    this.menuService.menuOpenedObservable.subscribe(response => {
+      this.menuOpened = response;
+    });
+  }
+    
+  goToElementId(elementId: string) {
     this.viewportScroller.scrollToAnchor(elementId);
   }
 

@@ -10,8 +10,8 @@ header img {
 
 .burger .line-wrapper {
 	width:2.8rem;
-	-webkit-transition:0.7s ease-in-out;
-	transition:0.7s ease-in-out;
+	-webkit-transition:0.5s ease-in-out;
+	transition:0.5s ease-in-out;
 }
 
 	.burger .line-wrapper:hover {
@@ -23,8 +23,8 @@ header img {
 		height:5px;
 		margin:6px 0;
 		background-color:white;
-		-webkit-transition:0.4s ease-in-out;
-		transition:0.4s ease-in-out;
+		-webkit-transition:0.5s ease-in-out;
+		transition:0.5s ease-in-out;
 		border-radius: 5px;
 	}
 	
@@ -49,7 +49,7 @@ header img {
 		
 	.links-menu-wrapper {
 		width: 100vw;
-		animation: slide-from-left 300ms;
+		animation: slide-from-left 500ms;
 	}
 
 	@keyframes slide-from-left {

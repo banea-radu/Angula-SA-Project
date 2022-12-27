@@ -1,4 +1,4 @@
-<footer class="text-white">
+<footer [ngClass]="{'menu-open': menuOpened}" class="text-white">
 <div class="d-flex flex-column justify-content-center align-items-center">
   <form id="newsletter-form" class="d-flex flex-column align-items-center p-2">
     <h3> Abonează-te la newsletter! </h3>
@@ -7,8 +7,48 @@
     <!-- <input type="submit" value="ABONARE" id="submit-newsletter" class="text-white rounded p-1 border border-success border-2 bg-success bg-gradient link-warning"> -->
     <app-button title="ABONARE"><input type="submit" id="submit-newsletter"></app-button>
   </form>
-<div class="d-flex align-items-center">
-  <div class="footer-links d-flex flex-column align-items-center p-2">
+
+  <div class="container d-flex flex-column align-items-center mt-4">
+  <div class="d-flex">
+    <div [ngClass]="{'menu-open': menuOpened}" class="footer-links d-flex">
+      <div class="d-flex flex-column">
+        <h3 class="fw-semibold"> Link-uri </h3>
+        <a routerLink="/home" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
+          <i class="fa-solid fa-chevron-right"></i>
+          Acasă
+        </a>
+        <a routerLink="/about" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
+          <i class="fa-solid fa-chevron-right"></i>
+          Despre noi
+        </a>
+        <a routerLink="/contact" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
+          <i class="fa-solid fa-chevron-right"></i>
+          Contact
+        </a>
+      </div>
+    </div>
+    <div class="d-flex ps-4 p-2 align-items-center">
+      <div>
+        <a href="https://www.facebook.com/instructortenisdemasasibiu" class="p-2" target="_blank">
+          <i class="fa-brands fa-facebook-f fa-2x text-white link-warning text-decoration-none"></i>
+        </a>
+      </div>
+      <div>
+        <a href="https://www.instagram.com/claudia_antrenor_tenis_de_masa/" class="p-2" target="_blank">
+          <i class="fa-brands fa-instagram fa-2x text-white link-warning text-decoration-none"></i>
+        </a>
+      </div>
+      <div>
+        <a href="https://wa.me/40765429860?text=Bună%20Claudia,%20te%20contactez%20în%20legătură%20cu%20" class="p-2" target="_blank">
+          <i class="fa-brands fa-whatsapp fa-2x text-white link-warning text-decoration-none"></i>
+        </a>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="d-flex align-items-center">
+  <div [ngClass]="{'menu-open': menuOpened}" class="footer-links d-flex flex-column align-items-center p-2">
     <a routerLink="/home" class="text-white text-decoration-none link-warning">
             <p class="m-0"> Acasă </p>
         </a>
@@ -109,10 +149,10 @@
         </path>
       </svg>
         </a>
+  </div> -->
+  <!-- </div> -->
   </div>
-  </div>
-  </div>
-    <div class="">
+    <div>
       <p class="text-center m-0 p-4"> SC Believe IT SRL © 2022. Toate drepturile rezervate.</p>
   </div>
 </footer>

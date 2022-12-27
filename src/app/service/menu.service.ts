@@ -11,4 +11,10 @@ export class MenuService {
     this.menuOpenedObservable.next(!menuOpened);
   }
 
+  closeMenuIfOpened(menuOpened: boolean) {
+    if (menuOpened) {
+      this.toggleMenu(menuOpened);
+    }
+  }
+
 }
