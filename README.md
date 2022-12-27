@@ -1,10 +1,5 @@
 # AngularSAProject
 
-## TODO:
- - deploy netlify
- - add netlify link to readme
- - check favicon showing in browser tab
-
 ## Components Structure
 	1.Acasa
 		1.1 Header
@@ -51,3 +46,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## TODO:
+	- Create all Components
+		- adjust all components
+			- Home:
+				- slider adjust
+				- integrate all buttons component
+				- integrate all cards component
+				- new API get (firebase)
+	- implement routing
+		- configure all routes
+ 	- solve images problems due to stackblitz limitation (including favicon)
+
+## TO DOne:
+	- deploy netlify
+	- add netlify link to readme
