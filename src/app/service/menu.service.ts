@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
-
-  constructor() { }
-
-  closeMenu(menuOpened: boolean) {
-    if (menuOpened) {
-      menuOpened = false;
-    }
-    return menuOpened;
+  menuOpenedObservable = new BehaviorSubject<boolean>(false);
+  
+  toggleMenu(menuOpened: boolean) {
+    this.menuOpenedObservable.next(!menuOpened);
   }
 
 }

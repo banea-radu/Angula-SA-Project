@@ -5,7 +5,7 @@
       <a class="m-2 text-white text-decoration-none link-warning" routerLink="/home">
         <strong> Tenis De Masă Sibiu </strong>
       </a>
-      <nav [class.menu-open]="menuOpened" (click)="toggleMenu()" class="burger d-lg-none d-flex align-items-center mx-2">
+      <nav [ngClass]="{'menu-open': menuOpened}" class="burger d-lg-none d-flex align-items-center mx-2" (click)="toggleMenu()">
         <div class="line-wrapper px-1">
           <span [ngClass]="{'bg-warning': menuOpened}" class="line d-block"></span>
           <span class="line d-block"></span>
@@ -17,13 +17,13 @@
     <nav [class.menu-open]="menuOpened" class="links-menu-wrapper d-none d-lg-flex align-items-center justify-content-end">
       <ul [class.menu-open]="menuOpened" class="links-menu-list list-unstyled d-flex mb-0">
         <li>
-          <a routerLink="/home" (click)="closeMenu()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Home </a>
+          <a routerLink="/home" (click)="toggleMenu()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Home </a>
         </li>
         <li>
-          <a routerLink="/about" (click)="closeMenu()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> About us </a>
+          <a routerLink="/about" (click)="toggleMenu()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> About us </a>
         </li>
         <li>
-          <a routerLink="/contact" (click)="closeMenu()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Contact </a>
+          <a routerLink="/contact" (click)="toggleMenu()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Contact </a>
         </li>
       </ul>
     </nav>

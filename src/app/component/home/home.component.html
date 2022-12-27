@@ -1,6 +1,6 @@
 <!-- <div class="d-flex flex-column"> -->
 
-<div>
+<div *ngIf="!menuOpened">
   <section class="vh-100 d-flex align-items-center text-white">
         <div class="container">
             <h1> Bine ai venit! </h1>
@@ -38,7 +38,8 @@
       </div>
       <div class="slide w-100 position-absolute">
         <h1 class="p-3"> Contact </h1>
-        <a class="text-white rounded p-2 bg-success bg-gradient link-warning text-decoration-none" href="pages/contact.html"> CONTACTEAZĂ-NE </a>
+        <!-- <a class="text-white rounded p-2 bg-success bg-gradient link-warning text-decoration-none" href="pages/contact.html"> CONTACTEAZĂ-NE </a> -->
+        <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('cursuri')"></app-button>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -113,11 +114,11 @@
       <div class="cursuri text-center pb-2">
         👉 Cursurile se desfășoară în Sibiu, pe strada August Treboniu Laurean, nr. 2/4 lângă sala de bowling.
         <br><br>
-        <strong> Abonament Kids tenis de masă (8) </strong>
+        <strong> Abonament Kids tenis de masă (8) - 300 RON </strong>
         <br>
           👉 Prețul este valabil pentru 8 sedințe / lună, marți şi joi (câte două antrenamente pe săptămână). 
         <br><br>
-        <strong> Abonament Kids tenis de masă (4) </strong>
+        <strong> Abonament Kids tenis de masă (4) - 150 RON  </strong>
         <br>
           👉 Prețul este valabil pentru 4 sedințe / lună, marți sau joi, o zi la alegere (câte un antrenament pe 
           săptămână).

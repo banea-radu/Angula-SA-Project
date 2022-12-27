@@ -8,15 +8,17 @@ import { MenuService } from 'src/app/service/menu.service';
 })
 export class HeaderComponent {
   menuOpened: boolean = false;
+  
+  constructor (private menuService: MenuService) { }
 
-  constructor (private menuService: MenuService) {}
-
-  toggleMenu() {
-    this.menuOpened = !this.menuOpened;
+  ngOnInit() {
+    this.menuService.menuOpenedObservable.subscribe(response => {
+      this.menuOpened = response;
+    });
   }
-
-  closeMenu() {
-    this.menuOpened = this.menuService.closeMenu(this.menuOpened);
+  
+  toggleMenu() {
+    this.menuService.toggleMenu(this.menuOpened);
   }
 
 }

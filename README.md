@@ -50,16 +50,26 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 	- Create all Components
-		- adjust all components
-			- Home:
-				- slider adjust
-				- integrate all buttons component
-				- integrate all cards component
-				- new API get (firebase)
-	- implement routing
-		- configure all routes
- 	- solve images problems due to stackblitz limitation (including favicon)
+		- Header:
+			- hide main body if burger menu opened
+		- Footer:
+			- replace button element with component
+			- hide links if burger menu opened
+			- replace svg icons with fontawesome icons
+			- form validation and submit functionality
+			- insert current year in the footer text
+		- Home:
+			- hide if burger menu opened
+			- slider adjust
+			- integrate all buttons component
+			- integrate all cards component
+			- new API get (firebase)
+	- General:			
+		- implement routing
+			- configure all routes
+ 		- solve images problems due to stackblitz limitation (including favicon)
 
 ## TO DOne:
-	- deploy netlify
-	- add netlify link to readme
+	- General:
+		- deploy build on netlify
+		- add netlify link to readme
