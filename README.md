@@ -50,11 +50,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## TODO:
 	- Components
 		- Home:
-			- integrate all buttons component
-			- integrate all cards component
 			- new API get (firebase)
+			- integrate all cards component
 		- About us:
 			- hide main body if burger menu opened
+			- integrate all cards component
 		- Contact:
 			- hide main body if burger menu opened
 			- form validation and submit functionality
@@ -81,3 +81,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 			- replace svg icons with fontawesome icons
 		- Home:
 			- slider adjust
+			- integrate all buttons component
