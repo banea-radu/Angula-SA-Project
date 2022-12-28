@@ -26,8 +26,12 @@ export class HomeComponent {
     this.viewportScroller.scrollToAnchor(elementId);
   }
 
+  scrollToTop() {
+    this.viewportScroller.scrollToPosition([0, 0]);
+  }
+
   nextSlide() {
-    this.pressedSliderButton = 'next';
+    this.pressedSliderButton = 'next'; // change class to slide from right
     if (this.currentSlide === this.totalSlides) {
       this.currentSlide = 1;
     } else {
@@ -36,7 +40,7 @@ export class HomeComponent {
   }
 
   previousSlide() {
-    this.pressedSliderButton = 'previous';
+    this.pressedSliderButton = 'previous'; // change class to slide from right
     if (this.currentSlide === 1) {
       this.currentSlide = this.totalSlides;
     } else {
