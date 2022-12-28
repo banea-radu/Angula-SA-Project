@@ -11,6 +11,7 @@ export class HomeComponent {
   menuOpened: boolean = false;
   totalSlides: number = 5; // total nmumber of slides
   currentSlide:number = 1; // starting slide
+  pressedSliderButton:string = '';
 
   constructor(private menuService: MenuService, private viewportScroller: ViewportScroller) { }
   
@@ -19,9 +20,6 @@ export class HomeComponent {
     this.menuService.menuOpenedObservable.subscribe(response => {
       this.menuOpened = response;
     });
-
-    // 
-    
   }
     
   goToElementId(elementId: string) {
@@ -29,12 +27,20 @@ export class HomeComponent {
   }
 
   nextSlide() {
+    this.pressedSliderButton = 'next';
     if (this.currentSlide === this.totalSlides) {
       this.currentSlide = 1;
     } else {
       this.currentSlide++;
     }
-    // AICIIII -> next click event on button?
   }
 
+  previousSlide() {
+    this.pressedSliderButton = 'previous';
+    if (this.currentSlide === 1) {
+      this.currentSlide = this.totalSlides;
+    } else {
+      this.currentSlide--;
+    }
+  }
 }

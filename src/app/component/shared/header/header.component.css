@@ -49,10 +49,10 @@ header img {
 		
 	.links-menu-wrapper {
 		width: 100vw;
-		animation: slide-from-left 500ms;
+		animation: slide-from-right 500ms;
 	}
 
-	@keyframes slide-from-left {
+	@keyframes slide-from-right {
 		0% {
 			transform: translateX(100%);
 		}
