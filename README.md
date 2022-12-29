@@ -56,6 +56,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	- Home:
     		- new API get (firebase)
     		- integrate all cards component
+				- redesign slider? bootstrap?
     	- About us:
     		- hide main body if burger menu opened
     		- integrate all cards component
@@ -73,6 +74,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - solve images problems due to stackblitz limitation (including favicon)
 - prettyprint/clean the code
+- internationalization (https://github.com/ngx-translate/core)
 
 ## TO DOne:
 
