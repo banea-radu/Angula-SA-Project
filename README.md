@@ -28,59 +28,63 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-
 ## Components Structure
-	1.Acasa
-		1.1 Header
-		 - Welcome Section
-		 - Slider
-		1.3 Button
-		1.4 3xCard
-		1.5 Footer
-	2.Despre noi
-		2.1 Header
-		 - Welcome section
-		2.2 2 x Card
-		2.3 Footer
-	3.Contact
-		3.1 Header
-		 - Welcome section
-		 - Informatii generale
-		 - Formular
-		3.2 Footer
-		
+
+    1.Acasa
+    	1.1 Header
+    	 - Welcome Section
+    	 - Slider
+    	1.3 Button
+    	1.4 3xCard
+    	1.5 Footer
+    2.Despre noi
+    	2.1 Header
+    	 - Welcome section
+    	2.2 2 x Card
+    	2.3 Footer
+    3.Contact
+    	3.1 Header
+    	 - Welcome section
+    	 - Informatii generale
+    	 - Formular
+    	3.2 Footer
+
+
 ## TODO:
-	- Components
-		- Home:
-			- new API get (firebase)
-			- integrate all cards component
-		- About us:
-			- hide main body if burger menu opened
-			- integrate all cards component
-		- Contact:
-			- hide main body if burger menu opened
-			- form validation and submit functionality
-				- replace button element with component
-		- Footer:
-			- form validation and submit functionality
-				- replace button element with component
-			- insert current year in the footer text
-	- General:			
-		- implement routing
-			- configure all routes
- 		- solve images problems due to stackblitz limitation (including favicon)
-		- prettyprint/clean the code
+
+    - Components
+    	- Home:
+    		- new API get (firebase)
+    		- integrate all cards component
+    	- About us:
+    		- hide main body if burger menu opened
+    		- integrate all cards component
+    	- Contact:
+    		- hide main body if burger menu opened
+    		- form validation and submit functionality
+    			- replace button element with component
+    	- Footer:
+    		- form validation and submit functionality
+    			- replace button element with component
+    		- insert current year in the footer text
+    - General:
+    	- implement routing
+    		- configure all routes
+
+- solve images problems due to stackblitz limitation (including favicon)
+- prettyprint/clean the code
 
 ## TO DOne:
-	- General:
-		- deploy build on netlify
-		- add netlify link to readme
-	- Components
-		- Header:
-			- hide main body if burger menu opened
-		- Footer:
-			- hide links if burger menu opened
-			- replace svg icons with fontawesome icons
-		- Home:
-			- slider adjust
-			- integrate all buttons component
+
+    - General:
+    	- deploy build on netlify
+    	- add netlify link to readme
+    - Components
+    	- Header:
+    		- hide main body if burger menu opened
+    	- Footer:
+    		- hide links if burger menu opened
+    		- replace svg icons with fontawesome icons
+    	- Home:
+    		- slider adjust
+    		- integrate all buttons component
