@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirebaseService } from 'src/app/service/firebase.service';
 
 @Component({
   selector: 'app-home-cards',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-cards.component.css']
 })
 export class HomeCardsComponent {
+  programsData: any;
   cardsData = [
     {
       id: "beneficii",
@@ -98,4 +100,34 @@ export class HomeCardsComponent {
         `
     },
   ]
+
+  constructor(private firebaseService: FirebaseService) {}
+
+  ngOnInit() {
+    this.getPrograms();
+  }
+
+  getPrograms() {
+    this.firebaseService.getPrograms()
+      .subscribe((response) => {
+        // for (let text:any of response)
+        // for (const item of data.program) {
+        //   scrollingText.innerHTML  = scrollingText.innerHTML 
+        //     + item.Ziua
+        //     + " "
+        //     + item.Ora
+        //     + " "
+        //     + item.Categoria
+        //     + "; "
+        // }
+      })
+  }
+
+  postTest(){
+    this.firebaseService.postPrograms()
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
 }
+

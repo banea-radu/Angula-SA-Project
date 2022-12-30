@@ -49,9 +49,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	 - Formular
     	3.2 Footer
 
-
 ## TODO:
-
 - Components
 	- Home:
 		- new API get (firebase)
@@ -67,8 +65,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   		- replace button element with component
     - insert current year in the footer text
   - General:
-   	- implement routing
-   		- configure all routes
+   	- configure all routes
 
 - solve images problems due to stackblitz limitation (including favicon)
 - prettyprint/clean the code
@@ -81,6 +78,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - General:
 	- deploy build on netlify
 	- add netlify link to readme
+	- implement routing
 - Components
 	- Header:
 		- hide main body if burger menu opened
