@@ -35,12 +35,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	 - Welcome Section
     	 - Slider
     	1.3 Button
-    	1.4 3xCard
+    	1.4 CardHome x3
     	1.5 Footer
     2.Despre noi
     	2.1 Header
     	 - Welcome section
-    	2.2 2 x Card
+    	2.2 CardAbout x3
     	2.3 Footer
     3.Contact
     	3.1 Header
@@ -52,41 +52,42 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 
-    - Components
-    	- Home:
-    		- new API get (firebase)
-    		- integrate all cards component
-				- redesign slider? bootstrap?
-    	- About us:
-    		- hide main body if burger menu opened
-    		- integrate all cards component
-    	- Contact:
-    		- hide main body if burger menu opened
-    		- form validation and submit functionality
-    			- replace button element with component
-    	- Footer:
-    		- form validation and submit functionality
-    			- replace button element with component
-    		- insert current year in the footer text
-    - General:
-    	- implement routing
-    		- configure all routes
+- Components
+	- Home:
+		- new API get (firebase)
+	- About us:
+		- hide main body if burger menu opened
+		- integrate cards component
+	- Contact:
+  	- hide main body if burger menu opened
+  	- form validation and submit functionality
+  	  - replace button element with component
+  - Footer:
+  	- form validation and submit functionality
+  		- replace button element with component
+    - insert current year in the footer text
+  - General:
+   	- implement routing
+   		- configure all routes
 
 - solve images problems due to stackblitz limitation (including favicon)
 - prettyprint/clean the code
 - internationalization (https://github.com/ngx-translate/core)
 
-## TO DOne:
+- nice to adjust:
+	- bootstrap carrousel
 
-    - General:
-    	- deploy build on netlify
-    	- add netlify link to readme
-    - Components
-    	- Header:
-    		- hide main body if burger menu opened
-    	- Footer:
-    		- hide links if burger menu opened
-    		- replace svg icons with fontawesome icons
-    	- Home:
-    		- slider adjust
-    		- integrate all buttons component
+## TO DOne:
+- General:
+	- deploy build on netlify
+	- add netlify link to readme
+- Components
+	- Header:
+		- hide main body if burger menu opened
+	- Footer:
+		- hide links if burger menu opened
+		- replace svg icons with fontawesome icons
+	- Home:
+		- slider adjust
+		- integrate all buttons component
+		- integrate cards component

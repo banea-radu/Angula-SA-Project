@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/shared/header/header.component';
 import { FooterComponent } from './component/shared/footer/footer.component';
 import { ButtonComponent } from './component/shared/button/button.component';
-import { CardsHomeComponent } from './component/shared/cards-home/cards-home.component';
+import { HomeCardsComponent } from './component/shared/home-cards/home-cards.component';
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
@@ -17,7 +17,7 @@ import { ContactComponent } from './component/contact/contact.component';
     HeaderComponent,
     FooterComponent,
     ButtonComponent,
-    CardsHomeComponent,
+    HomeCardsComponent,
     HomeComponent,
     AboutComponent,
     ContactComponent

@@ -24,11 +24,12 @@
 <div *ngFor="let card of cardsData" id="{{ card.id }}" class="container mb-4 pt-4 border border-1 rounded">
   <h2 class="title text-center">
     {{ card.title }}
-    <h6 class="text-center"> {{ card.title2 }} </h6>
+    <h6 class="text-center" [innerHTML]="card.title2"></h6>
   </h2>
   <img src="{{ card.imgSrc }}" alt="{{ card.imgAlt }}" class="w-100 rounded mb-4 mx-auto d-block">
-  <p [ngClass]="{'text-center': card.id == 'cursuri'}" class="text"> {{ card.text }} </p>
-  <div *ngIf="card.id == 'cursuri'" class="scrolling-text-wrapper position-relative overflow-hidden border border-success rounded m-auto">
-    <p class="scrolling-text position-absolute text-nowrap"> </p>
-  </div>
+  <p [ngClass]="{'text-center': card.id == 'cursuri'}" [innerHTML]="card.text" class="text"></p>
+  <!-- only visible for cursuri card -->
+    <div *ngIf="card.id == 'cursuri'" class="scrolling-text-wrapper position-relative overflow-hidden border border-success rounded m-auto">
+      <p class="scrolling-text position-absolute text-nowrap"></p>
+    </div>
 </div>
