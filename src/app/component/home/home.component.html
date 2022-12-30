@@ -15,8 +15,8 @@
     </div>
   </section>
 
-  <section id="slider" class="d-flex vh-100 align-items-center justify-content-center bg-white">
-    <div class="slider w-75 h-50 position-relative overflow-hidden border border-1 rounded d-flex align-items-center text-center bg-success bg-gradient bg-opacity-25">
+  <section  class="d-flex vh-100 align-items-center justify-content-center bg-white">
+    <div id="slider" class="slider h-50 position-relative overflow-hidden border border-1 rounded d-flex align-items-center text-center bg-success bg-gradient bg-opacity-25">
       <div *ngIf="currentSlide == 1"
         [ngClass]="pressedSliderButton == 'next' ? 'slide-from-right' : 'slide-from-left'"
         class="slide w-100 position-absolute">
@@ -57,6 +57,10 @@
   </section>
   
   <section class="beneficii pt-4 pb-2 bg-white">
+    <app-card></app-card>
+
+
+<!--
     <div id="beneficii" class="container mb-4 pt-4 border border-1 rounded">
       <h2 class="title text-center"> Care sunt beneficiile? </h2>
       <img src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7" alt="Beneficii tenis de masa copii" class="w-100 rounded mb-2">
@@ -78,7 +82,7 @@
         Antrenamentul se sfârșește doar după ce facem stretching (exerciții pentru flexibilitate, mobilitate 
         și pentru revenirea după efort).
       </p>
-        </div>
+    </div>
     <div id="deCeTenis" class="container mb-4 pt-4 border border-1 rounded">
           <h2 class="title text-center"> De ce tenis de masă? </h2>
       <img src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/tenis_de_masa_copii.jpg?alt=media&token=c5e2f024-10d9-4058-bd4c-c190ba4a04ed" alt="Tenis de masa copii" class="w-100 rounded mb-2">
@@ -139,6 +143,9 @@
         </div>
       </div>
         </div>
+-->
+        
+
   </section>
 
 </div>
