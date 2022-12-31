@@ -9,6 +9,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  
   menuOpened: boolean = false;
   contactForm = this.formbuilder.group({
     name: [null, Validators.compose(
@@ -41,7 +42,8 @@ export class ContactComponent {
   constructor(
     private menuService: MenuService,
     private formbuilder: FormBuilder,
-    private firebaseService: FirebaseService) { }
+    private firebaseService: FirebaseService,
+    ) { }
 
   ngOnInit() {
     // Subscribe to observable from MenuService

@@ -51,9 +51,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - Components
-	- Contact:
-  	- form
-			- submit functionality
   - Footer:
   	- form validation and submit functionality
   		- replace button element with component
@@ -92,3 +89,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- form
 			- validation
 			- replace button element with component
+			- submit functionality

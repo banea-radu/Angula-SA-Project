@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,10 +18,12 @@ export class FirebaseService {
     let alreadySubscribed: boolean = false;
     this.http.get(this.urlLink + "contactForm.json")
       .subscribe((response) => {
-        for (let item of Object.values(response)) {
-          if (formData.email == item.email) {
-            alreadySubscribed = true;
-            break;
+        if (response) {
+          for (let item of Object.values(response)) {
+            if (formData.email == item.email) {
+              alreadySubscribed = true;
+              break;
+            }
           }
         }
         if (alreadySubscribed) {
@@ -31,6 +34,7 @@ export class FirebaseService {
           return this.http.post(this.urlLink + "contactForm.json", formData)
             .subscribe((response) => {
               alert("Formularul a fost trimis! O sa fii contactat pe emailul " + formData.email + " . Multumim!");
+              window.location.reload()
           });
         }
       })
