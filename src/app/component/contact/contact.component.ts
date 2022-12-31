@@ -50,11 +50,11 @@ export class ContactComponent {
     });
   }
 
-  formSubmit(form: {name: string, email: string, subject: string, message: string}) {
+  formSubmit(form: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}) {
     if (this.contactForm.valid) {
       this.firebaseService.postContactFormData(form)
       .subscribe((response) => {
-        console.log(response);
+        alert("Formularul a fost trimis! O sa fii contactat pe emailul " + form.email + " . Multumim!");
       });
     }
   }

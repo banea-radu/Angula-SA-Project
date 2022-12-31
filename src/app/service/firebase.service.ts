@@ -13,9 +13,8 @@ export class FirebaseService {
     return this.http.get(this.urlLink + "program.json");
   }
 
-  postContactFormData(form: {name: string, email: string, subject: string, message: string}){
-    console.log(form);
-    // AICII add datetimestamp
-    return this.http.post(this.urlLink + "contactForm.json", form);
+  postContactFormData(formData: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}){
+    formData.dateSubmitted = new Date();
+    return this.http.post(this.urlLink + "contactForm.json", formData);
   }
 }
