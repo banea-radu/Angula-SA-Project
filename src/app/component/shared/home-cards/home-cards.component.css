@@ -1,7 +1,6 @@
 /* || Cards */
 .container {
   max-width: 95%;
-  /* white-space: pre-line;  needed for having break lines in HTML page from the cardsData text fields */
 }
 
 img {
@@ -13,13 +12,35 @@ img {
 		filter: grayscale(0);
 	}
 
+	.scrolling-text-wrapper {
+		height: 35px;
+		width: min(400px, 90%);
+	}
+			
+		.scrolling-text {
+			line-height:35px;
+			-webkit-animation: scroll-text 14s linear infinite; /* safari iOS */
+			animation: scroll-text 14s linear infinite;
+		}
+	
+				@-webkit-keyframes scroll-text {
+					0% { -webkit-transform: translateX(50%); }
+					100% { -webkit-transform: translateX(-100%); }
+				}
+				
+				@keyframes scroll-text {
+					0% { transform: translateX(50%); }
+					100% { transform: translateX(-100%); }
+				}
+
   /* || Desktop view */
 	@media (min-width: 992px) {
 		.container {
 			display: grid;
 			grid-template-areas:
 				'image title'
-				'image text';
+				'image text'
+				'image scrolling-text';
 			gap: 1rem;
 		}
 
@@ -30,12 +51,17 @@ img {
 			}
 
 			.container .title {
-				grid-area:title;
+				grid-area: title;
 				align-self: end;
 			}
 			
 			.container .text {
 				grid-area: text;
+				align-self: center;
+			}
+
+			.container .scrolling-text-wrapper {
+				grid-area: scrolling-text;
 				align-self: start;
 			}
 	}

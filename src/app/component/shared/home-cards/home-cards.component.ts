@@ -7,7 +7,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
   styleUrls: ['./home-cards.component.css']
 })
 export class HomeCardsComponent {
-  programsData: any;
+  programsData: string = "";
   cardsData = [
     {
       id: "beneficii",
@@ -110,24 +110,18 @@ export class HomeCardsComponent {
   getPrograms() {
     this.firebaseService.getPrograms()
       .subscribe((response) => {
-        // for (let text:any of response)
-        // for (const item of data.program) {
-        //   scrollingText.innerHTML  = scrollingText.innerHTML 
-        //     + item.Ziua
-        //     + " "
-        //     + item.Ora
-        //     + " "
-        //     + item.Categoria
-        //     + "; "
-        // }
+        for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
+          this.programsData = this.programsData
+            + item.Ziua
+            + " "
+            + item.Ora
+            + " "
+            + item.Categoria
+            + "; "
+        }
+        console.log(this.programsData);
       })
   }
 
-  postTest(){
-    this.firebaseService.postPrograms()
-      .subscribe((res) => {
-        console.log(res);
-      });
-  }
 }
 

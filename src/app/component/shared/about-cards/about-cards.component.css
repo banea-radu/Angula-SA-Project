@@ -1,0 +1,25 @@
+.staff {
+	flex: 1;
+}
+
+.staff h6 {
+  min-width: 150px;
+  max-width: 200px;
+	margin-top: -1.5rem;
+  background-color: var(--background-main-color);
+}  
+	
+	.staff img {
+		filter: grayscale(80%);
+	  width: 70vw;
+	  height: 70vw;
+		max-width: 400px;
+		max-height: 400px;
+	  min-width: 150px;
+	  min-height: 150px;
+	  margin-top: -3rem;
+	}
+
+	.staff img:hover {
+		filter: grayscale(0);
+	}

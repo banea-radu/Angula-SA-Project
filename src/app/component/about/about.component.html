@@ -1,46 +1,13 @@
-<div>
+<div class="main" *ngIf="!menuOpened">
+  
   <section class="welcome d-flex justify-content-center align-items-center">
-      <div class="text-white">
-        <h1> Despre Noi </h1>
+    <div class="text-white">
+      <h1> Despre Noi </h1>
     </div>
-    </section>
-    <section class="bg-white">
-  <div class="container staffs d-flex flex-column flex-lg-row">
-  <div class="staff border border-1 rounded p-2 mt-5 me-3 mb-4 ms-3">
-    <img class="d-block rounded-circle ms-auto me-auto img-fluid" src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/claudia_binta.jpg?alt=media&token=66a5c5ee-15d9-41a8-b395-97416613c702" alt="Claudia Bînţă">
-            <h6 class="position-relative ms-auto me-auto fw-light text-center rounded-2 p-1 mb-2 text-warning"> Claudia Bînţă </h6>
-            <p>
-      Eu sunt Claudia și sunt îndrăgostită de tenisul de masă de la vârsta de 7 ani.
-      <br><br>
-      Am practicat tenisul de masă de performanță până la vârsta de 17 ani. Am câștigat 
-      locul III cu echipa în Superliga României de Senioare, am fost selecționată la lotul 
-      național, am câștigat numeroase medalii în țară și în afara țării și am fost pe locul 
-      181 în Clasamentul European de Juniori.
-      <br><br>
-      Am experiență de peste 20 ani în tenis și 
-      peste 10 ani în training și coaching pe tenis de masă, pentru diferite categorii și 
-      toate vârstele.
-      <br><br>
-      Cred cu tărie că fiecare dintre noi are un potențial care stă să iasă 
-      la suprafață și te invit să-l descoperim prin tenis.
-    </p>
-        </div>
-  <div class="staff border border-1 rounded p-2 mt-5 me-3 mb-4 ms-3">
-    <img class="d-block rounded-circle ms-auto me-auto img-fluid" src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/sala_tenis_de_masa_sibiu.jpg?alt=media&token=2e9a122a-d247-48c4-8c03-0cd4be77a530" alt="AREA B52">
-            <h6 class="position-relative ms-auto me-auto fw-light text-center rounded-2 p-1 mb-2 text-warning"> AREA B52 </h6>
-            <p>
-      Sala de tenis de masă a fost amenajată cu podea specială TARAFLEX Gerflor de culoare "FRAMBOISE". 
-      <br><br>
-      Această podea, utilizată în sălile acreditate pentru organizarea de competiții internaționale, 
-      are o grosime de 5 mm și este elastică, fiind gândită special pentru sălile de tenis de masă.
-      <br><br>
-      Sunt disponibile 5 mese de tenis Cornilleau Competition 740, model aprobat de Federația 
-      Internațională de Tenis de Masă ITTF. Culoarea meselor este ,,BLEU’’, iar fiecare masă este 
-      delimitată cu despărțitoare Cornilleau.
-      <br><br>
-      Distanța dintre mese este de 2 metri, ceea ce crește gradul de confort al jucătorului.
-    </p>
-        </div>
-  </div>
   </section>
+
+  <section class="bg-white">
+      <app-about-cards></app-about-cards>
+  </section>
+  
 </div>

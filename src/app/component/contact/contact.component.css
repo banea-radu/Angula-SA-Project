@@ -1,0 +1,17 @@
+/* || welcome section */
+.welcome {
+	height: 50vh;
+}
+
+/* || contact section */
+.contact-info, .contact-form {
+	min-width: 320px;
+	max-width: 500px;
+}
+.google-maps {
+	height: 235px;
+}
+
+.contact-form textarea {
+	height: 200px;
+}

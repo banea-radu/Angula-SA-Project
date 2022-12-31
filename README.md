@@ -51,28 +51,21 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - Components
-	- Home:
-		- new API get (firebase)
-	- About us:
-		- hide main body if burger menu opened
-		- integrate cards component
 	- Contact:
-  	- hide main body if burger menu opened
-  	- form validation and submit functionality
-  	  - replace button element with component
+  	- form
+			- submit functionality
   - Footer:
   	- form validation and submit functionality
   		- replace button element with component
     - insert current year in the footer text
-  - General:
-   	- configure all routes
+- General:
+	- configure all routes
+	- internationalization (https://github.com/ngx-translate/core)
 
-- solve images problems due to stackblitz limitation (including favicon)
-- prettyprint/clean the code
-- internationalization (https://github.com/ngx-translate/core)
-
-- nice to adjust:
+- Nice to have's:
+	- prettyprint/clean the code
 	- bootstrap carrousel
+	- solve images problems due to stackblitz limitation (including favicon)
 
 ## TO DOne:
 - General:
@@ -89,3 +82,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- slider adjust
 		- integrate all buttons component
 		- integrate cards component
+		- new API get (firebase)
+	- About us:
+		- hide main body if burger menu opened
+		- integrate cards component
+	- Contact:
+  	- hide main body if burger menu opened
+		- replace icons
+		- form
+			- validation
+			- replace button element with component

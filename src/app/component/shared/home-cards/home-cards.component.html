@@ -4,9 +4,10 @@
     <h6 class="text-center" [innerHTML]="card.title2"></h6>
   </h2>
   <img src="{{ card.imgSrc }}" alt="{{ card.imgAlt }}" class="w-100 rounded mb-4 mx-auto d-block">
-  <p [ngClass]="{'text-center': card.id == 'cursuri'}" [innerHTML]="card.text" class="text"></p>
-  <!-- only visible for cursuri card -->
-    <div *ngIf="card.id == 'cursuri'" class="scrolling-text-wrapper position-relative overflow-hidden border border-success rounded m-auto">
-      <p class="scrolling-text position-absolute text-nowrap"> {{ 1 }} </p>
-    </div>
+  <div [ngClass]="{'text-center': card.id == 'cursuri'}" [innerHTML]="card.text" class="text">
+  </div>
+    <!-- only visible for cursuri card -->
+    <div *ngIf="card.id == 'cursuri'" class="scrolling-text-wrapper position-relative overflow-hidden border border-success rounded mx-auto mb-3">
+    <p class="scrolling-text position-absolute text-nowrap"> {{ programsData }} </p>
+  </div>
 </div>

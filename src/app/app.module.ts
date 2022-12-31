@@ -11,6 +11,8 @@ import { HomeCardsComponent } from './component/shared/home-cards/home-cards.com
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
+import { AboutCardsComponent } from './component/shared/about-cards/about-cards.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { ContactComponent } from './component/contact/contact.component';
     HomeCardsComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    AboutCardsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

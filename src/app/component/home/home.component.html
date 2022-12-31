@@ -9,11 +9,11 @@
       <p class="pb-2">
         Cursuri de tenis de masă pentru copii și adulţi în Sibiu!
       </p>
-      <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('slider')"></app-button>
+      <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('slider-section')"></app-button>
     </div>
   </section>
 
-  <section  class="d-flex vh-100 align-items-center justify-content-center bg-white">
+  <section id="slider-section" class="d-flex vh-100 align-items-center justify-content-center bg-white">
     <div id="slider" class="slider h-50 position-relative overflow-hidden border border-1 rounded d-flex align-items-center text-center bg-success bg-gradient bg-opacity-25">
       <div *ngIf="currentSlide == 1"
         [ngClass]="pressedSliderButton == 'next' ? 'slide-from-right' : 'slide-from-left'"
