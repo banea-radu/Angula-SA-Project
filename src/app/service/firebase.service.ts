@@ -14,7 +14,25 @@ export class FirebaseService {
   }
 
   postContactFormData(formData: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}){
-    formData.dateSubmitted = new Date();
-    return this.http.post(this.urlLink + "contactForm.json", formData);
+    let alreadySubscribed: boolean = false;
+    this.http.get(this.urlLink + "contactForm.json")
+      .subscribe((response) => {
+        for (let item of Object.values(response)) {
+          if (formData.email == item.email) {
+            alreadySubscribed = true;
+            break;
+          }
+        }
+        if (alreadySubscribed) {
+          alert("Emailul " + formData.email + " este deja abonat! Incearca te rog alt email! Multumesc");
+          return;
+        } else {
+          formData.dateSubmitted = new Date();
+          return this.http.post(this.urlLink + "contactForm.json", formData)
+            .subscribe((response) => {
+              alert("Formularul a fost trimis! O sa fii contactat pe emailul " + formData.email + " . Multumim!");
+          });
+        }
+      })
   }
 }

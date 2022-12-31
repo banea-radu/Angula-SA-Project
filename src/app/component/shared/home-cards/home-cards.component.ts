@@ -119,7 +119,6 @@ export class HomeCardsComponent {
             + item.Categoria
             + "; "
         }
-        console.log(this.programsData);
       })
   }
 
