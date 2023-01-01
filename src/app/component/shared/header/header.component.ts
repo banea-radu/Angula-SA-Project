@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuService } from 'src/app/service/menu.service';
 import { ViewportScroller } from '@angular/common';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,14 @@ import { ViewportScroller } from '@angular/common';
 export class HeaderComponent {
   menuOpened: boolean = false;
   
-  constructor(private menuService: MenuService, private viewportScroller: ViewportScroller) { }
+  constructor(
+    private menuService: MenuService,
+    private viewportScroller: ViewportScroller,
+    public translate: TranslateService)
+    {
+      translate.addLangs(['ro', 'en']);
+      translate.setDefaultLang('ro');
+    }
 
   ngOnInit() {
     this.menuService.menuOpenedObservable.subscribe(response => {

@@ -75,6 +75,16 @@ header img {
 			text-align: center;
 		}
 
+		#dropdown-list {
+			display: inline-block;
+			vertical-align: middle;
+			padding:8px 0;
+		}
+
+			#dropdown {
+				display: inline-block;
+				vertical-align:middle;
+			}
 	/* header a:hover { */
 		/* border-radius: 15px; */
 		/* transform: scale(1.3); */

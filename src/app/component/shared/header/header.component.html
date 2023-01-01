@@ -3,7 +3,7 @@
 
     <div class="container-lg d-flex justify-content-between">
       <a class="m-2 text-white text-decoration-none link-warning" routerLink="/home">
-        <strong> Tenis De Masă Sibiu </strong>
+        <strong> {{ 'Header.Title-Logo' | translate }} </strong>
       </a>
       <nav [ngClass]="{'menu-open': menuOpened}" class="burger d-lg-none d-flex align-items-center mx-2" (click)="toggleMenu()">
         <div class="line-wrapper px-1">
@@ -24,6 +24,27 @@
         </li>
         <li>
           <a routerLink="/contact" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Contact </a>
+        </li>
+        <li id="dropdown-list">
+          <div id="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://cdn.countryflags.com/thumbs/romania/flag-3d-250.png" height="12" alt="en" width="18">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li>
+                <a class="dropdown-item active" href="#" (click)="translate.use('ro')">
+                  <img src="https://cdn.countryflags.com/thumbs/romania/flag-3d-250.png" height="12" alt="romanian language" width="18">
+                  Romanian
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" (click)="translate.use('en')">
+                  <img src="https://cdn-icons-png.flaticon.com/512/1377/1377975.png" height="12" alt="english language" width="18">
+                  English
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </nav>
