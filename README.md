@@ -50,11 +50,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	3.2 Footer
 
 ## TODO:
-- Components
-  - Footer:
-  	- form validation and submit functionality
-  		- replace button element with component
-    - insert current year in the footer text
 - General:
 	- configure all routes
 	- internationalization (https://github.com/ngx-translate/core)
@@ -75,6 +70,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- Footer:
 		- hide links if burger menu opened
 		- replace svg icons with fontawesome icons
+		- insert current year in the footer text
+		- form
+			- validation
+			- submit functionality
+  		- replace button element with component
 	- Home:
 		- slider adjust
 		- integrate all buttons component

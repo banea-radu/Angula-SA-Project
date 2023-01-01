@@ -43,7 +43,7 @@ export class ContactComponent {
     private menuService: MenuService,
     private formbuilder: FormBuilder,
     private firebaseService: FirebaseService,
-    ) { }
+    ) {}
 
   ngOnInit() {
     // Subscribe to observable from MenuService

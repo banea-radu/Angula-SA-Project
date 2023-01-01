@@ -15,8 +15,17 @@ export class FirebaseService {
   }
 
   postContactFormData(formData: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}){
+    formData.dateSubmitted = new Date();
+    return this.http.post(this.urlLink + "contactForm.json", formData)
+      .subscribe((response) => {
+        alert("Formularul a fost trimis! O sa fii contactat pe emailul " + formData.email + " . Multumim!");
+        window.location.reload();
+      });
+  }
+   
+  postNewsletterFormData(formData: {name: string, email: string, dateSubmitted?: Date}){
     let alreadySubscribed: boolean = false;
-    this.http.get(this.urlLink + "contactForm.json")
+    this.http.get(this.urlLink + "newsletterForm.json")
       .subscribe((response) => {
         if (response) {
           for (let item of Object.values(response)) {
@@ -31,10 +40,10 @@ export class FirebaseService {
           return;
         } else {
           formData.dateSubmitted = new Date();
-          return this.http.post(this.urlLink + "contactForm.json", formData)
+          return this.http.post(this.urlLink + "newsletterForm.json", formData)
             .subscribe((response) => {
-              alert("Formularul a fost trimis! O sa fii contactat pe emailul " + formData.email + " . Multumim!");
-              window.location.reload()
+              alert("Te-ai abonat cu succes! O sa primesti noutati pe emailul " + formData.email + " . Multumim!");
+              window.location.reload();
           });
         }
       })
