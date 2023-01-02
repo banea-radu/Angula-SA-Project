@@ -51,7 +51,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - General:
-	- internationalization (https://github.com/ngx-translate/core)
+	- internationalization implementation (https://github.com/ngx-translate/core)
+		- tranlate all texts
+	- admin page with auth guard
 - Nice to have's:
 	- prettyprint/clean the code
 	- bootstrap carrousel

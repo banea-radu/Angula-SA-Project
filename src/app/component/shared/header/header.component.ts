@@ -10,7 +10,9 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class HeaderComponent {
   menuOpened: boolean = false;
-  
+  languageRoSelected: boolean = false;
+  languageEnSelected: boolean = false;
+
   constructor(
     private menuService: MenuService,
     private viewportScroller: ViewportScroller,
@@ -24,6 +26,7 @@ export class HeaderComponent {
     this.menuService.menuOpenedObservable.subscribe(response => {
       this.menuOpened = response;
     });
+    this.dropdownSelectLanguage('ro');
   }
   
   toggleMenu() {
@@ -37,6 +40,18 @@ export class HeaderComponent {
 
   scrollToTop() {
     this.viewportScroller.scrollToPosition([0, 0]);
+  }
+
+  dropdownSelectLanguage(language: string) { // select language in dropdown list by marking it adding the active class
+    if (language == 'ro') {
+      this.languageRoSelected = true;
+      this.languageEnSelected = false;
+    } else {
+      if (language == 'en') {
+        this.languageRoSelected = false;
+        this.languageEnSelected = true;
+      }
+    }
   }
 
 }

@@ -1,8 +1,11 @@
 {
   "Header": {
+    "imgSrc": "https://cdn.countryflags.com/thumbs/romania/flag-3d-250.png",
+    "imgAlt": "flag romanian language",
     "Title-Logo": "Tenis De Masă Sibiu",
     "Home": "Acasă",
     "About": "Despre noi",
     "Contact": "Contact"
+
   }
 }

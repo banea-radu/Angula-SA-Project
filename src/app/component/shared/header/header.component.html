@@ -1,7 +1,7 @@
 <header> 
   <div class="container-lg d-flex flex-column flex-lg-row justify-content-between px-0 py-1">
 
-    <div class="container-lg d-flex justify-content-between">
+    <div class="container-lg d-flex align-items-center justify-content-between">
       <a class="m-2 text-white text-decoration-none link-warning" routerLink="/home">
         <strong> {{ 'Header.Title-Logo' | translate }} </strong>
       </a>
@@ -17,29 +17,29 @@
     <nav [class.menu-open]="menuOpened" class="links-menu-wrapper d-none d-lg-flex align-items-center justify-content-end">
       <ul [class.menu-open]="menuOpened" class="links-menu-list list-unstyled d-flex mb-0">
         <li>
-          <a routerLink="/home" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Acasă </a>
+          <a routerLink="/home" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'Header.Home' | translate }} </a>
         </li>
         <li>
-          <a routerLink="/about" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Despre noi </a>
+          <a routerLink="/about" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'Header.About' | translate }} </a>
         </li>
         <li>
-          <a routerLink="/contact" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> Contact </a>
+          <a routerLink="/contact" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'Header.Contact' | translate }} </a>
         </li>
-        <li id="dropdown-list">
-          <div id="dropdown">
+        <li id="dropdown">
+          <div id="dropdown-wrapper">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://cdn.countryflags.com/thumbs/romania/flag-3d-250.png" height="12" alt="en" width="18">
+              <img src="{{ 'Header.imgSrc' | translate }}" height="12" alt="{{ 'Header.imgAlt' | translate }}" width="18">
             </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
+            <ul id="dropdown-list" class="dropdown-menu dropdown-menu-dark">
               <li>
-                <a class="dropdown-item active" href="#" (click)="translate.use('ro')">
-                  <img src="https://cdn.countryflags.com/thumbs/romania/flag-3d-250.png" height="12" alt="romanian language" width="18">
-                  Romanian
+                <a class="dropdown-item" [ngClass]="{'active': languageRoSelected}"  href="#" (click)="translate.use('ro'); dropdownSelectLanguage('ro')">
+                  <img src="https://cdn.countryflags.com/thumbs/romania/flag-3d-250.png" height="12" alt="flag romanian language" width="18">
+                  Română
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" (click)="translate.use('en')">
-                  <img src="https://cdn-icons-png.flaticon.com/512/1377/1377975.png" height="12" alt="english language" width="18">
+                <a class="dropdown-item" [ngClass]="{'active': languageEnSelected}" href="#" (click)="translate.use('en'); dropdownSelectLanguage('en')">
+                  <img src="https://cdn-icons-png.flaticon.com/512/1377/1377975.png" height="12" alt="flag english language" width="18">
                   English
                 </a>
               </li>

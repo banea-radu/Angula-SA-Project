@@ -75,16 +75,25 @@ header img {
 			text-align: center;
 		}
 
-		#dropdown-list {
+		#dropdown {
 			display: inline-block;
 			vertical-align: middle;
 			padding:8px 0;
 		}
 
-			#dropdown {
+			#dropdown-wrapper {
 				display: inline-block;
 				vertical-align:middle;
 			}
+
+			#dropdown-list {
+				max-width: 160px;
+			}
+
+			.dropdown-item {
+				max-width: 160px;
+			}
+			
 	/* header a:hover { */
 		/* border-radius: 15px; */
 		/* transform: scale(1.3); */
