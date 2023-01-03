@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { MenuService } from 'src/app/service/menu.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { FirebaseService } from 'src/app/service/firebase.service';
 import { ViewportScroller } from '@angular/common';
+import { MenuService } from 'src/app/service/menu.service';
+import { FirebaseService } from 'src/app/service/firebase.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -12,11 +13,8 @@ import { ViewportScroller } from '@angular/common';
 export class FooterComponent {
   
   menuOpened: boolean = false;
-
-  footerText: string =
-    "SC Believe IT SRL © "
-    + new Date().getFullYear()
-    + ". Toate drepturile rezervate.";
+  ownerName:string = "SC Believe IT SRL";
+  currentYear:number = new Date().getFullYear();
 
   newsletterForm = this.formbuilder.group({
     name: [null, Validators.compose(

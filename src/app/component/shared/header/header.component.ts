@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { MenuService } from 'src/app/service/menu.service';
 import { ViewportScroller } from '@angular/common';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
+import { MenuService } from 'src/app/service/menu.service';
+import { LocalstorageService } from 'src/app/service/localstorage.service';
+
 
 @Component({
   selector: 'app-header',
@@ -15,18 +17,15 @@ export class HeaderComponent {
 
   constructor(
     private menuService: MenuService,
-    private viewportScroller: ViewportScroller,
-    public translate: TranslateService)
-    {
-      translate.addLangs(['ro', 'en']);
-      translate.setDefaultLang('ro');
-    }
-
+    private localStorageService: LocalstorageService,
+    public translate: TranslateService,
+    private viewportScroller: ViewportScroller
+    ) {}
+    
   ngOnInit() {
     this.menuService.menuOpenedObservable.subscribe(response => {
       this.menuOpened = response;
     });
-    this.dropdownSelectLanguage('ro');
   }
   
   toggleMenu() {
@@ -46,10 +45,12 @@ export class HeaderComponent {
     if (language == 'ro') {
       this.languageRoSelected = true;
       this.languageEnSelected = false;
+      this.localStorageService.saveLanguageInLocalStorage('ro');
     } else {
       if (language == 'en') {
         this.languageRoSelected = false;
         this.languageEnSelected = true;
+        this.localStorageService.saveLanguageInLocalStorage('en');
       }
     }
   }

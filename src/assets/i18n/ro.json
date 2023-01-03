@@ -1,11 +1,21 @@
 {
-  "Header": {
-    "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Fro.svg?alt=media&token=4e6c4530-6318-4ecc-b214-2a141df2182b",
-    "imgAlt": "flag romanian language",
-    "Title-Logo": "Tenis De Masă Sibiu",
+  "General": {
     "Home": "Acasă",
     "About": "Despre noi",
     "Contact": "Contact"
-
+  },
+  "Header": {
+    "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Fro.svg?alt=media&token=4e6c4530-6318-4ecc-b214-2a141df2182b",
+    "imgAlt": "flag romanian language",
+    "Logo-Title": "Tenis De Masă Sibiu"
+  },
+  "Footer": {
+    "Newsletter-Title": "Abonează-te la newsletter!",
+    "Newsletter-Name-Placeholder": "Numele tău",
+    "Newsletter-Name-Invalid-Message": "Numele trebuie să conțină cel putin 3 caractere (făra cifre).",
+    "Newsletter-Email-Placeholder": "Adresa de E-mail",
+    "Newsletter-Email-Invalid-Message": "Te rog introdu un email valid.",
+    "Newsletter-Submit-Button-Text": "Abonare",
+    "Copyright-Text": "{{ownerName}} © {{currentYear}}. Toate drepturile rezervate."
   }
 }

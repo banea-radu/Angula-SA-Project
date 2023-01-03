@@ -54,7 +54,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- internationalization implementation (https://github.com/ngx-translate/core)
 		- tranlate all texts
 		- svg flags (source: https://github.com/lipis/flag-icons)
-		- save language preferences to cookies/session
+		- save language preferences to local storage as user preference
 	- admin page with auth guard
 - Nice to have's:
 	- prettyprint/clean the code

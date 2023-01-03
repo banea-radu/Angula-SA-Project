@@ -3,7 +3,7 @@
 
     <div class="container-lg d-flex align-items-center justify-content-between">
       <a class="m-2 text-white text-decoration-none link-warning" routerLink="/home">
-        <strong> {{ 'Header.Title-Logo' | translate }} </strong>
+        <strong> {{ 'Header.Logo-Title' | translate }} </strong>
       </a>
       <nav [ngClass]="{'menu-open': menuOpened}" class="burger d-lg-none d-flex align-items-center mx-2" (click)="toggleMenu()">
         <div class="line-wrapper px-1">
@@ -17,13 +17,13 @@
     <nav [class.menu-open]="menuOpened" class="links-menu-wrapper d-none d-lg-flex align-items-center justify-content-end">
       <ul [class.menu-open]="menuOpened" class="links-menu-list list-unstyled d-flex mb-0">
         <li>
-          <a routerLink="/home" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'Header.Home' | translate }} </a>
+          <a routerLink="/home" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'General.Home' | translate }} </a>
         </li>
         <li>
-          <a routerLink="/about" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'Header.About' | translate }} </a>
+          <a routerLink="/about" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'General.About' | translate }} </a>
         </li>
         <li>
-          <a routerLink="/contact" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'Header.Contact' | translate }} </a>
+          <a routerLink="/contact" (click)="closeMenuIfOpened()" class="d-block p-3 text-decoration-none text-black fw-semibold text-white link-warning"> {{ 'General.Contact' | translate }} </a>
         </li>
         <li id="dropdown">
           <div id="dropdown-wrapper">

@@ -1,10 +1,21 @@
 {
-  "Header": {
-    "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Feu.svg?alt=media&token=c4f55191-b930-452e-9645-06b742f76b0e",
-    "imgAlt": "flag english language",
-    "Title-Logo": "Table Tennis Sibiu",
+  "General": {
     "Home": "Home",
     "About": "About",
     "Contact": "Contact"
+  },
+  "Header": {
+    "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Feu.svg?alt=media&token=c4f55191-b930-452e-9645-06b742f76b0e",
+    "imgAlt": "flag english language",
+    "Logo-Title": "Table Tennis Sibiu"
+  },
+  "Footer": {
+    "Newsletter-Title": "Subscribe to our newsletter!",
+    "Newsletter-Name-Placeholder": "Your name",
+    "Newsletter-Name-Invalid-Message": "Name must contain at least 3 characters (numbers are not allowed).",
+    "Newsletter-Email-Placeholder": "Email address",
+    "Newsletter-Email-Invalid-Message": "Please enter a valid email.",
+    "Newsletter-Submit-Button-Text": "Subscribe",
+    "Copyright-Text": "{{ownerName}} © {{currentYear}}. All rights reserved."
   }
 }

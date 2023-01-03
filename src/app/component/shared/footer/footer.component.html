@@ -10,11 +10,11 @@
       (ngSubmit)="formSubmit(form.value)"
     >
 
-      <h3> Abonează-te la newsletter! </h3>
+      <h3> {{ 'Footer.Newsletter-Title' | translate }} </h3>
 
       <input
         type="text"
-        placeholder="Numele tău"
+        placeholder="{{ 'Footer.Newsletter-Name-Placeholder' | translate }}"
         id="name-newsletter"
         class="w-70 p-2 m-1 border border-success rounded"
         formControlName="name"
@@ -25,12 +25,12 @@
         *ngIf="(newsletterForm.controls.name.invalid && newsletterForm.controls.name.dirty)
           || (newsletterForm.controls.name.invalid && form.submitted)"
         class="alert alert-danger">
-          Numele trebuie sa contina cel putin 3 caractere (fara cifre).
+          {{ 'Footer.Newsletter-Name-Invalid-Message' | translate }}
       </small>
 
       <input
         type="email"
-        placeholder="Adresa de E-mail"
+        placeholder="{{ 'Footer.Newsletter-Email-Placeholder' | translate }}"
         id="email-newsletter"
         class="w-70 p-2 m-1 border border-success rounded"
         formControlName="email"
@@ -41,61 +41,56 @@
           *ngIf="(newsletterForm.controls.email.invalid && newsletterForm.controls.email.dirty)
             || (newsletterForm.controls.email.invalid && form.submitted)"
           class="alert alert-danger">
-            Te rog introdu un email valid.
+            {{ 'Footer.Newsletter-Email-Invalid-Message' | translate }}
         </small>
         
-        <app-button id="submit-newsletter" type="submit" title="ABONARE"></app-button>
+        <app-button id="submit-newsletter" type="submit" title="{{ 'Footer.Newsletter-Submit-Button-Text' | translate }}"></app-button>
 
     </form>
 
+    <div class="container d-flex flex-column align-items-center mt-4">
+      <div class="d-flex">
+        <div [ngClass]="{'menu-open': menuOpened}" class="footer-links d-flex">
+          <div class="d-flex flex-column">
+            <h3 class="fw-semibold"> Link-uri </h3>
+            <a routerLink="/home" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
+              <i class="fa-solid fa-chevron-right"></i>
+              Acasă
+            </a>
+            <a routerLink="/about" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
+              <i class="fa-solid fa-chevron-right"></i>
+              Despre noi
+            </a>
+            <a routerLink="/contact" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
+              <i class="fa-solid fa-chevron-right"></i>
+              Contact
+            </a>
+          </div>
+        </div>
+        <div class="d-flex ps-4 p-2 align-items-center">
+          <div>
+            <a href="https://www.facebook.com/instructortenisdemasasibiu" class="p-2" target="_blank">
+              <i class="fa-brands fa-facebook-f fa-2x text-white link-warning text-decoration-none"></i>
+            </a>
+          </div>
+          <div>
+            <a href="https://www.instagram.com/claudia_antrenor_tenis_de_masa/" class="p-2" target="_blank">
+              <i class="fa-brands fa-instagram fa-2x text-white link-warning text-decoration-none"></i>
+            </a>
+          </div>
+          <div>
+            <a href="https://wa.me/40765429860?text=Bună%20Claudia,%20te%20contactez%20în%20legătură%20cu%20" class="p-2" target="_blank">
+              <i class="fa-brands fa-whatsapp fa-2x text-white link-warning text-decoration-none"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- <form id="newsletter-form" class="d-flex flex-column align-items-center p-2">
-    <h3> Abonează-te la newsletter! </h3>
-    <input type="text" placeholder="Numele tău" id="name-newsletter" class="w-70 p-2 m-1 border border-success rounded">
-    <input type="email" placeholder="Adresa de E-mail" id="email-newsletter" class="w-70 p-2 m-1 border border-success rounded">
-    <app-button title="ABONARE"><input type="submit" id="submit-newsletter"></app-button>
-  </form> -->
+  </div>
 
-  <div class="container d-flex flex-column align-items-center mt-4">
-  <div class="d-flex">
-    <div [ngClass]="{'menu-open': menuOpened}" class="footer-links d-flex">
-      <div class="d-flex flex-column">
-        <h3 class="fw-semibold"> Link-uri </h3>
-        <a routerLink="/home" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
-          <i class="fa-solid fa-chevron-right"></i>
-          Acasă
-        </a>
-        <a routerLink="/about" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
-          <i class="fa-solid fa-chevron-right"></i>
-          Despre noi
-        </a>
-        <a routerLink="/contact" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
-          <i class="fa-solid fa-chevron-right"></i>
-          Contact
-        </a>
-      </div>
-    </div>
-    <div class="d-flex ps-4 p-2 align-items-center">
-      <div>
-        <a href="https://www.facebook.com/instructortenisdemasasibiu" class="p-2" target="_blank">
-          <i class="fa-brands fa-facebook-f fa-2x text-white link-warning text-decoration-none"></i>
-        </a>
-      </div>
-      <div>
-        <a href="https://www.instagram.com/claudia_antrenor_tenis_de_masa/" class="p-2" target="_blank">
-          <i class="fa-brands fa-instagram fa-2x text-white link-warning text-decoration-none"></i>
-        </a>
-      </div>
-      <div>
-        <a href="https://wa.me/40765429860?text=Bună%20Claudia,%20te%20contactez%20în%20legătură%20cu%20" class="p-2" target="_blank">
-          <i class="fa-brands fa-whatsapp fa-2x text-white link-warning text-decoration-none"></i>
-        </a>
-    </div>
-    </div>
+  <div>
+    <p class="text-center m-0 p-4"> {{ "Footer.Copyright-Text" | translate: {ownerName: ownerName, currentYear: currentYear} }} </p>
   </div>
-</div>
-  </div>
-    <div>
-      <p class="text-center m-0 p-4"> {{footerText}} </p>
-  </div>
+
 </footer>
