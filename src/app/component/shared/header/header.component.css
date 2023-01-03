@@ -78,7 +78,7 @@ header img {
 		#dropdown {
 			display: inline-block;
 			vertical-align: middle;
-			padding:8px 0;
+			padding:7px 0;
 		}
 
 			#dropdown-wrapper {
@@ -92,6 +92,12 @@ header img {
 
 			.dropdown-item {
 				max-width: 160px;
+			}
+
+			.flag-img {
+				height: 18px;
+				width: 24px;
+				border-radius: 3px;
 			}
 			
 	/* header a:hover { */

@@ -28,18 +28,18 @@
         <li id="dropdown">
           <div id="dropdown-wrapper">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{{ 'Header.imgSrc' | translate }}" height="12" alt="{{ 'Header.imgAlt' | translate }}" width="18">
+              <img src="{{ 'Header.imgSrc' | translate }}" alt="{{ 'Header.imgAlt' | translate }}" class="flag-img">
             </button>
             <ul id="dropdown-list" class="dropdown-menu dropdown-menu-dark">
               <li>
                 <a class="dropdown-item" [ngClass]="{'active': languageRoSelected}"  href="#" (click)="translate.use('ro'); dropdownSelectLanguage('ro')">
-                  <img src="https://cdn.countryflags.com/thumbs/romania/flag-3d-250.png" height="12" alt="flag romanian language" width="18">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Fro.svg?alt=media&token=4e6c4530-6318-4ecc-b214-2a141df2182b" alt="flag romanian language" class="flag-img">
                   Română
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" [ngClass]="{'active': languageEnSelected}" href="#" (click)="translate.use('en'); dropdownSelectLanguage('en')">
-                  <img src="https://cdn-icons-png.flaticon.com/512/1377/1377975.png" height="12" alt="flag english language" width="18">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Feu.svg?alt=media&token=c4f55191-b930-452e-9645-06b742f76b0e" alt="flag english language" class="flag-img">
                   English
                 </a>
               </li>
