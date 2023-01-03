@@ -59,7 +59,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Nice to have's:
 	- prettyprint/clean the code
 	- bootstrap carrousel
-	- solve images problems due to stackblitz limitation (including favicon)
+	- favicon solution? (due to stackblitz limitation)
 
 ## TO DOne:
 - General:
@@ -67,6 +67,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- add netlify link to readme
 	- implement routing
 		- configure routes
+	- moved images to firebase storage due to stackblitz limitation
 - Components
 	- Header:
 		- hide main body if burger menu opened
