@@ -8,18 +8,26 @@ import { LocalstorageService } from 'src/app/service/localstorage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular-SA-Project';
-  languageRoSelected: boolean = false;
-  languageEnSelected: boolean = false;
+  title: string = 'Angular-SA-Project';
+  // language: string ='';
+  // languageRoSelected: boolean = false;
+  // languageEnSelected: boolean = false;
 
   constructor(
     private localStorageService: LocalstorageService,
     public translate: TranslateService
-  ) {
-    translate.addLangs(['ro', 'en']);
-    let defaultLanguage = this.localStorageService.getLanguageInLocalStorage();
-    if (defaultLanguage == null) { defaultLanguage = 'ro'; }
-    translate.setDefaultLang(defaultLanguage);
+  ) {}
+
+  ngOnInit() {
+    this.translate.addLangs(['ro', 'en']);
+    this.localStorageService.currentLanguage.subscribe((response) => {
+      this.translateTexts(response);
+    });
+    
+  }
+
+  translateTexts(language: string) {
+    this.translate.use(language);
   }
   
 }

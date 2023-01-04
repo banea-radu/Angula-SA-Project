@@ -57,9 +57,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- save language preferences to local storage as user preference
 	- admin page with auth guard
 - Nice to have's:
-	- prettyprint/clean the code
+	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
-	- favicon solution? (due to stackblitz limitation)
 
 ## TO DOne:
 - General:
@@ -68,6 +67,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- implement routing
 		- configure routes
 	- moved images to firebase storage due to stackblitz limitation
+	- moved favicon to firebase storage due to stackblitz limitation
 - Components
 	- Header:
 		- hide main body if burger menu opened
