@@ -17,5 +17,17 @@
     "Newsletter-Email-Invalid-Message": "Please enter a valid email.",
     "Newsletter-Submit-Button-Text": "Subscribe",
     "Copyright-Text": "{{ownerName}} © {{currentYear}}. All rights reserved."
+  },
+  "Home" : {
+    "Welcome-Title" : "Welcome!",
+    "Welcome-Paragraph-1" : "I'm Claudia Bînța, table tennis instructor for over 20 years and I would love to teach you the secrets of this sport.",
+    "Welcome-Paragraph-2" : "Table tennis courses for children and adults in Sibiu!",
+    "Welcome-Button" : "Find out more",
+    "Slide-1" : "What are the benefits of table tennis?",
+    "Slide-2" : "Why practice table tennis?",
+    "Slide-3" : "Courses",
+    "Slide-4" : "About us",
+    "Slide-5" : "Contact",
+    "Slide-Button" : "Find out more"
   }
 }

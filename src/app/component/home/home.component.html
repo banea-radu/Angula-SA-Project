@@ -2,14 +2,14 @@
 
   <section class="vh-100 d-flex align-items-center text-white">
     <div class="container">
-      <h1> Bine ai venit! </h1>
+      <h1> {{ 'Home.Welcome-Title' | translate }} </h1>
       <p>
-        Sunt Claudia Bînţă, instructor tenis de masă de peste 20 ani și te învăț cu drag tainele acestui sport.
+        {{ 'Home.Welcome-Paragraph-1' | translate }}
       </p>
       <p class="pb-2">
-        Cursuri de tenis de masă pentru copii și adulţi în Sibiu!
+        {{ 'Home.Welcome-Paragraph-2' | translate }}
       </p>
-      <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('slider-section')"></app-button>
+      <app-button title="{{ 'Home.Welcome-Button' | translate }}" (click)="goToElementId('slider-section')"></app-button>
     </div>
   </section>
 
@@ -18,32 +18,32 @@
       <div *ngIf="currentSlide == 1"
         [ngClass]="pressedSliderButton == 'next' ? 'slide-from-right' : 'slide-from-left'"
         class="slide w-100 position-absolute">
-        <h1 class="p-3"> Care sunt beneficiile tenisului de masă? </h1>
-        <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('beneficii')"></app-button>
+        <h1 class="p-3"> {{ 'Home.Slide-1' | translate }} </h1>
+        <app-button title="{{ 'Home.Slide-Button' | translate }}" (click)="goToElementId('beneficii')"></app-button>
       </div>
       <div *ngIf="currentSlide === 2"
         [ngClass]="pressedSliderButton == 'next' ? 'slide-from-right' : 'slide-from-left'"
         class="slide w-100 position-absolute">
-        <h1 class="p-3"> De ce să practici tenis de masă? </h1>
-        <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('deCeTenis')"></app-button>
+        <h1 class="p-3"> {{ 'Home.Slide-2' | translate }} </h1>
+        <app-button title="{{ 'Home.Slide-Button' | translate }}" (click)="goToElementId('deCeTenis')"></app-button>
       </div>
       <div *ngIf="currentSlide === 3"
         [ngClass]="pressedSliderButton == 'next' ? 'slide-from-right' : 'slide-from-left'"
         class="slide w-100 position-absolute">
-        <h1 class="p-3"> Cursuri </h1>
-        <app-button title="AFLĂ MAI MULTE" (click)="goToElementId('cursuri')"></app-button>
+        <h1 class="p-3"> {{ 'Home.Slide-3' | translate }} </h1>
+        <app-button title="{{ 'Home.Slide-Button' | translate }}" (click)="goToElementId('cursuri')"></app-button>
       </div>
       <div *ngIf="currentSlide === 4"
         [ngClass]="pressedSliderButton == 'next' ? 'slide-from-right' : 'slide-from-left'"
         class="slide w-100 position-absolute">
-        <h1 class="p-3"> Despre Noi </h1>
-        <app-button title="AFLĂ MAI MULTE" routerLink="/about" (click)="scrollToTop()"></app-button>
+        <h1 class="p-3"> {{ 'Home.Slide-4' | translate }} </h1>
+        <app-button title="{{ 'Home.Slide-Button' | translate }}" routerLink="/about" (click)="scrollToTop()"></app-button>
       </div>
       <div *ngIf="currentSlide === 5"
         [ngClass]="pressedSliderButton == 'next' ? 'slide-from-right' : 'slide-from-left'"
         class="slide w-100 position-absolute">
-        <h1 class="p-3"> Contact </h1>
-        <app-button title="AFLĂ MAI MULTE" routerLink="/contact" (click)="scrollToTop()"></app-button>
+        <h1 class="p-3"> {{ 'Home.Slide-5' | translate }} </h1>
+        <app-button title="{{ 'Home.Slide-Button' | translate }}" routerLink="/contact" (click)="scrollToTop()"></app-button>
       </div>
       <button class="carousel-control-prev" (click)="previousSlide()">
         <span class="carousel-control-prev-icon text-black"></span>

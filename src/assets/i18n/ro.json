@@ -17,5 +17,18 @@
     "Newsletter-Email-Invalid-Message": "Te rog introdu un email valid.",
     "Newsletter-Submit-Button-Text": "Abonare",
     "Copyright-Text": "{{ownerName}} © {{currentYear}}. Toate drepturile rezervate."
+  },
+  "Home" : {
+    "Welcome-Title" : "Bine ai venit!",
+    "Welcome-Paragraph-1" : "Sunt Claudia Bînţă, instructor tenis de masă de peste 20 ani și te învăț cu drag tainele acestui sport.",
+    "Welcome-Paragraph-2" : "Cursuri de tenis de masă pentru copii și adulţi în Sibiu!",
+    "Welcome-Button" : "Află mai multe",
+    "Slide-1" : "Care sunt beneficiile tenisului de masă?",
+    "Slide-2" : "De ce să practici tenis de masă?",
+    "Slide-3" : "Cursuri",
+    "Slide-4" : "Despre noi",
+    "Slide-5" : "Contact",
+    "Slide-Button" : "Află mai multe",
+    "Card-1-Title" : "test"
   }
 }

@@ -11,7 +11,6 @@ import { FirebaseService } from 'src/app/service/firebase.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  
   menuOpened: boolean = false;
   ownerName:string = "SC Believe IT SRL";
   currentYear:number = new Date().getFullYear();

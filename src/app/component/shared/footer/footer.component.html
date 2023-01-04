@@ -55,15 +55,15 @@
             <h3 class="fw-semibold"> Link-uri </h3>
             <a routerLink="/home" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
               <i class="fa-solid fa-chevron-right"></i>
-              Acasă
+              {{ 'General.Home' | translate }}
             </a>
             <a routerLink="/about" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
               <i class="fa-solid fa-chevron-right"></i>
-              Despre noi
+              {{ 'General.About' | translate }}
             </a>
             <a routerLink="/contact" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
               <i class="fa-solid fa-chevron-right"></i>
-              Contact
+              {{ 'General.Contact' | translate }}
             </a>
           </div>
         </div>
