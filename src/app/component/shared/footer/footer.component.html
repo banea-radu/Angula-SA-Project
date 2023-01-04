@@ -10,11 +10,11 @@
       (ngSubmit)="formSubmit(form.value)"
     >
 
-      <h3> {{ 'Footer.Newsletter-Title' | translate }} </h3>
+      <h3> {{ 'Footer.Newsletter.Title' | translate }} </h3>
 
       <input
         type="text"
-        placeholder="{{ 'Footer.Newsletter-Name-Placeholder' | translate }}"
+        placeholder="{{ 'Footer.Newsletter.Name.Placeholder' | translate }}"
         id="name-newsletter"
         class="w-70 p-2 m-1 border border-success rounded"
         formControlName="name"
@@ -25,12 +25,12 @@
         *ngIf="(newsletterForm.controls.name.invalid && newsletterForm.controls.name.dirty)
           || (newsletterForm.controls.name.invalid && form.submitted)"
         class="alert alert-danger">
-          {{ 'Footer.Newsletter-Name-Invalid-Message' | translate }}
+          {{ 'Footer.Newsletter.Name.Invalid-Message' | translate }}
       </small>
 
       <input
         type="email"
-        placeholder="{{ 'Footer.Newsletter-Email-Placeholder' | translate }}"
+        placeholder="{{ 'Footer.Newsletter.Email.Placeholder' | translate }}"
         id="email-newsletter"
         class="w-70 p-2 m-1 border border-success rounded"
         formControlName="email"
@@ -41,10 +41,10 @@
           *ngIf="(newsletterForm.controls.email.invalid && newsletterForm.controls.email.dirty)
             || (newsletterForm.controls.email.invalid && form.submitted)"
           class="alert alert-danger">
-            {{ 'Footer.Newsletter-Email-Invalid-Message' | translate }}
+            {{ 'Footer.Newsletter.Email.Invalid-Message' | translate }}
         </small>
         
-        <app-button id="submit-newsletter" type="submit" title="{{ 'Footer.Newsletter-Submit-Button-Text' | translate }}"></app-button>
+        <app-button id="submit-newsletter" type="submit" title="{{ 'Footer.Newsletter.Submit-Button-Text' | translate }}"></app-button>
 
     </form>
 

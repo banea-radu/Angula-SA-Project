@@ -9,9 +9,6 @@ import { LocalstorageService } from 'src/app/service/localstorage.service';
 })
 export class AppComponent {
   title: string = 'Angular-SA-Project';
-  // language: string ='';
-  // languageRoSelected: boolean = false;
-  // languageEnSelected: boolean = false;
 
   constructor(
     private localStorageService: LocalstorageService,
@@ -23,7 +20,6 @@ export class AppComponent {
     this.localStorageService.currentLanguage.subscribe((response) => {
       this.translateTexts(response);
     });
-    
   }
 
   translateTexts(language: string) {

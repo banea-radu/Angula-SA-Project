@@ -2,61 +2,60 @@
   
   <section class="welcome d-flex justify-content-center align-items-center">
     <div class="text-white">
-      <h1> Contact </h1>
+      <h1> {{ 'Contact.Welcome-Title' | translate }} </h1>
     </div>
   </section>
 
   <section class="contact bg-white p-2">
 
     <div class="text-center">
-      <h2> Informaţii generale </h2>
+      <h2> {{ 'Contact.Section.Title' | translate }} </h2>
       <p class="main-paragraph">
-        Nu ai găsit ce căutai sau te putem ajuta şi cu alte informaţii?
-        Suntem aici să te ajutăm.
+        {{ 'Contact.Section.Text' | translate }}
       </p>
     </div>
 
     <div class="contact-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center">
 
       <div class="contact-info d-flex flex-column w-100 text-center mx-4 mb-5">
-        <p class="contact-title"><strong>  Ne poţi găsi la: </strong></p>
+        <p class="contact-title"><strong> {{ 'Contact.Details.Title' | translate }} </strong></p>
         <ul class="ps-0">
           <li class="d-flex justify-content-between align-items-center border-bottom py-1">
             <p class="m-0">
               <i class="fa-solid fa-mobile-screen-button"></i>
-              Mobil:
+              {{ 'Contact.Details.Mobile' | translate }}
             </p>
             <a class="text-secondary link-warning" href="tel:0765429860" title="Call 0040765429860"> +40 765 429 860 </a>
           </li>
           <li class="d-flex justify-content-between align-items-center border-bottom py-1">
             <p class="m-0">
               <i class="fa-solid fa-envelope"></i>
-              E-mail:
+              {{ 'Contact.Details.Email' | translate }}
             </p>
             <a class="text-secondary link-warning" href="mailto:binta.claudia@gmail.com"> binta.claudia@gmail.com </a>
           </li>
           <li class="d-flex justify-content-between align-items-center border-bottom">
             <p class="m-0">
               <i class="fa-brands fa-facebook"></i>
-              Facebook:
+              {{ 'Contact.Details.Social-Media' | translate }}
             </p>
             <a class="text-secondary link-warning" href="https://www.facebook.com/instructortenisdemasasibiu" target="_blank"> /instructortenisdemasasibiu </a>
           </li>
           <li class="d-flex justify-content-between align-items-center border-bottom py-1">
             <p class="m-0">
               <i class="fa-regular fa-clock"></i>
-              Program:
+              {{ 'Contact.Details.Schedule.Title' | translate }}
             </p>
             <p class="description m-0">
-              Marţi 16:30 - 20:00
+              {{ 'Contact.Details.Schedule.Day-1' | translate }} 16:30 - 20:00
               <br>&nbsp;&nbsp;&nbsp;
-              Joi 16:30 - 20:00
+              {{ 'Contact.Details.Schedule.Day-2' | translate }} 16:30 - 20:00
             </p>
           </li>
           <li class="d-flex justify-content-between align-items-center border-bottom py-1">
             <p class="m-0">
               <i class="fa-solid fa-location-dot"></i>
-              Locaţia:
+              {{ 'Contact.Details.Location' | translate }}
             </p>
             <a class="description text-secondary link-warning" href="https://goo.gl/maps/qDg4pNhqZoJK9GuZA" target="_blank"> August Treboniu Laurian 2-4, Sibiu </a>
           </li>
@@ -74,65 +73,65 @@
         class="contact-form d-flex flex-column m-2 w-100"
       >
 
-        <p class="contact-form-title text-center"> <strong> Ne poţi scrie completând formularul: </strong></p>
+        <p class="contact-form-title text-center"> <strong> {{ 'Contact.Form.Title' | translate }} </strong></p>
 
-        <label for="name"> Nume Prenume: </label>
+        <label for="name"> {{ 'Contact.Form.Name.Label' | translate }} </label>
         <input type="text"
           formControlName="name"
           name="name"
-          placeholder="Ex: Popescu Ion"
+          placeholder="{{ 'Contact.Form.Name.Placeholder' | translate }}"
           class="p-2 border border-success rounded mb-2"
           [ngClass]="form.submitted ? 'ng-touched' : ''">
         <small
           *ngIf="(contactForm.controls.name.invalid && contactForm.controls.name.dirty)
             || (contactForm.controls.name.invalid && form.submitted)"
           class="alert alert-danger">
-            Numele trebuie sa contina cel putin 3 caractere (fara cifre).
+            {{ 'Contact.Form.Name.Invalid-Message' | translate }}
         </small>
         
-        <label for="email"> Adresa de E-mail: </label>
+        <label for="email"> {{ 'Contact.Form.Email.Label' | translate }} </label>
         <input type="email"
           formControlName="email"
           name="email"
-          placeholder="Ex: popescu.ion@gmail.com"
+          placeholder="{{ 'Contact.Form.Email.Placeholder' | translate }}"
           class="p-2 border border-success rounded mb-2"
           [ngClass]="form.submitted ? 'ng-touched' : ''">
         <small
           *ngIf="(contactForm.controls.email.invalid && contactForm.controls.email.dirty)
             || (contactForm.controls.email.invalid && form.submitted)"
           class="alert alert-danger">
-            Te rog introdu un email valid.
+            {{ 'Contact.Form.Email.Invalid-Message' | translate }}
         </small>
 
-        <label for="subject"> Subiect: </label>
+        <label for="subject"> {{ 'Contact.Form.Subject.Label' | translate }} </label>
         <input type="text"
           formControlName="subject"
           name="subject"
-          placeholder="Ex: Subiectul tău"
+          placeholder="{{ 'Contact.Form.Subject.Placeholder' | translate }}"
           class="p-2 border border-success rounded mb-2"
           [ngClass]="form.submitted ? 'ng-touched' : ''">
         <small
           *ngIf="(contactForm.controls.subject.invalid && contactForm.controls.subject.dirty)
             || (contactForm.controls.subject.invalid && form.submitted)"
           class="alert alert-danger">
-            Subiectul trebuie sa contina cel putin 5 caractere.
+            {{ 'Contact.Form.Subject.Invalid-Message' | translate }}
         </small>
 
-        <label for="message"> Mesajul tău: </label>
+        <label for="message"> {{ 'Contact.Form.Message.Label' | translate }} </label>
         <textarea
           formControlName="message"
           name="message"
-          placeholder="Mesajul tau aici.."
+          placeholder="{{ 'Contact.Form.Message.Placeholder' | translate }}"
           class="p-2 border border-success rounded mb-2"
           [ngClass]="form.submitted ? 'ng-touched' : ''"> </textarea>
         <small
           *ngIf="(contactForm.controls.message.invalid && contactForm.controls.message.dirty)
             || (contactForm.controls.message.invalid && form.submitted)"
           class="alert alert-danger">
-            Mesajul trebuie sa contina cel putin 20 caractere.
+            {{ 'Contact.Form.Message.Invalid-Message' | translate }}
         </small>
         
-        <app-button type="submit" title="TRIMITE"></app-button>
+        <app-button type="submit" title="{{ 'Contact.Form.Submit-Button-Text' | translate }}"></app-button>
       </form>
 
     </div>

@@ -7,20 +7,26 @@
   "Header": {
     "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Feu.svg?alt=media&token=c4f55191-b930-452e-9645-06b742f76b0e",
     "imgAlt": "flag english language",
-    "Logo-Title": "Table Tennis Sibiu"
+    "Logo": "Table Tennis Sibiu"
   },
   "Footer": {
-    "Newsletter-Title": "Subscribe to our newsletter!",
-    "Newsletter-Name-Placeholder": "Your name",
-    "Newsletter-Name-Invalid-Message": "Name must contain at least 3 characters (numbers are not allowed).",
-    "Newsletter-Email-Placeholder": "Email address",
-    "Newsletter-Email-Invalid-Message": "Please enter a valid email.",
-    "Newsletter-Submit-Button-Text": "Subscribe",
+    "Newsletter" : {
+      "Title": "Subscribe to my newsletter!",
+      "Name" : {
+        "Placeholder": "Your name",
+        "Invalid-Message": "Name must contain at least 3 characters (numbers are not allowed)."
+      },
+      "Email" : {
+        "Placeholder": "Email address",
+        "Invalid-Message": "Please enter a valid email."
+      },
+      "Submit-Button-Text": "Subscribe"
+    },
     "Copyright-Text": "{{ownerName}} © {{currentYear}}. All rights reserved."
   },
   "Home" : {
     "Welcome-Title" : "Welcome!",
-    "Welcome-Paragraph-1" : "I'm Claudia Bînța, table tennis instructor for over 20 years and I would love to teach you the secrets of this sport.",
+    "Welcome-Paragraph-1" : "I'm Claudia Bînță, table tennis instructor for over 20 years and I would love to teach you the secrets of this sport.",
     "Welcome-Paragraph-2" : "Table tennis courses for children and adults in Sibiu!",
     "Welcome-Button" : "Find out more",
     "Slide-1" : "What are the benefits of table tennis?",
@@ -30,28 +36,70 @@
     "Slide-5" : "Contact",
     "Slide-Button" : "Find out more",
     "Card-1" : {
-      "id" :"Card-1-Id",
-      "title" : "Care sunt beneficiile?",
+      "title" : "What are the benefits?",
       "title2" : "",
-      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
-      "imgAlt" : "Beneficii tenis de masa copii",
-      "text" : "Card1 Text"
+      "imgAlt" : "Table tennis benefits for children",
+      "text" : "Lately I have been asked how this sport helps to harmoniously develop a child, &#34;because the child just gets a ball and a paddle and has to keep the ball on the table&#34;.<br><br>Our training is more than that! It is built from themes that allow the child to develop reactions and coordination of the whole body.<br><br>Another important aspect is warming up the body, i.e. preparing it for exercise, which is essential to avoid injuries.<br><br>We continue with exercises for attention and concentration and arm ourselves with a lot of patience and words of encouragement (the child should be supported, congratulated for each success, which we should do as often as possible).<br><br>The training ends only after we stretch (exercises for flexibility, mobility and recovery after exertion)."
     },
     "Card-2" : {
-      "id" :"Card-2-Id",
-      "title" : "Care sunt beneficiile?",
-      "title2" : "",
-      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
-      "imgAlt" : "Beneficii tenis de masa copii",
-      "text" : "Card2 Text"
+      "title" : "Why table tennis?",
+      "title2" : "Do you want your child to practice a sport, but you don't know which sport would suit him?<br>Would you like him to exercise more and spend less time staring at the computer?<br>Do you want him to be more sociable and attentive and do you think a sport would help him?",
+      "imgAlt" : "Children's table tennis",
+      "text" : "The reasons why you want to guide your child to practice sports are countless, but I will list a few of the benefits that table tennis can have on your child:<br>👉 It helps to develop coordination and reflexes, the whole body needs to be in harmony to be able to hit the ball;<br>👉 The speed at which the game is played requires high concentration, and with regular practice improvements can be seen in the ability to focus and pay attention at school or daily routine;<br>👉 It is useful for strengthening muscles and helps develop balance;<br>👉 It is an individual sport that will develop the child's autonomy and ability to make his own decisions;<br>👉 Vision is stimulated and developed;<br>👉 It is ideal for socializing and making new friends;<br>👉 There are few situations in which table tennis is not recommended, but can be an aid in the integration of children with disabilities into society.<br>👉 It is an affordable sport, at the beginning it is not necessary to purchase equipment, you only have to pay for a coach and playing hours fees;<br>👉 It is not a contact sport and injuries are rare."
     },
     "Card-3" : {
-      "id" :"Card-3-Id",
-      "title" : "Care sunt beneficiile?",
+      "title" : "Courses",
       "title2" : "",
-      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
-      "imgAlt" : "Beneficii tenis de masa copii",
-      "text" : "Card3 Text"
+      "imgAlt" : "Table tennis courses for children in Sibiu",
+      "text" : "👉 The courses are held in Sibiu, on August Treboniu Laurean street, no. 2/4 near the bowling alley.<br><br><strong> Kids table tennis subscription (8) - 300 RON </strong><br>👉 The price is valid for 8 sessions / month, Tuesday and Thursday (two training sessions per week). <br><br><strong> Kids table tennis subscription (4) - 150 RON  </strong><br>👉 The price is valid for 4 sessions / month, Tuesday or Thursday, a day of your choice (one training per week).<br><br>❕ Subscriptions are valid for children between the ages of 8 and 12. ❕<br><br><strong> UPDATED COURSES SCHEDULE: </strong>"
+    }
+  },
+  "About" : {
+    "Welcome-Title" : "About me",
+    "Card-Text-1" : "I'm Claudia and I've been in love with table tennis since I was 7 years old.<br><br>I played performance table tennis until I was 17 years old. I won 3rd place with the team in the Romanian Senior Superleague, I was selected for the national team, I won numerous medals in the country and abroad and I was 181st in the European Junior Ranking.<br><br>I have over 20 years of experience in table tennis and over 10 years in table tennis training and coaching, for different categories and all ages.<br><br>I strongly believe that each one of us has a potential that is waiting to surface and I invite you to discover it through table tennis.",
+    "Card-Text-2": "The table tennis room was equipped with a special &#34FRAMBOISE&#34 colored TARAFLEX Gerflor floor. <br><br>This floor, used in accredited halls for the organization of international competitions, has a thickness of 5 mm and is elastic, being specially designed for table tennis halls.<br><br>5 Cornilleau Competition 740 tennis tables are available, model approved by the International Table Tennis Federation ITTF. The color of the tables is &#34BLUE&#34, and each table is delimited with Cornilleau dividers.<br><br>The distance between the tables is 2 meters, which increases the comfort level of the player."
+  },
+  "Contact" : {
+    "Welcome-Title" : "Contact",
+    "Section" : {
+      "Title" : "General information:",
+      "Text" : "Didn't find what you were looking for or can we help you with other information? We are here to help you."
+    },
+    "Details" : {
+      "Title" : "You can contact me here:",
+      "Mobile" : "Mobile:",
+      "Email" : "E-mail:",
+      "Social-Media" : "Facebook:",
+      "Schedule" : {
+        "Title" : "Schedule:",
+        "Day-1" : "Tuesday",
+        "Day-2" : "Thursday"
+      },
+      "Location" : "Location:"
+    },
+    "Form" : {
+      "Title" : "You can write to me by filling out the form:",
+      "Name" : {
+        "Label" : "First and Last Name:",
+        "Placeholder" : "Ex: John Doe",
+        "Invalid-Message" : "Name must contain at least 3 characters (numbers are not allowed)."
+      },
+      "Email" : {
+        "Label" : "Your E-mail address:",
+        "Placeholder" : "Ex: john.doe@gmail.com",
+        "Invalid-Message" : "Please enter a valid email."
+      },
+      "Subject" : {
+        "Label" : "Subject:",
+        "Placeholder" : "Ex: I want to learn table tennis",
+        "Invalid-Message" : "The subject must contain at least 5 characters."
+      },
+      "Message" : {
+        "Label" : "Your Message:",
+        "Placeholder" : "Ex: I really really want to learn table tennis. Please teach me Claudia?",
+        "Invalid-Message" : "The message must contain at least 20 characters."
+      },
+      "Submit-Button-Text" : "Submit"
     }
   }
 }

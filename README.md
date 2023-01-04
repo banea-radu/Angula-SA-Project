@@ -51,10 +51,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - General:
-	- internationalization implementation (https://github.com/ngx-translate/core)
-		- tranlate all texts
-		- svg flags (source: https://github.com/lipis/flag-icons)
-		- save language preferences to local storage as user preference
 	- admin page with auth guard
 - Nice to have's:
 	- prettyprint/clean the code, replace any's with interfaces, etc..
@@ -68,6 +64,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- configure routes
 	- moved images to firebase storage due to stackblitz limitation
 	- moved favicon to firebase storage due to stackblitz limitation
+	- internationalization implementation (https://github.com/ngx-translate/core)
+		- tranlate all texts
+		- svg flags (source: https://github.com/lipis/flag-icons)
+		- save language preferences to local storage as user preference
 - Components
 	- Header:
 		- hide main body if burger menu opened

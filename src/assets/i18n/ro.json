@@ -1,21 +1,27 @@
 {
   "General": {
     "Home": "Acasă",
-    "About": "Despre noi",
+    "About": "Despre mine",
     "Contact": "Contact"
   },
   "Header": {
     "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Fro.svg?alt=media&token=4e6c4530-6318-4ecc-b214-2a141df2182b",
     "imgAlt": "flag romanian language",
-    "Logo-Title": "Tenis De Masă Sibiu"
+    "Logo": "Tenis De Masă Sibiu"
   },
   "Footer": {
-    "Newsletter-Title": "Abonează-te la newsletter!",
-    "Newsletter-Name-Placeholder": "Numele tău",
-    "Newsletter-Name-Invalid-Message": "Numele trebuie să conțină cel putin 3 caractere (făra cifre).",
-    "Newsletter-Email-Placeholder": "Adresa de E-mail",
-    "Newsletter-Email-Invalid-Message": "Te rog introdu un email valid.",
-    "Newsletter-Submit-Button-Text": "Abonare",
+    "Newsletter" : {
+      "Title": "Abonează-te la newsletter!",
+      "Name" : {
+        "Placeholder": "Numele tău",
+        "Invalid-Message": "Numele trebuie să conțină cel putin 3 caractere (făra cifre)."
+      },
+      "Email" : {
+        "Placeholder": "Adresa de E-mail",
+        "Invalid-Message": "Te rog introdu un email valid."
+      },
+      "Submit-Button-Text": "Abonare"
+    },
     "Copyright-Text": "{{ownerName}} © {{currentYear}}. Toate drepturile rezervate."
   },
   "Home" : {
@@ -26,32 +32,77 @@
     "Slide-1" : "Care sunt beneficiile tenisului de masă?",
     "Slide-2" : "De ce să practici tenis de masă?",
     "Slide-3" : "Cursuri",
-    "Slide-4" : "Despre noi",
+    "Slide-4" : "Despre mine",
     "Slide-5" : "Contact",
     "Slide-Button" : "Află mai multe",
     "Card-1" : {
-      "id" :"Card-1-Id",
       "title" : "Care sunt beneficiile?",
       "title2" : "",
       "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
-      "imgAlt" : "Beneficii tenis de masa copii",
-      "text" : "În ultima perioadă am fost întrebată la ce ajută acest sport și cum poate dezvolta el armonios un copil, 'că doar primește o bilă și o paleta copilul și nimerește și el cum poate masa aia'. <br><br> Antrenamentul nostru este mai mult decât atât! Este construit din teme ce îi permit copilului să-și dezvolte reacțiile și coordonarea întregului corp. <br><br> Un alt aspect important pentru noi îl"
+      "imgAlt" : "Beneficii tenis de masă copii",
+      "text" : "În ultima perioadă am fost întrebată la ce ajută acest sport și cum poate dezvolta el armonios un copil, &#34;că doar primește o bilă și o paleta copilul și nimerește și el cum poate masa aia&#34;.<br><br>Antrenamentul nostru este mai mult decât atât! Este construit din teme ce îi permit copilului să-și dezvolte reacțiile și coordonarea întregului corp.<br><br>Un alt aspect important pentru noi îl reprezintă încălzirea corpului, adică pregătirea lui pentru efort, un lucru esențial pentru evitarea accidentărilor.<br><br>Continuăm cu exerciții pentru atenție și concentrare și ne înarmăm cu multă răbdare și cuvinte de încurajare (copilul trebuie susținut, felicitat pentru fiecare reușită, ceea ce ar trebui să facem cât mai des cu putință).<br><br>Antrenamentul se sfârșește doar după ce facem stretching (exerciții pentru flexibilitate, mobilitate și pentru revenirea după efort)."
     },
     "Card-2" : {
-      "id" :"Card-2-Id",
-      "title" : "Care sunt beneficiile?",
-      "title2" : "",
-      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
-      "imgAlt" : "Beneficii tenis de masa copii",
-      "text" : "Card2 Text"
+      "title" : "De ce tenis de masă?",
+      "title2" : "Îți dorești să-ți dai copilul la un sport, însă nu știi ce sport i s-ar potrivi?<br>Ai vrea să facă mai multă mișcare și să stea mai puțin cu ochii în calculator?<br>Vrei să fie mai sociabil și mai atent și crezi că sportul l-ar ajuta?",
+      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/tenis_de_masa_copii.jpg?alt=media&token=c5e2f024-10d9-4058-bd4c-c190ba4a04ed",
+      "imgAlt" : "Tenis de masă copii",
+      "text" : "Motivele pentru care îți dorești să îți îndrumi copilul către sport sunt nenumărate, însă îți voi enumera mai jos și câteva beneficii pe care le poate avea tenisul de masă asupra copilului tău:<br>👉 Ajută la dezvoltarea coordonării și a reflexelor, tot corpul fiind în armonie pentru a putea lovi mingea;<br>👉 Viteza cu care se desfășoară jocul necesită o concentrare ridicată, iar prin practicarea regulată se pot observa îmbunătățiri ale capacității de concentrare și atenție la școală sau în rutina zilnică;<br>👉 Este util pentru întărirea mușchilor și ajută la dezvoltarea echilibrului;<br>👉 Este un sport individual care îi va dezvolta copilului autonomia și capacitatea de a lua decizii proprii;<br>👉 Vederea este stimulată și dezvoltată;<br>👉 Este ideal pentru a socializa și pentru a-și face prieteni noi;<br>👉 Există puține situații în care tenisul de masă nu este recomandat și poate constitui un ajutor în ceea ce privește integrarea copiiilor cu dizabilități în societate.<br>👉 Este un sport accesibil ca preț, la început nefiind necesară achiziționarea unui echipament, ci doar a unui antrenor și a orele de joc;<br>👉 Nu este un sport de contact, iar accidentările sunt rare."
     },
     "Card-3" : {
-      "id" :"Card-3-Id",
-      "title" : "Care sunt beneficiile?",
+      "title" : "Cursuri",
       "title2" : "",
-      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
-      "imgAlt" : "Beneficii tenis de masa copii",
-      "text" : "Card3 Text"
+      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/cursuri_tenis_de_masa_copii_sibiu.jpg?alt=media&token=e3948285-4568-4185-b392-1d54f18cc92b",
+      "imgAlt" : "Cursuri tenis de masă copii Sibiu",
+      "text" : "👉 Cursurile se desfășoară în Sibiu, pe strada August Treboniu Laurean, nr. 2/4 lângă sala de bowling.<br><br><strong> Abonament Kids tenis de masă (8) - 300 RON </strong><br>👉 Prețul este valabil pentru 8 sedințe / lună, marți şi joi (câte două antrenamente pe săptămână). <br><br><strong> Abonament Kids tenis de masă (4) - 150 RON  </strong><br>👉 Prețul este valabil pentru 4 sedințe / lună, marți sau joi, o zi la alegere (câte un antrenament pe săptămână).<br><br>❕ Abonamentele sunt valabile pentru copiii cu vârste cuprinse între 8 şi 12 ani. ❕<br><br><strong> PROGRAMUL ACTUALIZAT AL CURSURILOR: </strong>"
+    }
+  },
+  "About" : {
+    "Welcome-Title" : "Despre mine",
+    "Card-Text-1" : "Eu sunt Claudia și sunt îndrăgostită de tenisul de masă de la vârsta de 7 ani.<br><br>Am practicat tenisul de masă de performanță până la vârsta de 17 ani. Am câștigat locul III cu echipa în Superliga României de Senioare, am fost selecționată la lotul național, am câștigat numeroase medalii în țară și în afara țării și am fost pe locul 181 în Clasamentul European de Juniori.<br><br>Am experiență de peste 20 ani în tenis și peste 10 ani în training și coaching pe tenis de masă, pentru diferite categorii și toate vârstele.<br><br>Cred cu tărie că fiecare dintre noi are un potențial care stă să iasă la suprafață și te invit să-l descoperim prin tenis.",
+    "Card-Text-2": "Sala de tenis de masă a fost amenajată cu podea specială TARAFLEX Gerflor de culoare &#34FRAMBOISE&#34. <br><br>Această podea, utilizată în sălile acreditate pentru organizarea de competiții internaționale, are o grosime de 5 mm și este elastică, fiind gândită special pentru sălile de tenis de masă.<br><br>Sunt disponibile 5 mese de tenis Cornilleau Competition 740, model aprobat de Federația Internațională de Tenis de Masă ITTF. Culoarea meselor este ,,BLEU’’, iar fiecare masă este delimitată cu despărțitoare Cornilleau.<br><br>Distanța dintre mese este de 2 metri, ceea ce crește gradul de confort al jucătorului."
+  },
+  "Contact" : {
+    "Welcome-Title" : "Contact",
+    "Section" : {
+      "Title" : "Informaţii generale:",
+      "Text" : "Nu ai găsit ce căutai sau te putem ajuta şi cu alte informaţii? Suntem aici să te ajutăm."
+    },
+    "Details" : {
+      "Title" : "Mă poţi contacta la:",
+      "Mobile" : "Mobil:",
+      "Email" : "E-mail:",
+      "Social-Media:" : "Facebook:",
+      "Schedule" : {
+        "Title" : "Program:",
+        "Day-1" : "Marţi",
+        "Day-2" : "Joi"
+      },
+      "Location" : "Locaţie:"
+    },
+    "Form" : {
+      "Title" : "Îmi poţi scrie completând formularul:",
+      "Name" : {
+        "Label" : "Nume Prenume:",
+        "Placeholder" : "Ex: Popescu Ion",
+        "Invalid-Message" : "Numele trebuie să conțină cel puțin 3 caractere (fără cifre)."
+      },
+      "Email" : {
+        "Label" : "Adresa de E-mail:",
+        "Placeholder" : "Ex: popescu.ion@gmail.com",
+        "Invalid-Message" : "Te rog introdu un email valid."
+      },
+      "Subject" : {
+        "Label" : "Subiect:",
+        "Placeholder" : "Ex: Vreau să învăț tenis de masă",
+        "Invalid-Message" : "Subiectul trebuie să conțină cel puțin 5 caractere."
+      },
+      "Message" : {
+        "Label" : "Mesajul tău:",
+        "Placeholder" : "Ex: Vreau tare de tot să învăț tenis de masă. Te rog eu frumos, mă înveți Claudia?",
+        "Invalid-Message" : "Mesajul trebuie să conțină cel puțin 20 de caractere."
+      },
+      "Submit-Button-Text" : "Trimite"
     }
   }
 }
