@@ -9,6 +9,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 })
 export class HomeCardsComponent {
   programsData: string = "";
+  // testLocal: string = "1";
   cardsData = [
     {
       id: "beneficii",
@@ -16,7 +17,7 @@ export class HomeCardsComponent {
       title2: "",
       imgSrc : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
       imgAlt : "Beneficii tenis de masa copii",
-      text : // this.translate.get()
+      text :
         `
         În ultima perioadă am fost întrebată la ce ajută acest sport și cum poate dezvolta el armonios 
         un copil, ”că doar primește o bilă și o paleta copilul și nimerește și el cum poate masa aia”.

@@ -28,6 +28,30 @@
     "Slide-3" : "Courses",
     "Slide-4" : "About us",
     "Slide-5" : "Contact",
-    "Slide-Button" : "Find out more"
+    "Slide-Button" : "Find out more",
+    "Card-1" : {
+      "id" :"Card-1-Id",
+      "title" : "Care sunt beneficiile?",
+      "title2" : "",
+      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
+      "imgAlt" : "Beneficii tenis de masa copii",
+      "text" : "Card1 Text"
+    },
+    "Card-2" : {
+      "id" :"Card-2-Id",
+      "title" : "Care sunt beneficiile?",
+      "title2" : "",
+      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
+      "imgAlt" : "Beneficii tenis de masa copii",
+      "text" : "Card2 Text"
+    },
+    "Card-3" : {
+      "id" :"Card-3-Id",
+      "title" : "Care sunt beneficiile?",
+      "title2" : "",
+      "imgSrc" : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/beneficii_tenis_de_masa_copii.jpg?alt=media&token=bf633d02-86b3-4585-a2f0-e0c5218de0b7",
+      "imgAlt" : "Beneficii tenis de masa copii",
+      "text" : "Card3 Text"
+    }
   }
 }

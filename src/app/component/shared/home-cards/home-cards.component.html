@@ -1,10 +1,12 @@
-<div *ngFor="let card of cardsData" id="{{ card.id }}" class="container mb-4 pt-4 border border-1 rounded">
+<div *ngFor="let card of cardsData; let i = index" id="{{ card.id }}" class="container mb-4 pt-4 border border-1 rounded">
   <h2 class="title text-center">
-    {{ card.title }}
+    <!-- {{ card.title }} -->
+    {{ 'Home.Card-' + (i+1) + '.text' | translate }}
     <h6 class="text-center" [innerHTML]="card.title2"></h6>
   </h2>
   <img src="{{ card.imgSrc }}" alt="{{ card.imgAlt }}" class="w-100 rounded mb-4 mx-auto d-block">
   <div [ngClass]="{'text-center': card.id == 'cursuri'}" [innerHTML]="card.text" class="text">
+  <!-- <div [ngClass]="{'text-center': card.id == 'cursuri'}" [innerHTML]="{{ 'Home.Card-1.text' | translate }}" class="text"> -->
   </div>
     <!-- only visible for cursuri card -->
     <div *ngIf="card.id == 'cursuri'" class="scrolling-text-wrapper position-relative overflow-hidden border border-success rounded mx-auto mb-3">
