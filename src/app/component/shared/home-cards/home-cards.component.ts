@@ -28,39 +28,22 @@ export class HomeCardsComponent {
   ) {}
 
   ngOnInit() {
-    // this.getPrograms();
     this.getPrograms();
   }
 
   getPrograms() {
-    this.firebaseService.getData('programs')
-      .subscribe((response) => {
-        for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
-          this.programsData = this.programsData
-            + item.Ziua
-            + " "
-            + item.Ora
-            + " "
-            + item.Categoria
-            + "; "
-        }
-      })
+    this.firebaseService.getData('programs').subscribe((response) => {
+      for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
+        this.programsData = this.programsData
+          + item.Ziua
+          + " "
+          + item.Ora
+          + " "
+          + item.Categoria
+          + "; "
+      }
+    })
   }
-
-  // getPrograms() {
-  //   this.firebaseService.getPrograms()
-  //     .subscribe((response) => {
-  //       for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
-  //         this.programsData = this.programsData
-  //           + item.Ziua
-  //           + " "
-  //           + item.Ora
-  //           + " "
-  //           + item.Categoria
-  //           + "; "
-  //       }
-  //     })
-  // }
 
 }
 

@@ -9,8 +9,8 @@ import { FirebaseService } from 'src/app/service/firebase.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  
   menuOpened: boolean = false;
+
   contactForm = this.formbuilder.group({
     name: [null, Validators.compose(
       [
@@ -54,7 +54,11 @@ export class ContactComponent {
 
   formSubmit(form: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}) {
     if (this.contactForm.valid) {
-      this.firebaseService.postContactFormData(form);
+      form.dateSubmitted = new Date();
+      this.firebaseService.postData('contact', form).subscribe((response) => {
+        alert("Formularul a fost trimis! O sa fii contactat pe emailul " + form.email + " . Multumim!");
+        window.location.reload();
+      })
     }
   }
 
