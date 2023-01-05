@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ViewportScroller } from '@angular/common';
 import { MenuService } from 'src/app/service/menu.service';
 import { FirebaseService } from 'src/app/service/firebase.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -34,11 +35,12 @@ export class FooterComponent {
     private menuService: MenuService,
     private formbuilder: FormBuilder,
     private firebaseService: FirebaseService,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
+    public translate: TranslateService
   ) {}
   
   ngOnInit() {
-    this.menuService.menuOpenedObservable.subscribe(response => {
+    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
       this.menuOpened = response;
     });
   }
@@ -61,11 +63,15 @@ export class FooterComponent {
         }
 
         if (alreadySubscribed) {
-          alert("Emailul " + form.email + " este deja abonat! Incearca te rog alt email! Multumesc");
+          this.translate.get('Contact.Form.Submit-Alert-Warning', {email : form.email}).subscribe((res: string) => {
+            alert(res);
+          });
         } else {
           form.dateSubmitted = new Date();
           this.firebaseService.postData('newsletter', form).subscribe((response) => {
-            alert("Te-ai abonat cu succes! O sa primesti noutati pe emailul " + form.email + " . Multumim!");
+            this.translate.get('Contact.Form.Submit-Alert-Success', {email : form.email}).subscribe((res: string) => {
+              alert(res);
+            });
             window.location.reload();
           })
         }

@@ -20,11 +20,11 @@ export class HeaderComponent {
     ) {}
     
   ngOnInit() {
-    this.menuService.menuOpenedObservable.subscribe(response => {
+    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
       this.menuOpened = response;
     });
-    this.localStorageService.currentLanguage.subscribe((response) => {
-        this.languageSelected = response
+    this.localStorageService.currentLanguage.subscribe((response: string) => {
+        this.languageSelected = response;
     });
   }
   

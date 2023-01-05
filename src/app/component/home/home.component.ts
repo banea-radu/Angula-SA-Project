@@ -17,7 +17,7 @@ export class HomeComponent {
   
   ngOnInit() {
     // Subscribe to observable from MenuService
-    this.menuService.menuOpenedObservable.subscribe(response => {
+    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
       this.menuOpened = response;
     });
   }

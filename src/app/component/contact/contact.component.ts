@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MenuService } from 'src/app/service/menu.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/service/firebase.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
@@ -43,11 +44,12 @@ export class ContactComponent {
     private menuService: MenuService,
     private formbuilder: FormBuilder,
     private firebaseService: FirebaseService,
-    ) {}
+    public translate: TranslateService
+  ) {}
 
   ngOnInit() {
     // Subscribe to observable from MenuService
-    this.menuService.menuOpenedObservable.subscribe(response => {
+    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
       this.menuOpened = response;
     });
   }
@@ -56,7 +58,9 @@ export class ContactComponent {
     if (this.contactForm.valid) {
       form.dateSubmitted = new Date();
       this.firebaseService.postData('contact', form).subscribe((response) => {
-        alert("Formularul a fost trimis! O sa fii contactat pe emailul " + form.email + " . Multumim!");
+        this.translate.get('Footer.Newsletter.Submit-Alert-Success', {email : form.email}).subscribe((res: string) => {
+          alert(res);
+        });
         window.location.reload();
       })
     }

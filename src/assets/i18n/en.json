@@ -20,7 +20,8 @@
         "Placeholder": "Email address",
         "Invalid-Message": "Please enter a valid email."
       },
-      "Submit-Button-Text": "Subscribe"
+      "Submit-Button-Text": "Subscribe",
+      "Submit-Alert-Success" : "👉 The form has been submitted! You will be contacted by email {{email}}. Thank you!"
     },
     "Copyright-Text": "{{ownerName}} © {{currentYear}}. All rights reserved."
   },
@@ -99,7 +100,9 @@
         "Placeholder" : "Ex: I really really want to learn table tennis. Please teach me Claudia?",
         "Invalid-Message" : "The message must contain at least 20 characters."
       },
-      "Submit-Button-Text" : "Submit"
+      "Submit-Button-Text" : "Submit",
+      "Submit-Alert-Warning" : "⚠ Email {{email}} is already subscribed! Please try another email! Thank you!",
+      "Submit-Alert-Success" : "👉 You have successfully subscribed! You will receive news by email {{email}} . Thank you!"
     }
   }
 }

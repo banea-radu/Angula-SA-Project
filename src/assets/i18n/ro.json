@@ -20,7 +20,8 @@
         "Placeholder": "Adresa de E-mail",
         "Invalid-Message": "Te rog introdu un email valid."
       },
-      "Submit-Button-Text": "Abonare"
+      "Submit-Button-Text": "Abonare",
+      "Submit-Alert-Success" : "👉 Formularul a fost trimis! O sa fii contactat pe emailul {{email}} . Multumesc!"
     },
     "Copyright-Text": "{{ownerName}} © {{currentYear}}. Toate drepturile rezervate."
   },
@@ -102,7 +103,9 @@
         "Placeholder" : "Ex: Vreau tare de tot să învăț tenis de masă. Te rog eu frumos, mă înveți Claudia?",
         "Invalid-Message" : "Mesajul trebuie să conțină cel puțin 20 de caractere."
       },
-      "Submit-Button-Text" : "Trimite"
+      "Submit-Button-Text" : "Trimite",
+      "Submit-Alert-Warning" : "⚠ Email-ul {{email}} este deja abonat! Încearcă te rog alt email! Mulțumesc",
+      "Submit-Alert-Success" : "👉 Te-ai abonat cu succes! O să primești noutăți pe emailul {{email}} . Mulțumesc!"
     }
   }
 }
