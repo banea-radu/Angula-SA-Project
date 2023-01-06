@@ -35,26 +35,29 @@ export class HomeCardsComponent {
   }
 
   getPrograms() {
-    this.firebaseService.getData('programs').subscribe((response) => {
-      for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
-        let dayToTranslate: string = '';
-        let categoryToTranslate: string = '';
-        this.translate.get('Home.Card-3.Programs.' + item.Day).subscribe((res: string) => {
-          dayToTranslate = res;
-        })
-        this.translate.get('Home.Card-3.Programs.' + item.Category).subscribe((res: string) => {
-          categoryToTranslate = res;
-        })
-        this.programsData = this.programsData
-          + "🏓"
-          + " "
-          + dayToTranslate
-          + " "
-          + item.Time
-          + " "
-          + categoryToTranslate
-          + " "
-      }
+    this.translate.onLangChange.subscribe((event: any) => {
+      this.programsData = ''; // clear old data before translating again
+      this.firebaseService.getData('programs').subscribe((response) => {
+        for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
+          let dayToTranslate: string = '';
+          let categoryToTranslate: string = '';
+          this.translate.get('Home.Card-3.Programs.' + item.Day).subscribe((res: string) => {
+            dayToTranslate = res;
+          })
+          this.translate.get('Home.Card-3.Programs.' + item.Category).subscribe((res: string) => {
+            categoryToTranslate = res;
+          })
+          this.programsData = this.programsData
+            + "🏓"
+            + " "
+            + dayToTranslate
+            + " "
+            + item.Time
+            + " "
+            + categoryToTranslate
+            + " "
+        }
+      })
     })
   }
 
