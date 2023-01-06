@@ -49,12 +49,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	 - Formular
     	3.2. Footer
 
+
 ## TODO:
 - General:
-	- admin page with auth guard
+	- admin page:
+		- show/add/delete/edit programs
+		- show/delete/reply contact details
+		- show/delete newsletter details
+	- page not found route
 - Nice to have's:
 	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
+	- show/add/delete/edit home-cards
 
 ## TO DOne:
 - General:

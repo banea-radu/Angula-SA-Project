@@ -2,7 +2,8 @@
   "General": {
     "Home": "Home",
     "About": "About",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "My-Account": "My account"
   },
   "Header": {
     "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Feu.svg?alt=media&token=c4f55191-b930-452e-9645-06b742f76b0e",

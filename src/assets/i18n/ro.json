@@ -2,7 +2,8 @@
   "General": {
     "Home": "Acasă",
     "About": "Despre mine",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "My-Account": "Contul meu"
   },
   "Header": {
     "imgSrc": "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Fro.svg?alt=media&token=4e6c4530-6318-4ecc-b214-2a141df2182b",
