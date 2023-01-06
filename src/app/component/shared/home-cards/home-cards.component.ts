@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { TranslateService } from '@ngx-translate/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-cards',
@@ -27,37 +27,41 @@ export class HomeCardsComponent {
 
   constructor(
     private firebaseService: FirebaseService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private router: Router,
+    private routerActive: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.getPrograms();
+    this.routerActive.paramMap.subscribe(paramMap => {
+      if (this.router.url === "/" || "/home") {
+        this.getPrograms();
+      }
+    });
   }
 
   getPrograms() {
-    this.translate.onLangChange.subscribe((event: any) => {
-      this.programsData = ''; // clear old data before translating again
-      this.firebaseService.getData('programs').subscribe((response) => {
-        for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
-          let dayToTranslate: string = '';
-          let categoryToTranslate: string = '';
-          this.translate.get('Home.Card-3.Programs.' + item.Day).subscribe((res: string) => {
-            dayToTranslate = res;
-          })
-          this.translate.get('Home.Card-3.Programs.' + item.Category).subscribe((res: string) => {
-            categoryToTranslate = res;
-          })
-          this.programsData = this.programsData
-            + "🏓"
-            + " "
-            + dayToTranslate
-            + " "
-            + item.Time
-            + " "
-            + categoryToTranslate
-            + " "
-        }
-      })
+    this.programsData = ''; // clear old data before translating again
+    this.firebaseService.getData('programs').subscribe((response) => {
+      for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
+        let dayToTranslate: string = '';
+        let categoryToTranslate: string = '';
+        this.translate.get('Home.Card-3.Programs.' + item.Day).subscribe((res: string) => {
+          dayToTranslate = res;
+        })
+        this.translate.get('Home.Card-3.Programs.' + item.Category).subscribe((res: string) => {
+          categoryToTranslate = res;
+        })
+        this.programsData = this.programsData
+          + "🏓"
+          + " "
+          + dayToTranslate
+          + " "
+          + item.Time
+          + " "
+          + categoryToTranslate
+          + " "
+      }
     })
   }
 

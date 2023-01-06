@@ -1,4 +1,4 @@
-# AngularSAProject
+# Angular Software Academy Project
 
 ## Live version deployed here: https://angular-proiect-sa.netlify.app/
 
@@ -42,7 +42,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	 - Welcome section
     	2.2. CardAbout x3
     	2.3. Footer
-    3.Contact
+    3. Contact
     	3.1. Header
     	 - Welcome section
     	 - Informatii generale
@@ -68,8 +68,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- add netlify link to readme
 	- implement routing
 		- configure routes
-	- moved images to firebase storage due to stackblitz limitation
-	- moved favicon to firebase storage due to stackblitz limitation
+	- move images to firebase storage due to stackblitz limitation
+	- move favicon to firebase storage due to stackblitz limitation
 	- internationalization implementation (https://github.com/ngx-translate/core)
 		- tranlate all texts
 		- svg flags (source: https://github.com/lipis/flag-icons)
