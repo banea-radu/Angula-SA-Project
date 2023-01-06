@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from 'src/app/service/firebase.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-home-cards',
@@ -24,7 +26,8 @@ export class HomeCardsComponent {
   ]
 
   constructor(
-    private firebaseService: FirebaseService
+    private firebaseService: FirebaseService,
+    public translate: TranslateService
   ) {}
 
   ngOnInit() {
@@ -34,13 +37,23 @@ export class HomeCardsComponent {
   getPrograms() {
     this.firebaseService.getData('programs').subscribe((response) => {
       for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
+        let dayToTranslate: string = '';
+        let categoryToTranslate: string = '';
+        this.translate.get('Home.Card-3.Programs.' + item.Day).subscribe((res: string) => {
+          dayToTranslate = res;
+        })
+        this.translate.get('Home.Card-3.Programs.' + item.Category).subscribe((res: string) => {
+          categoryToTranslate = res;
+        })
         this.programsData = this.programsData
-          + item.Ziua
+          + "🏓"
           + " "
-          + item.Ora
+          + dayToTranslate
           + " "
-          + item.Categoria
-          + "; "
+          + item.Time
+          + " "
+          + categoryToTranslate
+          + " "
       }
     })
   }

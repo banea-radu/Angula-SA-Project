@@ -23,6 +23,7 @@
       "Submit-Button-Text": "Subscribe",
       "Submit-Alert-Success" : "👉 The form has been submitted! You will be contacted by email {{email}}. Thank you!"
     },
+    "Links" : "Links",
     "Copyright-Text": "{{ownerName}} © {{currentYear}}. All rights reserved."
   },
   "Home" : {
@@ -52,7 +53,19 @@
       "title" : "Courses",
       "title2" : "",
       "imgAlt" : "Table tennis courses for children in Sibiu",
-      "text" : "👉 The courses are held in Sibiu, on August Treboniu Laurean street, no. 2/4 near the bowling alley.<br><br><strong> Kids table tennis subscription (8) - 300 RON </strong><br>👉 The price is valid for 8 sessions / month, Tuesday and Thursday (two training sessions per week). <br><br><strong> Kids table tennis subscription (4) - 150 RON  </strong><br>👉 The price is valid for 4 sessions / month, Tuesday or Thursday, a day of your choice (one training per week).<br><br>❕ Subscriptions are valid for children between the ages of 8 and 12. ❕<br><br><strong> UPDATED COURSES SCHEDULE: </strong>"
+      "text" : "👉 The courses are held in Sibiu, on August Treboniu Laurean street, no. 2/4 near the bowling alley.<br><br><strong> Kids table tennis subscription (8) - 300 RON </strong><br>👉 The price is valid for 8 sessions / month, Tuesday and Thursday (two training sessions per week). <br><br><strong> Kids table tennis subscription (4) - 150 RON  </strong><br>👉 The price is valid for 4 sessions / month, Tuesday or Thursday, a day of your choice (one training per week).<br><br>❕ Subscriptions are valid for children between the ages of 8 and 12. ❕<br><br><strong> UPDATED COURSES SCHEDULE: </strong>",
+      "Programs" : {
+        "Monday" : "Monday",
+        "Tuesday" : "Tuesday",
+        "Wednesday" : "Wednesday",
+        "Thursday" : "Thursday",
+        "Friday" : "Friday",
+        "Saturday" : "Saturday",
+        "Sunday" : "Sunday",
+        "Beginners" : "Beginners",
+        "Intermediate" : "Intermediate",
+        "Advance" : "Advance"
+      }
     }
   },
   "About" : {

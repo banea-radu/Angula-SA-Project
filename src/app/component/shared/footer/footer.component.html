@@ -52,7 +52,7 @@
       <div class="d-flex">
         <div [ngClass]="{'menu-open': menuOpened}" class="footer-links d-flex">
           <div class="d-flex flex-column">
-            <h3 class="fw-semibold"> Link-uri </h3>
+            <h3 class="fw-semibold"> {{ 'Footer.Links' | translate }} </h3>
             <a routerLink="/home" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">
               <i class="fa-solid fa-chevron-right"></i>
               {{ 'General.Home' | translate }}

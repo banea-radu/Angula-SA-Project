@@ -30,24 +30,24 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Components Structure
 
-    1.Acasa
-    	1.1 Header
+    1. Home
+    	1.1. Header
     	 - Welcome Section
     	 - Slider
-    	1.3 Button
-    	1.4 CardHome x3
-    	1.5 Footer
-    2.Despre noi
-    	2.1 Header
+    	1.3. Button
+    	1.4. CardHome x3
+    	1.5. Footer
+    2. About
+    	2.1. Header
     	 - Welcome section
-    	2.2 CardAbout x3
-    	2.3 Footer
+    	2.2. CardAbout x3
+    	2.3. Footer
     3.Contact
-    	3.1 Header
+    	3.1. Header
     	 - Welcome section
     	 - Informatii generale
     	 - Formular
-    	3.2 Footer
+    	3.2. Footer
 
 ## TODO:
 - General:

@@ -8,7 +8,7 @@ export class FirebaseService {
   urlLink = {
     base : "https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app/",
     endpoint : {
-      programs: "program.json",
+      programs: "programs.json",
       newsletter : "newsletterForm.json",
       contact : "contactForm.json"
     }
