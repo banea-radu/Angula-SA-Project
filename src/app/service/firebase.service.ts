@@ -10,13 +10,14 @@ export class FirebaseService {
     endpoint : {
       programs: "programs.json",
       newsletter : "newsletterForm.json",
-      contact : "contactForm.json"
+      contact : "contactForm.json",
+      users : "users.json"
     }
   }
 
   constructor(private http: HttpClient) {}
 
-  getData(endpoint: string){
+  createEndpoint(endpoint: string){
     switch(endpoint) {
       case "programs" :
         endpoint = this.urlLink.endpoint.programs;
@@ -27,23 +28,21 @@ export class FirebaseService {
       case "contact" :
         endpoint = this.urlLink.endpoint.contact;
         break;
+      case "users" :
+        endpoint = this.urlLink.endpoint.users;
+        break;
     }
-    return this.http.get(this.urlLink.base + endpoint);
+    return this.urlLink.base + endpoint;
+  }
+
+  getData(endpoint: string){
+    endpoint = this.createEndpoint(endpoint);
+    return this.http.get(endpoint);
   }
 
   postData(endpoint: string, formData: {name: string, email: string, dateSubmitted?: Date} ){
-    switch(endpoint) {
-      case "programs" :
-        endpoint = this.urlLink.endpoint.programs;
-        break;
-      case "newsletter" :
-        endpoint = this.urlLink.endpoint.newsletter;
-        break;
-      case "contact" :
-        endpoint = this.urlLink.endpoint.contact;
-        break;
-    }
-    return this.http.post(this.urlLink.base + endpoint, formData);
+    endpoint = this.createEndpoint(endpoint);
+    return this.http.post(endpoint, formData);
   }
 
 }

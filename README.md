@@ -52,7 +52,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - General:
-	- admin page:
+	- My account component:
+		-	route to redirect to login component if not logged
 		- show/add/delete/edit programs
 		- show/delete/reply contact details
 		- show/delete newsletter details
@@ -60,7 +61,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Nice to have's:
 	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
-	- show/add/delete/edit home-cards
+	- book tables
+	- home-card redesign as single, transfer *ngFor to parent component
+	- about-card redesign as single, transfer *ngFor to parent component
 
 ## TO DOne:
 - General:

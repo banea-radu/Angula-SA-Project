@@ -3,7 +3,6 @@ import { ViewportScroller } from '@angular/common';
 import { MenuService } from 'src/app/service/menu.service';
 import { LocalstorageService } from 'src/app/service/localstorage.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,14 +16,11 @@ export class HeaderComponent {
     private menuService: MenuService,
     private localStorageService: LocalstorageService,
     private viewportScroller: ViewportScroller
-    ) {}
+  ) {}
     
   ngOnInit() {
     this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
       this.menuOpened = response;
-    });
-    this.localStorageService.currentLanguage.subscribe((response: string) => {
-        this.languageSelected = response;
     });
   }
   

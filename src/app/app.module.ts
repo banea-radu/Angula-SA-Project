@@ -19,6 +19,7 @@ import { LoginComponent } from './component/login/login.component';
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MyaccountComponent } from './component/myaccount/myaccount.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutComponent,
     ContactComponent,
     AboutCardsComponent,
-    LoginComponent
+    LoginComponent,
+    MyaccountComponent
   ],
   imports: [
     BrowserModule,
