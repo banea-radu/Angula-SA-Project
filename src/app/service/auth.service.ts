@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData: any;
+  idToken: any;
+
   constructor(
     public router: Router,
     public angularFireAuth: AngularFireAuth,

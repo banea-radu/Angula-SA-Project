@@ -54,14 +54,15 @@ export class FooterComponent {
       let alreadySubscribed: boolean = false;
       
       this.firebaseService.getData('newsletter').subscribe((response) => {
-
-        for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
-          if (form.email == item.email) {
-            alreadySubscribed = true;
-            break; // if already subscribed, exit for loop
+        if (response !== null) {
+          for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
+            if (form.email == item.email) {
+              alreadySubscribed = true;
+              break; // if already subscribed, exit for loop
+            }
           }
         }
-
+        
         if (alreadySubscribed) {
           this.translate.get('Contact.Form.Submit-Alert-Warning', {email : form.email}).subscribe((res: string) => {
             alert(res);
