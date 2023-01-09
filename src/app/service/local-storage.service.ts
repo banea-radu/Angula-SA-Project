@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LocalstorageService {
+export class LocalStorageService {
   defaultLanguage: string = 'ro';
   currentLanguage = new BehaviorSubject<string>('');
 

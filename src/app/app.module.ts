@@ -15,7 +15,7 @@ import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { AboutCardsComponent } from './component/shared/about-cards/about-cards.component';
 import { LoginComponent } from './component/login/login.component';
-import { MyaccountComponent } from './component/myaccount/myaccount.component';
+import { MyAccountComponent } from './component/my-account/my-account.component';
 
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
@@ -28,7 +28,6 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
@@ -51,8 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactComponent,
     AboutCardsComponent,
     LoginComponent,
-    MyaccountComponent,
-    DashboardComponent,
+    MyAccountComponent,
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,

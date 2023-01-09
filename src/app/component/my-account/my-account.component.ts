@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { MenuService } from 'src/app/service/menu.service';
 
+
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-my-account',
+  templateUrl: './my-account.component.html',
+  styleUrls: ['./my-account.component.css']
 })
-export class DashboardComponent {
+export class MyAccountComponent {
   menuOpened: boolean = false;
   
   constructor(

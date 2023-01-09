@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { MenuService } from 'src/app/service/menu.service';
-import { LocalstorageService } from 'src/app/service/localstorage.service';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,7 @@ export class HeaderComponent {
 
   constructor(
     private menuService: MenuService,
-    private localStorageService: LocalstorageService,
+    private localStorageService: LocalStorageService,
     private viewportScroller: ViewportScroller
   ) {}
     

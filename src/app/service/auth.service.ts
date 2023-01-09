@@ -38,7 +38,7 @@ export class AuthService {
         this.SetUserData(result.user);
         this.angularFireAuth.authState.subscribe((user) => {
           if (user) {
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['my-account']);
           }
         });
       })
@@ -85,14 +85,13 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    console.log(user);
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['my-account']);
     });
   }
 
@@ -101,7 +100,7 @@ export class AuthService {
     return this.angularFireAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['my-account']);
         this.SetUserData(result.user);
       })
       .catch((error) => {

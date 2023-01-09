@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LocalstorageService } from 'src/app/service/localstorage.service';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ export class AppComponent {
   title: string = 'Angular-SA-Project';
 
   constructor(
-    private localStorageService: LocalstorageService,
+    private localStorageService: LocalStorageService,
     public translate: TranslateService
   ) {}
 
