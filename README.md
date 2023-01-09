@@ -54,13 +54,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - General:
 	- personalization:
 		- My account component:
-			- sign-in component
-			- sign-up component
+			- login component
+			- register component
 			- forgot-password component
 			- verify-email-address component (after sign-up)
 			- show/add/delete/edit programs
 			- show/delete/reply contact details
 			- show/delete newsletter details
+			- translate all texts
 	- routing:
 		- page not found route
 - Nice to have's:

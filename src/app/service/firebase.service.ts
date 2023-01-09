@@ -50,9 +50,9 @@ export class FirebaseService {
     return this.http.get(completeUrl);
   }
 
-  postData(endpoint: string, formData: {name: string, email: string, dateSubmitted?: Date} ){
+  postData(endpoint: string, bodyData: {name: string, email: string, dateSubmitted?: Date} ){
     const completeUrl = this.createCompleteUrl(endpoint);
-    return this.http.post(completeUrl, formData);
+    return this.http.post(completeUrl, bodyData);
   }
 
 }

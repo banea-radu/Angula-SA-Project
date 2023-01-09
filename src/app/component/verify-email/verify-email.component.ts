@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
+import { MenuService } from 'src/app/service/menu.service';
 
 @Component({
   selector: 'app-verify-email',
@@ -7,5 +8,22 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./verify-email.component.css']
 })
 export class VerifyEmailComponent {
-  constructor(public authService: AuthService) { }
+  menuOpened: boolean = false;
+
+  constructor(
+    private menuService: MenuService,
+    public authService: AuthService
+  ) {}
+
+  ngOnInit() {
+    // Subscribe to observable from MenuService
+    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
+      this.menuOpened = response;
+    });
+  }
+
+  sendVerificationMail() {
+    this.authService.SendVerificationMail();
+  }
+
 }

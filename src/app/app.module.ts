@@ -32,6 +32,11 @@ import { SignInComponent } from './component/sign-in/sign-in.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
+import { UsersDataComponent } from './component/my-account/users-data/users-data.component';
+import { ProgramsDataComponent } from './component/my-account/programs-data/programs-data.component';
+import { ContactDataComponent } from './component/my-account/contact-data/contact-data.component';
+import { NewsletterDataComponent } from './component/my-account/newsletter-data/newsletter-data.component';
+import { MyUserDataComponent } from './component/my-account/my-user-data/my-user-data.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -54,7 +59,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    UsersDataComponent,
+    ProgramsDataComponent,
+    ContactDataComponent,
+    NewsletterDataComponent,
+    MyUserDataComponent
   ],
   imports: [
     BrowserModule,

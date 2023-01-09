@@ -11,13 +11,11 @@
     <div class="d-flex flex-column align-items-center justify-content-center">
 
       <p class="text-center"> <strong> {{ 'Login.Form.Title' | translate }} </strong></p>
-      
-      <!-- (ngSubmit)="formSubmit(form.value)" -->
-      
+     
       <form 
         #form='ngForm'
         [formGroup]="loginForm"
-        
+        (ngSubmit)="formSubmit(form.value)"
         class="login-form d-flex flex-column m-2 w-100"
       >
 
@@ -52,40 +50,13 @@
         <app-button type="submit" title="{{ 'Login.Form.Submit-Button-Text' | translate }}"></app-button>
       </form>
 
-    </div>
-  </section>
-</div>
-
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Sign In</h3>
-      <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Username" #userName required>
-      </div>
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPassword required>
-      </div>
-      <!-- Calling SignIn Api from AuthService -->
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign in" (click)="authService.SignIn(userName.value, userPassword.value)">
-      </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-      <!-- Calling GoogleAuth Api from AuthService -->
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-          <i class="fab fa-google-plus-g"></i>
-          Log in with Google
-        </button>
-      </div>
-      <div class="forgotPassword">
+      <div class="btn text-success link-warning">
         <span routerLink="/forgot-password">Forgot Password?</span>
       </div>
+      <div>
+        <span class="align-middle">Don't have an account?</span><span class="btn text-success link-warning" routerLink="/sign-up"> Sign Up</span>
+      </div>
+
     </div>
-    <div class="redirectToLogin">
-      <span>Don't have an account?<span class="redirect" routerLink="/sign-up"> Sign Up</span></span>
-    </div>
-  </div>
+  </section>
 </div>

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { User } from '../service/user';
-import * as auth from 'firebase/auth';
 import { Router } from '@angular/router';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,8 @@ export class AuthService {
   constructor(
     public router: Router,
     public angularFireAuth: AngularFireAuth,
-    public angularFireStore: AngularFirestore
+    public angularFireStore: AngularFirestore,
+    private firebaseService: FirebaseService
   ) {
     // Save user data in localstorage when logged in, set null when logged out
     this.angularFireAuth.authState.subscribe((user) => {
@@ -48,10 +49,14 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email: string, password: string) {
+  SignUp(name: string, email: string, password: string) {
     return this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
+        // save name, email and register date in database
+        this.firebaseService.postData("users", {name: name, email: email, dateSubmitted: new Date()}).subscribe((response) => {
+          console.log("saved to database");
+        })
         // Call the SendVerificaitonMail() function when new user sign up and returns promise
         this.SendVerificationMail();
         this.SetUserData(result.user);
@@ -86,13 +91,6 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
-  }
-
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      this.router.navigate(['my-account']);
-    });
   }
 
   // Auth logic to run auth providers

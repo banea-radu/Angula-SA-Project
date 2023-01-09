@@ -120,9 +120,9 @@
     }
   },
   "Login" : {
-    "Welcome-Title" : "Login",
+    "Welcome-Title" : "Sign-in",
     "Form" : {
-      "Title" : "To access your account you need to log in:",
+      "Title" : "To access your account you need to sign-in:",
       "Email" : {
         "Label" : "E-mail address:",
         "Placeholder" : "Ex: john.doe@gmail.com",
@@ -133,7 +133,7 @@
         "Placeholder" : "Ex: Password1234",
         "Invalid-Message" : "The password must contain at least 5 characters."
       },
-      "Submit-Button-Text" : "Login",
+      "Submit-Button-Text" : "Sign-in",
       "Submit-Alert-Warning" : "⚠ Email or Password incorrect! Please try again!"
     }
   }
