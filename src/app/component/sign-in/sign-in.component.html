@@ -1,3 +1,61 @@
+<div class="main" *ngIf="!menuOpened">
+  
+  <section class="welcome d-flex justify-content-center align-items-center">
+    <div class="text-white">
+      <h1> {{ 'Login.Welcome-Title' | translate }} </h1>
+    </div>
+  </section>
+
+  <section class="bg-white p-4">
+
+    <div class="d-flex flex-column align-items-center justify-content-center">
+
+      <p class="text-center"> <strong> {{ 'Login.Form.Title' | translate }} </strong></p>
+      
+      <!-- (ngSubmit)="formSubmit(form.value)" -->
+      
+      <form 
+        #form='ngForm'
+        [formGroup]="loginForm"
+        
+        class="login-form d-flex flex-column m-2 w-100"
+      >
+
+        <label for="email"> {{ 'Login.Form.Email.Label' | translate }} </label>
+        <input type="email"
+          formControlName="email"
+          name="email"
+          placeholder="{{ 'Login.Form.Email.Placeholder' | translate }}"
+          class="p-2 border border-success rounded mb-2"
+          [ngClass]="form.submitted ? 'ng-touched' : ''">
+        <small
+          *ngIf="(loginForm.controls.email.invalid && loginForm.controls.email.dirty)
+            || (loginForm.controls.email.invalid && form.submitted)"
+          class="alert alert-danger">
+            {{ 'Login.Form.Email.Invalid-Message' | translate }}
+        </small>
+
+        <label for="password"> {{ 'Login.Form.Password.Label' | translate }} </label>
+        <input type="password"
+          formControlName="password"
+          name="password"
+          placeholder="{{ 'Login.Form.Password.Placeholder' | translate }}"
+          class="p-2 border border-success rounded mb-2"
+          [ngClass]="form.submitted ? 'ng-touched' : ''">
+        <small
+          *ngIf="(loginForm.controls.password.invalid && loginForm.controls.password.dirty)
+            || (loginForm.controls.password.invalid && form.submitted)"
+          class="alert alert-danger">
+            {{ 'Login.Form.Password.Invalid-Message' | translate }}
+        </small>
+        
+        <app-button type="submit" title="{{ 'Login.Form.Submit-Button-Text' | translate }}"></app-button>
+      </form>
+
+    </div>
+  </section>
+</div>
+
 <div class="displayTable">
   <div class="displayTableCell">
     <div class="authBlock">
@@ -10,7 +68,7 @@
       </div>
       <!-- Calling SignIn Api from AuthService -->
       <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+        <input type="button" class="btn btnPrimary" value="Sign in" (click)="authService.SignIn(userName.value, userPassword.value)">
       </div>
       <div class="formGroup">
         <span class="or"><span class="orInner">Or</span></span>

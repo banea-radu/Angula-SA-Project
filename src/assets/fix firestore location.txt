@@ -1,0 +1,3 @@
+open node_modules/@angular/fire/compat/firestore/interfaces.d.ts
+
+source: https://github.com/angular/angularfire/issues/3290#issuecomment-1338792937

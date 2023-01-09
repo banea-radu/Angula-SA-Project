@@ -14,7 +14,7 @@ import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { AboutCardsComponent } from './component/shared/about-cards/about-cards.component';
-import { LoginComponent } from './component/login/login.component';
+// import { LoginComponent } from './component/login/login.component';
 import { MyAccountComponent } from './component/my-account/my-account.component';
 
 import { HttpClient } from '@angular/common/http';
@@ -49,7 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutComponent,
     ContactComponent,
     AboutCardsComponent,
-    LoginComponent,
+    // LoginComponent,
     MyAccountComponent,
     SignInComponent,
     SignUpComponent,

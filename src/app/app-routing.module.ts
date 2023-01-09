@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { LoginComponent } from './component/login/login.component';
+// import { LoginComponent } from './component/login/login.component';
 import { MyAccountComponent } from './component/my-account/my-account.component';
 import { MyAccountGuardService } from './service/my-account-guard.service';
 
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'login', component: LoginComponent },
+  // { path: 'login', component: LoginComponent },
   { path: 'my-account', component: MyAccountComponent, canActivate: [MyAccountGuardService] },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },

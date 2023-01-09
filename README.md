@@ -52,12 +52,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - General:
-	- My account component:
-		-	route to redirect to login component if not logged
-		- show/add/delete/edit programs
-		- show/delete/reply contact details
-		- show/delete newsletter details
-	- page not found route
+	- personalization:
+		- My account component:
+			- sign-in component
+			- sign-up component
+			- forgot-password component
+			- verify-email-address component (after sign-up)
+			- show/add/delete/edit programs
+			- show/delete/reply contact details
+			- show/delete newsletter details
+	- routing:
+		- page not found route
 - Nice to have's:
 	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
@@ -69,7 +74,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - General:
 	- deploy build on netlify
 	- add netlify link to readme
-	- implement routing
+	- routing:
+		- implement routing
 		- configure routes
 	- move images to firebase storage due to stackblitz limitation
 	- move favicon to firebase storage due to stackblitz limitation
@@ -77,6 +83,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- tranlate all texts
 		- svg flags (source: https://github.com/lipis/flag-icons)
 		- save language preferences to local storage as user preference
+	- personalization: 
+		- firebase authenticated users rules for database
+		- My account component:
+			-	route to redirect to login component if not logged
 - Components
 	- Header:
 		- hide main body if burger menu opened

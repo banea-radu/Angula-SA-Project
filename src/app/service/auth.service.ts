@@ -61,7 +61,7 @@ export class AuthService {
       });
   }
 
-  // Send email verficaiton when new user sign up
+  // Send email verfication when new user sign up
   SendVerificationMail() {
     return this.angularFireAuth.currentUser
       .then((u: any) => u.sendEmailVerification())

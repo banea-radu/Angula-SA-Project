@@ -5,15 +5,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FirebaseService {
-  urlLink = {
-    base : "https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app/",
-    endpoint : {
-      programs: "programs.json",
-      newsletter : "newsletter.json",
-      contact : "contact.json",
-      users : "users.json"
-    }
-  }
+  // urlLink = {
+  //   base : "https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app/",
+  //   endpoint : {
+  //     programs: "programs.json",
+  //     newsletter : "newsletter.json",
+  //     contact : "contact.json",
+  //     users : "users.json"
+  //   }
+  // }
 
   constructor(
     private http: HttpClient
@@ -34,18 +34,25 @@ export class FirebaseService {
     //     endpoint = this.urlLink.endpoint.users;
     //     break;
     // }
-    const accessToken = JSON.parse(localStorage.getItem('user')!).stsTokenManager.accessToken;
-    return this.urlLink.base + endpoint + ".json" + "?auth=" + accessToken;
+    const urlBase: string = "https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app/";
+    let completeUrl = urlBase + endpoint + ".json";
+    let accessToken: string = "";
+    const localStorageUserData: string | null = localStorage.getItem('user');
+    if(localStorageUserData !== "null" && localStorageUserData !== null) {
+      accessToken = JSON.parse(localStorage.getItem('user')!).stsTokenManager.accessToken;
+      completeUrl = completeUrl + "?auth=" + accessToken;
+    }
+    return completeUrl;
   }
 
   getData(endpoint: string){
-    endpoint = this.createCompleteUrl(endpoint);
-    return this.http.get(endpoint);
+    const completeUrl = this.createCompleteUrl(endpoint);
+    return this.http.get(completeUrl);
   }
 
   postData(endpoint: string, formData: {name: string, email: string, dateSubmitted?: Date} ){
-    endpoint = this.createCompleteUrl(endpoint);
-    return this.http.post(endpoint, formData);
+    const completeUrl = this.createCompleteUrl(endpoint);
+    return this.http.post(completeUrl, formData);
   }
 
 }
