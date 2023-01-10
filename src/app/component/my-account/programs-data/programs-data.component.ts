@@ -8,6 +8,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 })
 export class ProgramsDataComponent {
   programs: any;
+  keys: string[] = [];
 
   constructor(
     private firebaseService: FirebaseService
@@ -16,6 +17,7 @@ export class ProgramsDataComponent {
   ngOnInit() {
     this.firebaseService.getData('programs').subscribe((response) => {
       this.programs = response;
+      this.keys = Object.keys(this.programs);
     })
   }
 }

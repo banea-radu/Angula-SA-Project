@@ -8,6 +8,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 })
 export class UsersDataComponent {
   users: any;
+  keys: string[] = [];
 
   constructor(
     private firebaseService: FirebaseService
@@ -16,6 +17,7 @@ export class UsersDataComponent {
   ngOnInit() {
     this.firebaseService.getData('users').subscribe((response) => {
       this.users = response;
+      this.keys = Object.keys(this.users);
     })
   }
 }

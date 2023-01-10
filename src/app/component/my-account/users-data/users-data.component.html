@@ -17,13 +17,13 @@
             </tr>
           </thead>
           <tbody class="table-group-divider">
-            <tr *ngFor="let user of users; let i=index"> 
-              <td> {{ i }} </td>
-              <td> {{ user.name }} </td>
-              <td> {{ user.email }} </td>
-              <td> {{ user.dateSubmitted }} </td>
+            <tr *ngFor="let key of keys; let i=index"> 
+              <td> {{ i+1 }} </td>
+              <td> {{ users[key].name }} </td>
+              <td> {{ users[key].email }} </td>
+              <td> {{ users[key].dateSubmitted }} </td>
               <td>
-                <button class="btn btn-danger" > <!-- (click)="deleteProduct(shoppingCartIndex)" -->
+                <button class="btn btn-danger" disabled> <!-- (click)="deleteProduct(shoppingCartIndex)" -->
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </td>
