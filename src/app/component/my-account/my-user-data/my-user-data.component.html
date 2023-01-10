@@ -1,1 +1,15 @@
-<p>my-user-data works!</p>
+<!-- Show user data when logged in -->
+<div class="container text-center mb-3" *ngIf="authService.userData as user">
+  <div class="card p-2">
+    <div class="card-title d-flex justify-content-center align-items-center">
+      <h5> My User Data </h5>
+    </div>
+    <div>
+      <div class="card-table">
+        <p>Name: <strong>{{(user.displayName) ? user.displayName : '?'}}</strong></p>
+        <p>Email: <strong>{{user.email}}</strong></p>
+        <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+      </div>
+    </div>
+  </div>
+</div>

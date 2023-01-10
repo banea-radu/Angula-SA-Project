@@ -1,69 +1,60 @@
 <div class="main" *ngIf="!menuOpened">
+
+  <!-- Welcome section -->
   <section class="welcome d-flex justify-content-center align-items-center">
     <div class="text-white">
       <h1> My Account </h1>
     </div>
   </section>
+
+  <!-- Main section -->
   <section class="bg-white p-4">
+
     <!-- Sidebar navigation -->
-    <div class="row">
-      <nav class="col-md-2 d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active">
+        <div class="d-flex justify-content-center align-items-center">
+          <ul class="nav justify-content-center">
+            <li>
+              <a class="nav-link">
                 <i class="fas fa-user"></i> My User Data
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active">
-                <i class="fas fa-user"></i> Programs Data
+            <li>
+              <a class="nav-link">
+                <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball"></i> Programs Data
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active">
-                <i class="fas fa-user"></i> Contact Data
+            <li>
+              <a class="nav-link">
+                <i class="fas fa-comment-dots"></i> Contact Data
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active">
-                <i class="fas fa-user"></i> Newsletter Data
+            <li>
+              <a class="nav-link">
+                <i class="fa-solid fa-newspaper"></i> Newsletter Data
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active">
-                <i class="fas fa-user"></i> Users Data
+            <li>
+              <a class="nav-link">
+                <i class="fa-solid fa-users"></i> Users Data
               </a>
             </li>
             <!-- Calling SignOut() Api from AuthService -->
-            <li class="nav-item">
+            <li>
               <a class="nav-link" (click)="authService.SignOut()">
                 <i class="fas fa-sign-out-alt"></i> Log out
               </a>
             </li>
           </ul>
         </div>
-      </nav>
-      <!-- Main content -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-          <!-- Show user data when logged in -->
-          <div class="row" *ngIf="authService.userData as user">
-            <div class="col-md-12">
-              <div class="media">
-                <div class="media-body">
-                  <p class="text-center"> <strong> User Data </strong></p>
-                  <p>Name: <strong>{{(user.displayName) ? user.displayName : '?'}}</strong></p>
-                  <p>Email: <strong>{{user.email}}</strong></p>
-                  <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
+
+
+    <!-- Child components -->
+    <app-my-user-data></app-my-user-data>
+    <app-programs-data></app-programs-data>
+    <app-contact-data></app-contact-data>
+    <app-newsletter-data></app-newsletter-data>
+    <app-users-data></app-users-data>
+
   </section>
-  <app-programs-data></app-programs-data>
-  <app-users-data></app-users-data>
+
 </div>

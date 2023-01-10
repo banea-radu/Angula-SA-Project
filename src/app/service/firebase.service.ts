@@ -5,40 +5,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FirebaseService {
-  // urlLink = {
-  //   base : "https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app/",
-  //   endpoint : {
-  //     programs: "programs.json",
-  //     newsletter : "newsletter.json",
-  //     contact : "contact.json",
-  //     users : "users.json"
-  //   }
-  // }
 
   constructor(
     private http: HttpClient
   ) {}
 
   createCompleteUrl(endpoint: string){
-    // switch(endpoint) {
-    //   case "programs" :
-    //     endpoint = this.urlLink.endpoint.programs;
-    //     break;
-    //   case "newsletter" :
-    //     endpoint = this.urlLink.endpoint.newsletter;
-    //     break;
-    //   case "contact" :
-    //     endpoint = this.urlLink.endpoint.contact;
-    //     break;
-    //   case "users" :
-    //     endpoint = this.urlLink.endpoint.users;
-    //     break;
-    // }
     const urlBase: string = "https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app/";
     let completeUrl = urlBase + endpoint + ".json";
     let accessToken: string = "";
-    const localStorageUserData: string | null = localStorage.getItem('user');
-    if(localStorageUserData !== "null" && localStorageUserData !== null) {
+    const localStorageUserData: string | null = localStorage.getItem("user");
+    if (localStorageUserData !== "null" && localStorageUserData !== null) {
       accessToken = JSON.parse(localStorage.getItem('user')!).stsTokenManager.accessToken;
       completeUrl = completeUrl + "?auth=" + accessToken;
     }
@@ -50,7 +27,7 @@ export class FirebaseService {
     return this.http.get(completeUrl);
   }
 
-  postData(endpoint: string, bodyData: {name: string, email: string, dateSubmitted?: Date} ){
+  postData(endpoint: string, bodyData: any){
     const completeUrl = this.createCompleteUrl(endpoint);
     return this.http.post(completeUrl, bodyData);
   }
