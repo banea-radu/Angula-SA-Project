@@ -64,6 +64,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 			- translate all texts
 	- routing:
 		- page not found route
+	- components reareange: users/protrams/newsletter/contact outside myaccount, insert sign-in/sign-up...
 - Nice to have's:
 	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
