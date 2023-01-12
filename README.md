@@ -48,23 +48,29 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	 - Informatii generale
     	 - Formular
     	3.2. Footer
+		4. My account
+			4.1 Login
+			4.2 Forgot password
+			4.2 Register
+			4.3 Verify email
+			4.4 My Profile
+			4.5 Programs
+			4.6 Contacts
+			4.7 Subscribers
+			4.8 Users
 
 
 ## TODO:
 - General:
 	- personalization:
 		- My account component:
-			- login component
-			- register component
-			- forgot-password component
-			- verify-email-address component (after sign-up)
-			- show/add/delete/edit programs
-			- show/delete/reply contact details
-			- show/delete newsletter details
+			- show/add/delete programs
+			- show/delete/reply contacts
+			- show subscribers
 			- translate all texts
+			- components reareange: users/programs/newsletter/contact outside myaccount, insert sign-in/sign-up...
 	- routing:
 		- page not found route
-	- components reareange: users/protrams/newsletter/contact outside myaccount, insert sign-in/sign-up...
 - Nice to have's:
 	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
