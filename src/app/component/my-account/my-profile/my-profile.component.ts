@@ -9,8 +9,7 @@ import { DatabaseService } from 'src/app/service/database.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent {
-  // dbUsers: DbUser;
-  // keys: string[] = [];
+  userName: string ='?';
 
   constructor(
     public authService: AuthService,
@@ -18,13 +17,15 @@ export class MyProfileComponent {
   ) {}
 
   ngOnInit() {
+    // get user name from database
     this.databaseService.getData('users').subscribe((response) => {
-      // this.users = response;
-      let keys = Object.keys(response);
-      const entries = Object.entries(response)  
-      // for (const key in response) {
-        console.log(entries);
-      // }
+      let dbUser: DbUser;
+      const userFromLocalStorage = JSON.parse(localStorage.getItem('user')!);
+      for (dbUser of Object.values(response)) { // Object.values -> returns the user as an object
+        if (dbUser.email === userFromLocalStorage.email) {
+          this.userName = dbUser.name;
+        }
+      }
     })
   }
 
