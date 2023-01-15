@@ -3,11 +3,11 @@ import { MenuService } from 'src/app/service/menu.service';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css']
 })
-export class HomeComponent {
+export class HomePageComponent {
   menuOpened: boolean = false;
   totalSlides: number = 5; // total nmumber of slides
   currentSlide:number = 1; // starting slide

@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { MenuService } from 'src/app/service/menu.service';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  selector: 'app-about-page',
+  templateUrl: './about-page.component.html',
+  styleUrls: ['./about-page.component.css']
 })
-export class AboutComponent {
+export class AboutPageComponent {
   menuOpened: boolean = false;
 
   constructor(private menuService: MenuService) { }

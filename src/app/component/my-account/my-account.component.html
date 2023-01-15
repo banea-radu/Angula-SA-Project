@@ -55,8 +55,8 @@
 
     <!-- Child components -->
     <app-my-profile *ngIf="myaccountSectionSelected == 'My Profile'"></app-my-profile>
-    <app-programs-data *ngIf="myaccountSectionSelected == 'Programs'"></app-programs-data>
-    <app-contact-data *ngIf="myaccountSectionSelected == 'Contact'"></app-contact-data>
+    <app-programs *ngIf="myaccountSectionSelected == 'Programs'"></app-programs>
+    <app-contacts *ngIf="myaccountSectionSelected == 'Contact'"></app-contacts>
     <app-newsletter-data *ngIf="myaccountSectionSelected == 'Newsletter'"></app-newsletter-data>
     <app-users-data *ngIf="myaccountSectionSelected == 'Users'"></app-users-data>
 

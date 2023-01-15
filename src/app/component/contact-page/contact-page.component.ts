@@ -5,11 +5,11 @@ import { DatabaseService } from 'src/app/service/database.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-contact-page',
+  templateUrl: './contact-page.component.html',
+  styleUrls: ['./contact-page.component.css']
 })
-export class ContactComponent {
+export class ContactPageComponent {
   menuOpened: boolean = false;
 
   contactForm = this.formbuilder.group({

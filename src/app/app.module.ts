@@ -10,11 +10,20 @@ import { HeaderComponent } from './component/shared/header/header.component';
 import { FooterComponent } from './component/shared/footer/footer.component';
 import { ButtonComponent } from './component/shared/button/button.component';
 import { HomeCardsComponent } from './component/shared/home-cards/home-cards.component';
-import { HomeComponent } from './component/home/home.component';
-import { AboutComponent } from './component/about/about.component';
-import { ContactComponent } from './component/contact/contact.component';
+import { HomePageComponent } from './component/home-page/home-page.component';
+import { AboutPageComponent } from './component/about-page/about-page.component';
+import { ContactPageComponent } from './component/contact-page/contact-page.component';
 import { AboutCardsComponent } from './component/shared/about-cards/about-cards.component';
 import { MyAccountComponent } from './component/my-account/my-account.component';
+import { SignInComponent } from './component/sign-in/sign-in.component';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
+import { UsersDataComponent } from './component/my-account/users-data/users-data.component';
+import { ProgramsComponent } from './component/programs/programs.component';
+import { ContactsComponent } from './component/contacts/contacts.component';
+import { NewsletterDataComponent } from './component/my-account/newsletter-data/newsletter-data.component';
+import { MyProfileComponent } from './component/my-account/my-profile/my-profile.component';
 
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
@@ -27,15 +36,6 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
-import { SignInComponent } from './component/sign-in/sign-in.component';
-import { SignUpComponent } from './component/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
-import { UsersDataComponent } from './component/my-account/users-data/users-data.component';
-import { ProgramsDataComponent } from './component/my-account/programs-data/programs-data.component';
-import { ContactDataComponent } from './component/my-account/contact-data/contact-data.component';
-import { NewsletterDataComponent } from './component/my-account/newsletter-data/newsletter-data.component';
-import { MyProfileComponent } from './component/my-account/my-profile/my-profile.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,9 +49,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     ButtonComponent,
     HomeCardsComponent,
-    HomeComponent,
-    AboutComponent,
-    ContactComponent,
+    HomePageComponent,
+    AboutPageComponent,
+    ContactPageComponent,
     AboutCardsComponent,
     MyAccountComponent,
     SignInComponent,
@@ -59,8 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ForgotPasswordComponent,
     VerifyEmailComponent,
     UsersDataComponent,
-    ProgramsDataComponent,
-    ContactDataComponent,
+    ProgramsComponent,
+    ContactsComponent,
     NewsletterDataComponent,
     MyProfileComponent
   ],

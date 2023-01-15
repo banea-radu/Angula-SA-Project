@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DbUser } from 'src/app/model/db-user';
 import { AuthService } from 'src/app/service/auth.service';
 import { DatabaseService } from 'src/app/service/database.service';
 
@@ -17,13 +16,16 @@ export class MyProfileComponent {
   ) {}
 
   ngOnInit() {
+    this.getUserName();
+  }
+
+  getUserName() {
     // get user name from database
-    this.databaseService.getData('users').subscribe((response) => {
-      let dbUser: DbUser;
+    this.databaseService.getData('users').subscribe((response: any) => {
       const userFromLocalStorage = JSON.parse(localStorage.getItem('user')!);
-      for (dbUser of Object.values(response)) { // Object.values -> returns the user as an object
-        if (dbUser.email === userFromLocalStorage.email) {
-          this.userName = dbUser.name;
+      for (let user of response) {
+        if (user.email === userFromLocalStorage.email) {
+          this.userName = user.name;
         }
       }
     })

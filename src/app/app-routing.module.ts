@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { HomeComponent } from './component/home/home.component';
-import { AboutComponent } from './component/about/about.component';
-import { ContactComponent } from './component/contact/contact.component';
-// import { LoginComponent } from './component/login/login.component';
+import { HomePageComponent } from './component/home-page/home-page.component';
+import { AboutPageComponent } from './component/about-page/about-page.component';
+import { ContactPageComponent } from './component/contact-page/contact-page.component';
 import { MyAccountComponent } from './component/my-account/my-account.component';
 import { MyAccountGuardService } from './service/my-account-guard.service';
 
@@ -15,11 +14,10 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent} ,
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  // { path: 'login', component: LoginComponent },
+  { path: '', component: HomePageComponent} ,
+  { path: 'home', component: HomePageComponent },
+  { path: 'about', component: AboutPageComponent },
+  { path: 'contact', component: ContactPageComponent },
   { path: 'my-account', component: MyAccountComponent, canActivate: [MyAccountGuardService] },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },

@@ -56,7 +56,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 			4.4 My Profile
 			4.5 Programs
 			4.6 Contacts
-			4.7 Subscribers
+			4.7 Newsletter
 			4.8 Users
 
 
