@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirebaseService } from 'src/app/service/firebase.service';
+import { DatabaseService } from 'src/app/service/database.service';
 
 @Component({
   selector: 'app-programs-data',
@@ -11,13 +11,14 @@ export class ProgramsDataComponent {
   keys: string[] = [];
 
   constructor(
-    private firebaseService: FirebaseService
+    private databaseService: DatabaseService
   ) {}
 
   ngOnInit() {
-    this.firebaseService.getData('programs').subscribe((response) => {
+    this.databaseService.getData('programs').subscribe((response) => {
       this.programs = response;
       this.keys = Object.keys(this.programs);
     })
   }
+
 }

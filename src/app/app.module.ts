@@ -35,7 +35,7 @@ import { UsersDataComponent } from './component/my-account/users-data/users-data
 import { ProgramsDataComponent } from './component/my-account/programs-data/programs-data.component';
 import { ContactDataComponent } from './component/my-account/contact-data/contact-data.component';
 import { NewsletterDataComponent } from './component/my-account/newsletter-data/newsletter-data.component';
-import { MyUserDataComponent } from './component/my-account/my-user-data/my-user-data.component';
+import { MyProfileComponent } from './component/my-account/my-profile/my-profile.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -62,7 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProgramsDataComponent,
     ContactDataComponent,
     NewsletterDataComponent,
-    MyUserDataComponent
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

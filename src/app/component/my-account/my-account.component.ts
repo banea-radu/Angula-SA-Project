@@ -10,6 +10,7 @@ import { MenuService } from 'src/app/service/menu.service';
 })
 export class MyAccountComponent {
   menuOpened: boolean = false;
+  myaccountSectionSelected: string = 'My Profile';
   
   constructor(
     private menuService: MenuService,
@@ -21,5 +22,9 @@ export class MyAccountComponent {
     this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
       this.menuOpened = response;
     });
+  }
+
+  myaccountSectionSelect(myaccountSectionSelected: string) {
+    this.myaccountSectionSelected = myaccountSectionSelected;
   }
 }

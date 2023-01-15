@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { User } from '../service/user';
+import { DbAuthUser } from '../model/db-auth-user';
 import { Router } from '@angular/router';
-import { FirebaseService } from './firebase.service';
+import { DatabaseService } from './database.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AuthService {
     public router: Router,
     public angularFireAuth: AngularFireAuth,
     public angularFireStore: AngularFirestore,
-    private firebaseService: FirebaseService
+    private databaseService: DatabaseService
   ) {
     // Save user data in localstorage when logged in, set null when logged out
     this.angularFireAuth.authState.subscribe((user) => {
@@ -54,7 +54,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         // save name, email and register date in database
-        this.firebaseService.postData("users", {name: name, email: email, dateSubmitted: new Date()}).subscribe((response) => {
+        this.databaseService.postData("users", {name: name, email: email, dateSubmitted: new Date()}).subscribe((response) => {
           console.log("saved to database");
         })
         // Call the SendVerificaitonMail() function when new user sign up and returns promise
@@ -113,7 +113,7 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.angularFireStore.doc(
       `users/${user.uid}`
     );
-    const userData: User = {
+    const userData: DbAuthUser = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirebaseService } from 'src/app/service/firebase.service';
+import { DatabaseService } from 'src/app/service/database.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -26,7 +26,7 @@ export class HomeCardsComponent {
   ]
 
   constructor(
-    private firebaseService: FirebaseService,
+    private databaseService: DatabaseService,
     public translate: TranslateService,
     private router: Router,
     private routerActive: ActivatedRoute
@@ -42,7 +42,7 @@ export class HomeCardsComponent {
 
   getPrograms() {
     this.programsData = ''; // clear old data before translating again
-    this.firebaseService.getData('programs').subscribe((response) => {
+    this.databaseService.getData('programs').subscribe((response) => {
       for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
         let dayToTranslate: string = '';
         let categoryToTranslate: string = '';

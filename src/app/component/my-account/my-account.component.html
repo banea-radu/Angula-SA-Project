@@ -10,37 +10,42 @@
   <!-- Main section -->
   <section class="bg-white p-4">
 
-    <!-- Sidebar navigation -->
-        <div class="d-flex justify-content-center align-items-center">
+    <!-- Navigation -->
+        <div class="d-flex justify-content-center align-items-center pb-2">
           <ul class="nav justify-content-center">
             <li>
-              <a class="nav-link">
-                <i class="fas fa-user"></i> My User Data
+              <a class="btn text-black link-warning"
+                [ngClass]="{'active': myaccountSectionSelected == 'My Profile'}" (click)="myaccountSectionSelect('My Profile')">
+                <i class="fas fa-user"></i> My Profile
               </a>
             </li>
             <li>
-              <a class="nav-link">
-                <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball"></i> Programs Data
+              <a class="btn text-black link-warning"
+                [ngClass]="{'active': myaccountSectionSelected == 'Programs'}" (click)="myaccountSectionSelect('Programs')">
+                <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball"></i> Programs
               </a>
             </li>
             <li>
-              <a class="nav-link">
-                <i class="fas fa-comment-dots"></i> Contact Data
+              <a class="btn text-black link-warning"
+                [ngClass]="{'active': myaccountSectionSelected == 'Contact'}" (click)="myaccountSectionSelect('Contact')">
+                <i class="fas fa-comment-dots"></i> Contact
               </a>
             </li>
             <li>
-              <a class="nav-link">
-                <i class="fa-solid fa-newspaper"></i> Newsletter Data
+              <a class="btn text-black link-warning"
+              [ngClass]="{'active': myaccountSectionSelected == 'Newsletter'}" (click)="myaccountSectionSelect('Newsletter')">
+                <i class="fa-solid fa-newspaper"></i> Newsletter
               </a>
             </li>
             <li>
-              <a class="nav-link">
-                <i class="fa-solid fa-users"></i> Users Data
+              <a class="btn text-black link-warning"
+                [ngClass]="{'active': myaccountSectionSelected == 'Users'}" (click)="myaccountSectionSelect('Users')">
+                <i class="fa-solid fa-users"></i> Users
               </a>
             </li>
-            <!-- Calling SignOut() Api from AuthService -->
+            <!-- Call SignOut() Api from AuthService -->
             <li>
-              <a class="nav-link" (click)="authService.SignOut()">
+              <a class="btn text-black link-warning" (click)="authService.SignOut()">
                 <i class="fas fa-sign-out-alt"></i> Log out
               </a>
             </li>
@@ -49,11 +54,11 @@
 
 
     <!-- Child components -->
-    <app-my-user-data></app-my-user-data>
-    <app-programs-data></app-programs-data>
-    <app-contact-data></app-contact-data>
-    <app-newsletter-data></app-newsletter-data>
-    <app-users-data></app-users-data>
+    <app-my-profile *ngIf="myaccountSectionSelected == 'My Profile'"></app-my-profile>
+    <app-programs-data *ngIf="myaccountSectionSelected == 'Programs'"></app-programs-data>
+    <app-contact-data *ngIf="myaccountSectionSelected == 'Contact'"></app-contact-data>
+    <app-newsletter-data *ngIf="myaccountSectionSelected == 'Newsletter'"></app-newsletter-data>
+    <app-users-data *ngIf="myaccountSectionSelected == 'Users'"></app-users-data>
 
   </section>
 

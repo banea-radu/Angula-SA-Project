@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirebaseService } from 'src/app/service/firebase.service';
+import { DatabaseService } from 'src/app/service/database.service';
 
 @Component({
   selector: 'app-contact-data',
@@ -11,11 +11,11 @@ export class ContactDataComponent {
   keys: string[] = [];
 
   constructor(
-    private firebaseService: FirebaseService
+    private databaseService: DatabaseService
   ) {}
 
   ngOnInit() {
-    this.firebaseService.getData('contact').subscribe((response) => {
+    this.databaseService.getData('contact').subscribe((response) => {
       this.contacts = response;
       this.keys = Object.keys(this.contacts);
     })

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuService } from 'src/app/service/menu.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { FirebaseService } from 'src/app/service/firebase.service';
+import { DatabaseService } from 'src/app/service/database.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -43,7 +43,7 @@ export class ContactComponent {
   constructor(
     private menuService: MenuService,
     private formbuilder: FormBuilder,
-    private firebaseService: FirebaseService,
+    private databaseService: DatabaseService,
     public translate: TranslateService
   ) {}
 
@@ -57,7 +57,7 @@ export class ContactComponent {
   formSubmit(form: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}) {
     if (this.contactForm.valid) {
       form.dateSubmitted = new Date();
-      this.firebaseService.postData('contact', form).subscribe((response) => {
+      this.databaseService.postData('contact', form).subscribe((response) => {
         this.translate.get('Footer.Newsletter.Submit-Alert-Success', {email : form.email}).subscribe((res: string) => {
           alert(res);
         });

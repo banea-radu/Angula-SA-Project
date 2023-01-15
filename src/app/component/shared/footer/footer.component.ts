@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ViewportScroller } from '@angular/common';
 import { MenuService } from 'src/app/service/menu.service';
-import { FirebaseService } from 'src/app/service/firebase.service';
+import { DatabaseService } from 'src/app/service/database.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -34,7 +34,7 @@ export class FooterComponent {
   constructor(
     private menuService: MenuService,
     private formbuilder: FormBuilder,
-    private firebaseService: FirebaseService,
+    private databaseService: DatabaseService,
     private viewportScroller: ViewportScroller,
     public translate: TranslateService
   ) {}
@@ -53,7 +53,7 @@ export class FooterComponent {
     if (this.newsletterForm.valid) {
       let alreadySubscribed: boolean = false;
       
-      this.firebaseService.getData('newsletter').subscribe((response) => {
+      this.databaseService.getData('newsletter').subscribe((response) => {
         if (response !== null) {
           for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
             if (form.email == item.email) {
@@ -69,7 +69,7 @@ export class FooterComponent {
           });
         } else {
           form.dateSubmitted = new Date();
-          this.firebaseService.postData('newsletter', form).subscribe((response) => {
+          this.databaseService.postData('newsletter', form).subscribe((response) => {
             this.translate.get('Contact.Form.Submit-Alert-Success', {email : form.email}).subscribe((res: string) => {
               alert(res);
             });
