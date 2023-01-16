@@ -45,6 +45,11 @@ export class DatabaseService {
       }));
   }
 
+  patchData(endpoint: string, bodyData: any, id: string){
+    const completeUrl = this.createCompleteUrl(endpoint, id);
+    return this.http.patch(completeUrl, bodyData);
+  }
+
   postData(endpoint: string, bodyData: any){
     const completeUrl = this.createCompleteUrl(endpoint);
     return this.http.post(completeUrl, bodyData);

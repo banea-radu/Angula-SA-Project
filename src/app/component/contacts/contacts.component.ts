@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
 import { FormBuilder } from '@angular/forms';
+import { DbContact } from 'src/app/model/db-contact';
 
 @Component({
   selector: 'app-contacts',
@@ -14,6 +15,7 @@ export class ContactsComponent {
   AddReplyForm = this.formbuilder.group({
     reply: [null],
   })
+  // contact: DbContact = {};
 
   constructor(
     private databaseService: DatabaseService,
@@ -32,12 +34,17 @@ export class ContactsComponent {
     })
   }
 
-  saveIdToChangeAfterConfirmation(id: string) {
-    this.idToChangeAfterConfirmation = id;
+  saveIdToChangeAfterConfirmation(contact: any) {
+    this.idToChangeAfterConfirmation = contact.id;
   }
 
   AddReply(form: {reply: string}) {
-    console.log("not yet implemented");
+    console.log(form, this.idToChangeAfterConfirmation);
+    this.databaseService.patchData('contact', form, this.idToChangeAfterConfirmation)
+      .subscribe(() => {
+        console.log('contact replied');
+        this.getContacts();
+      })
   }
 
   deleteContact() {

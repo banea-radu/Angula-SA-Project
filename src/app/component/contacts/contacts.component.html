@@ -1,7 +1,7 @@
 <div class="container text-center mb-3">
   <div class="card p-2">
     <div class="card-title d-flex justify-content-center align-items-center">
-      <h5> Contact form messages </h5>
+      <h5> Contact messages </h5>
     </div>
     <div>
       <div class="card-table">
@@ -11,28 +11,26 @@
               <tr>
                 <th> Nr. </th>
                 <th> Date </th>
-                <th> Name </th>
                 <th> Email </th>
                 <th> Subject </th>
-                <th> Message </th>
-                <th> Action </th>
+                <th> Replied </th>
+                <th colspan="2"> Reply/Delete </th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
               <tr *ngFor="let contact of contacts; let i=index">
                 <td> {{ i+1 }} </td>
-                <td> {{ contact.dateSubmitted }} </td>
-                <td> {{ contact.name }} </td>
+                <td> {{ contact.dateSubmitted | date: 'yyyy/mm/dd HH:MM' }} </td>
                 <td> {{ contact.email }} </td>
                 <td> {{ contact.subject }} </td>
-                <td> {{ contact.message }} </td>
+                <td [ngClass]="{'table-danger': contact.reply == null}" > {{ contact.reply != null ? "Yes" : "No" }} </td>
                 <td>
-                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#replyModal" (click)="saveIdToChangeAfterConfirmation(contact.id)">
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#replyModal" (click)="saveIdToChangeAfterConfirmation(contact)">
                     <i class="fa-solid fa-reply"></i>
                   </button>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="saveIdToChangeAfterConfirmation(contact.id)">
+                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="saveIdToChangeAfterConfirmation(contact)">
                     <i class="fas fa-trash-alt"></i>
                   </button>
                 </td>
@@ -49,7 +47,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5"> Add Reply </h1>
+        <h1 class="modal-title fs-5"> </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -58,7 +56,9 @@
           (ngSubmit)="AddReply(form.value)"
           [formGroup]="AddReplyForm"
           class="d-flex flex-column align-items-center justify-content-center">
-          <label class="fs-3" for="reply"> Reply Message: </label>
+          <h2 class="fs-5"> Reply to message: </h2>
+          <label class="fs-5" for="name"> Name: Contact Name</label>
+          <label class="fs-5" for="reply"> Reply Message: </label>
           <textarea
             formControlName="reply"
             name="reply"
@@ -79,11 +79,11 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5"> Delete Contact </h1>
+        <h1 class="modal-title fs-5">  </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h2 class="fs-5 text-center">Are you sure you want to delete this Contact?</h2>
+        <h2 class="delete-modal-body-height fs-5 row justify-content-center align-items-center"> Are you sure you want to delete this Contact? </h2>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteContact()"> Delete </button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> Cancel </button>
