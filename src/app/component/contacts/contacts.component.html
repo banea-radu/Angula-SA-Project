@@ -53,21 +53,28 @@
       <div class="modal-body">
         <form 
           #form='ngForm'
-          (ngSubmit)="AddReply(form.value)"
-          [formGroup]="AddReplyForm"
+          (ngSubmit)="addReply(form.value)"
+          [formGroup]="addReplyForm"
           class="d-flex flex-column align-items-center justify-content-center">
-          <h2 class="fs-5"> Reply to message: </h2>
-          <label class="fs-5" for="name"> Name: Contact Name</label>
-          <label class="fs-5" for="reply"> Reply Message: </label>
+          <h2 class="fs-5"> Reply to message from: </h2>
+          <div class="d-flex flex-column">
+            <label class="text-start" for="name"> <strong> Name: </strong> {{ contactReplyData.name }} </label>
+            <label for="email"> <strong> Email: </strong> {{ contactReplyData.email }} </label>
+            <label for="email"> <strong> Date: </strong> {{ contactReplyData.dateSubmitted | date: 'yyyy/mm/dd HH:MM' }} </label>
+            <label for="email"> <strong> Subject: </strong> {{ contactReplyData.subject }} </label>
+            <label for="email"> <strong> Message: </strong> {{ contactReplyData.message }} </label>
+          </div>
+          <label class="fs-5" for="reply"> <strong> Reply Message: </strong> </label>
           <textarea
             formControlName="reply"
             name="reply"
             id="reply-textarea"
-            class="p-2 border border-success rounded mb-2">
+            class="p-2 border border-success rounded mb-2"
+            ngModel='{{ contactReplyData.reply }}'>
           </textarea>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> Reply </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
           </div>
         </form>
       </div>

@@ -12,10 +12,16 @@ export class ContactsComponent {
   contacts: any;
   keys: string[] = [];
   idToChangeAfterConfirmation: string = ''; // this is used for id storing until confirmation of delete/reply is handled in modal
-  AddReplyForm = this.formbuilder.group({
+  addReplyForm = this.formbuilder.group({
     reply: [null],
   })
-  // contact: DbContact = {};
+  contactReplyData: DbContact = {
+    dateSubmitted: new Date(),
+    email: "?",
+    message: "?",
+    name: "?",
+    subject: "?"
+  };
 
   constructor(
     private databaseService: DatabaseService,
@@ -36,10 +42,10 @@ export class ContactsComponent {
 
   saveIdToChangeAfterConfirmation(contact: any) {
     this.idToChangeAfterConfirmation = contact.id;
+    this.contactReplyData = contact;
   }
 
-  AddReply(form: {reply: string}) {
-    console.log(form, this.idToChangeAfterConfirmation);
+  addReply(form: {reply: string}) {
     this.databaseService.patchData('contact', form, this.idToChangeAfterConfirmation)
       .subscribe(() => {
         console.log('contact replied');

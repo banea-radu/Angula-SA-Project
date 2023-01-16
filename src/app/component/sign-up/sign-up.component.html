@@ -19,7 +19,7 @@
       class="login-form d-flex flex-column m-2 w-100"
     >
 
-      <label for="name"> {{ 'Login.Form.Name.Label' | translate }} </label>
+      <label for="name"> Name </label>
       <input type="text"
         formControlName="name"
         name="name"
@@ -61,11 +61,11 @@
           {{ 'Login.Form.Password.Invalid-Message' | translate }}
       </small>
       
-      <app-button type="submit" title="{{ 'Login.Form.Submit-Button-Text' | translate }}"></app-button>
+      <app-button type="submit" title="Register"></app-button>
     </form>
 
     <div>
-      <span class="align-middle">Already have an account?</span><span class="btn text-success link-warning" routerLink="/sign-in"> Sign-in</span>
+      <span class="align-middle"> Already have an account? </span><span class="btn text-success link-warning" routerLink="/sign-in"> Sign-in</span>
     </div>
 
   </div>

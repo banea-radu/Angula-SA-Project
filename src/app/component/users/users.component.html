@@ -1,0 +1,55 @@
+<div class="container text-center mb-3">
+  <div class="card p-2">
+    <div class="card-title d-flex justify-content-center align-items-center">
+      <h5> Users </h5>
+    </div>
+    <div>
+      <div class="card-table">
+        <div class="cart-product table-responsive">
+          <table class="table table-striped table-hover table-bordered align-middle table-sm">
+            <thead>
+              <tr>
+                <th> Nr. </th>
+                <th> Name </th>
+                <th> Email </th>
+                <th> Registered </th>
+                <th> Action </th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let user of users; let i=index">
+                <td> {{ i+1 }} </td>
+                <td> {{ user.name }} </td>
+                <td> {{ user.email }} </td>
+                <td> {{ user.dateSubmitted | date: 'yyyy/mm/dd HH:MM' }} </td>
+                <td>
+                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="saveIdToDeleteAfterConfirmation(user.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for delete confirmation -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"> </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <h2 class="delete-modal-body-height fs-5 row justify-content-center align-items-center">Are you sure you want to delete this User?</h2>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteUser()"> Delete </button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> Cancel </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

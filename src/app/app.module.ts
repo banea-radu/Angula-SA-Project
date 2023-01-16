@@ -19,10 +19,10 @@ import { SignInComponent } from './component/sign-in/sign-in.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
-import { UsersDataComponent } from './component/my-account/users-data/users-data.component';
+import { UsersComponent } from './component/users/users.component';
 import { ProgramsComponent } from './component/programs/programs.component';
 import { ContactsComponent } from './component/contacts/contacts.component';
-import { NewsletterDataComponent } from './component/my-account/newsletter-data/newsletter-data.component';
+import { NewsletterComponent } from './component/newsletter/newsletter.component';
 import { MyProfileComponent } from './component/my-account/my-profile/my-profile.component';
 
 import { HttpClient } from '@angular/common/http';
@@ -58,10 +58,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    UsersDataComponent,
+    UsersComponent,
     ProgramsComponent,
     ContactsComponent,
-    NewsletterDataComponent,
+    NewsletterComponent,
     MyProfileComponent
   ],
   imports: [

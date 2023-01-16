@@ -13,7 +13,7 @@
                 <th> Day </th>
                 <th> Time </th>
                 <th> Category </th>
-                <th> Action </th>
+                <th> Delete </th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -112,11 +112,11 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5"> Delete Program </h1>
+        <h1 class="modal-title fs-5"> </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h2 class="fs-5 text-center">Are you sure you want to delete this Program?</h2>
+      <h2 class="delete-modal-body-height fs-5 row justify-content-center align-items-center">Are you sure you want to delete this Program?</h2>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteProgram()"> Delete </button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> Cancel </button>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import { map } from 'rxjs/operators';
 export class DatabaseService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    public angularFireAuth: AngularFireAuth
   ) {}
 
   createCompleteUrl(endpoint: string, id?: string){
@@ -27,11 +29,6 @@ export class DatabaseService {
     }
     return completeUrl;
   }
-
-  // getData(endpoint: string){
-  //   const completeUrl = this.createCompleteUrl(endpoint);
-  //   return this.http.get(completeUrl);
-  // }
 
   getData(endpoint: string){
     const completeUrl = this.createCompleteUrl(endpoint);
@@ -59,4 +56,5 @@ export class DatabaseService {
     const completeUrl = this.createCompleteUrl(endpoint, id);
     return this.http.delete(completeUrl);
   }
+ 
 }

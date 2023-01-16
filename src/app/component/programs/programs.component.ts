@@ -9,14 +9,13 @@ import { DatabaseService } from 'src/app/service/database.service';
 })
 export class ProgramsComponent {
   programs: any;
-  keys: string[] = [];
   idToDeleteAfterConfirmation: string = '';
   newProgramForm = this.formbuilder.group({
     Day: ['Monday'],
-    StartHour: ['16'],
-    StartMinute: ['30'],
-    EndHour: ['17'],
-    EndMinute: ['30'],
+    StartHour: ['07'],
+    StartMinute: ['00'],
+    EndHour: ['07'],
+    EndMinute: ['00'],
     Category: ['Intermediate']
   })
   timeHours = ['07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
