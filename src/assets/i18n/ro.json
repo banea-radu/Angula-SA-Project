@@ -120,9 +120,9 @@
     }
   },
   "Login" : {
-    "Welcome-Title" : "Logare",
+    "Welcome-Title" : "Autentificare",
     "Form" : {
-      "Title" : "Pentru a accesa contul tău e nevoie să te loghezi:",
+      "Title" : "Pentru a accesa contul tău e nevoie să te autentifici:",
       "Email" : {
         "Label" : "Adresa de E-mail:",
         "Placeholder" : "Ex: popescu.ion@gmail.com",
@@ -133,8 +133,60 @@
         "Placeholder" : "Ex: Parola1234",
         "Invalid-Message" : "Parola trebuie să conțină cel puțin 5 de caractere."
       },
-      "Submit-Button-Text" : "Logare",
+      "Submit-Button-Text" : "Autentificare",
       "Submit-Alert-Warning" : "⚠ Email-ul sau Parola sunt greșite! Încearcă te rog din nou!"
-    }
+    },
+    "Forgot-Password" : "Ai uitat parola?",
+    "Don't-have-an-account" : "Nu ai cont?",
+    "Register" : "Crează cont"
+  },
+  "Reset-Password" : {
+    "Welcome-Title" : "Resetare Parolă",
+    "Form" : {
+      "Title" : "Te rog să introduci adresa de e-mail pentru resetarea parolei:",
+      "Email" : {
+        "Label" : "Adresa de E-mail:",
+        "Placeholder" : "Ex: popescu.ion@gmail.com",
+        "Invalid-Message" : "Te rog introdu un email valid."
+      },
+      "Submit-Button-Text" : "Resetează parola",
+      "Submit-Alert-Warning" : "⚠ Adresa de e-mail este formatată greșit sau nu există în baza de date! Încearcă te rog din nou!",
+      "Submit-Alert-Success" : "E-mail de resetare a parolei trimis, te rog verifică adresa de e-mail."
+    },
+    "Go-Back" : "Întoarce-te la?",
+    "Login" : "Autentificare"
+  },
+  "Register" : {
+    "Welcome-Title" : "Înregistrare",
+    "Form" : {
+      "Title" : "Pentru a crea un cont completează formularul de mai jos:",
+      "Name" : {
+        "Label" : "Nume Prenume:",
+        "Placeholder" : "Ex: Popescu Ion",
+        "Invalid-Message" : "Numele trebuie să conțină cel puțin 3 caractere (fără cifre)."
+      },
+      "Email" : {
+        "Label" : "Adresa de E-mail:",
+        "Placeholder" : "Ex: popescu.ion@gmail.com",
+        "Invalid-Message" : "Te rog introdu un email valid."
+      },
+      "Password" : {
+        "Label" : "Parola:",
+        "Placeholder" : "Ex: Parola1234",
+        "Invalid-Message" : "Parola trebuie să conțină cel puțin 5 de caractere."
+      },
+      "Submit-Button-Text" : "Înregistrează-te",
+      "Submit-Alert-Warning" : "⚠ Adresa de e-mail este deja utilizată de un alt cont sau există o problemă cu serverul! Încearcă te rog din nou!"
+    },
+    "Already-have-an-account" : "Ai deja un cont?",
+    "Login" : "Autentificare"
+  },
+  "Verify-Email-Address" : {
+    "Welcome-Title" : "Mulțumesc pentru înregistrare",
+    "Email-Sent-To" : "Am trimis un e-mail de confirmare la ",
+    "Please-Check-Email" : "Verifică te rog e-mailul și fă clic pe link pentru a verifica adresa de e-mail",
+    "Resend-Verification-Email" : "Retrimite email-ul de verificare",
+    "Go-Back" : "Întoarce-te la?",
+    "Login" : "Autentificare"
   }
 }

@@ -20,7 +20,7 @@
               <!-- <tr *ngFor="let key of keys; let i=index"> -->
               <tr *ngFor="let subscriber of newsletter; let i=index">
                 <td> {{ i+1 }} </td>
-                <td> {{ subscriber.dateSubmitted | date: 'yyyy/mm/dd HH:MM' }} </td>
+                <td> {{ subscriber.dateSubmitted | date: 'yyyy/MM/dd' }} </td>
                 <td> {{ subscriber.name }} </td>
                 <td> {{ subscriber.email }} </td>
                 <td>

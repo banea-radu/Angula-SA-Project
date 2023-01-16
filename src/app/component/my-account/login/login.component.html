@@ -1,12 +1,12 @@
 <div class="main" *ngIf="!menuOpened">
   
-  <section class="welcome d-flex justify-content-center align-items-center">
+  <section class="welcome-section-25vh d-flex justify-content-center align-items-center">
     <div class="text-white">
       <h1> {{ 'Login.Welcome-Title' | translate }} </h1>
     </div>
   </section>
 
-  <section class="bg-white p-4">
+  <section class="section-50vh bg-white p-4 d-flex justify-content-center align-items-center">
 
     <div class="d-flex flex-column align-items-center justify-content-center">
 
@@ -16,7 +16,7 @@
         #form='ngForm'
         [formGroup]="loginForm"
         (ngSubmit)="formSubmit(form.value)"
-        class="login-form d-flex flex-column m-2 w-100"
+        class="d-flex flex-column m-2 w-100"
       >
 
         <label for="email"> {{ 'Login.Form.Email.Label' | translate }} </label>
@@ -51,10 +51,11 @@
       </form>
 
       <div class="btn text-success link-warning">
-        <span routerLink="/forgot-password">Forgot Password?</span>
+        <span routerLink="/forgot-password"> {{ 'Login.Forgot-Password' | translate }} </span>
       </div>
       <div>
-        <span class="align-middle">Don't have an account?</span><span class="btn text-success link-warning" routerLink="/register"> Register </span>
+        <span class="align-middle"> {{ "Login.Don't-have-an-account" | translate }} </span>
+        <span class="btn text-success link-warning" routerLink="/register"> {{ 'Login.Register' | translate }} </span>
       </div>
 
     </div>

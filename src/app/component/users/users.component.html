@@ -21,7 +21,7 @@
                 <td> {{ i+1 }} </td>
                 <td> {{ user.name }} </td>
                 <td> {{ user.email }} </td>
-                <td> {{ user.dateSubmitted | date: 'yyyy/mm/dd HH:MM' }} </td>
+                <td> {{ user.dateSubmitted | date: 'yyyy/MM/dd' }} </td>
                 <td>
                   <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="saveIdToDeleteAfterConfirmation(user.id)">
                     <i class="fas fa-trash-alt"></i>

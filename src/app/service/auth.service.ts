@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 import { DbAuthUser } from '../model/db-auth-user';
 import { Router } from '@angular/router';
 import { DatabaseService } from './database.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AuthService {
     public router: Router,
     public angularFireAuth: AngularFireAuth,
     public angularFireStore: AngularFirestore,
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private translate: TranslateService
   ) {
     // Save user data in localstorage when logged in, set null when logged out
     this.angularFireAuth.authState.subscribe((user) => {
@@ -44,7 +46,10 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.translate.get('Login.Form.Submit-Alert-Warning')
+          .subscribe((res: string) => {
+            alert(res);
+        })
       });
   }
 
@@ -62,7 +67,10 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.translate.get('Register.Form.Submit-Alert-Warning')
+          .subscribe((res: string) => {
+            alert(res);
+        })
       });
   }
 
@@ -80,10 +88,16 @@ export class AuthService {
     return this.angularFireAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        this.translate.get('Reset-Password.Form.Submit-Alert-Success')
+          .subscribe((res: string) => {
+            alert(res);
+        })
       })
       .catch((error) => {
-        window.alert(error);
+        this.translate.get('Reset-Password.Form.Submit-Alert-Warning')
+          .subscribe((res: string) => {
+            alert(res);
+        })
       });
   }
 

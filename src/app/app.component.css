@@ -1,4 +1,4 @@
-@keyframes slide-from-bottom {
+/* @keyframes slide-from-bottom {
   0% {
     transform: translateY(100%);
   }
@@ -9,4 +9,4 @@
 
 .main {
   animation: slide-from-bottom 500ms;
-}
+} */

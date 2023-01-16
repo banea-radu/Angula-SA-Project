@@ -1,35 +1,36 @@
 <div class="main" *ngIf="!menuOpened">
   
-  <section class="welcome d-flex justify-content-center align-items-center">
-
+  <section class="welcome-section-25vh d-flex justify-content-center align-items-center">
     <div class="text-white">
-      <h1> Thank You for Registering </h1>
+      <h1> {{ 'Verify-Email-Address.Welcome-Title' | translate }} </h1> 
     </div>
-
   </section>
 
-  <section class="bg-white p-4">
+  <section class="section-50vh bg-white p-4 d-flex justify-content-center align-items-center">
 
     <div class="d-flex flex-column align-items-center justify-content-center">
       
-      <div class="formGroup" *ngIf="authService.userData as user">
-        <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-        <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+      <div  *ngIf="authService.userData as user">
+        <p class="text-center">
+          {{ 'Verify-Email-Address.Email-Sent-To' | translate }}
+          <strong>{{user.email}}</strong>
+          .
+        </p>
+        <p class="text-center"> {{ 'Verify-Email-Address.Please-Check-Email' | translate }} </p>
       </div>
     
-      <div class="formGroup">
+      <div >
         <button type="button" class="btn text-success link-warning" (click)="sendVerificationMail()">
           <i class="fas fa-redo-alt"></i>
-          Resend Verification Email
+          {{ 'Verify-Email-Address.Resend-Verification-Email' | translate }}
         </button>
       </div>
 
       <div>
-        <span class="align-middle">Go back to ?</span><span class="btn text-success link-warning" routerLink="/login"> Login </span>
+        <span class="align-middle"> {{ 'Verify-Email-Address.Go-Back' | translate }} </span>
+        <span class="btn text-success link-warning" routerLink="/login"> {{ 'Verify-Email-Address.Login' | translate }} </span>
       </div>
 
     </div>
-
   </section>
-
 </div>

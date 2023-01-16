@@ -11,7 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ForgotPasswordComponent {
   menuOpened: boolean = false;
 
-  loginForm = this.formbuilder.group({
+  resetForm = this.formbuilder.group({
     email: [null, Validators.compose(
       [
         Validators.required,
@@ -34,7 +34,7 @@ export class ForgotPasswordComponent {
   }
 
   formSubmit(form: {email: string}) {
-    if (this.loginForm.valid) {
+    if (this.resetForm.valid) {
       this.authService.ForgotPassword(form.email);
     }
   }

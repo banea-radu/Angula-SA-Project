@@ -10,7 +10,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   menuOpened: boolean = false;
-
   loginForm = this.formbuilder.group({
     email: [null, Validators.compose(
       [
@@ -41,31 +40,8 @@ export class LoginComponent {
 
   formSubmit(form: {email: string, password: string}) {
     if (this.loginForm.valid) {
-  //     let correctPassword: boolean = false;
-
-  //     this.firebaseService.getData('users').subscribe((response) => {
-
-  //       for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
-  //         if (form.email == item.email) {
-  //           if (form.password == item.password) {
-  //             correctPassword = true;
-  //             break; // if already subscribed, exit for loop
-  //           }
-  //         }
-  //       }
-
-  //       if (correctPassword) {
-  //         console.log("loged in");
-  //       } else {
-  //         this.translate.get('Login.Form.Submit-Alert-Warning').subscribe((res: string) => {
-  //           alert(res);
-  //         });
-  //       }
-
-  //     })
-
-    this.authService.SignIn(form.email, form.password);
+      this.authService.SignIn(form.email, form.password);
     }
   }
-
-  }
+  
+}

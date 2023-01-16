@@ -11,7 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent {
   menuOpened: boolean = false;
 
-  loginForm = this.formbuilder.group({
+  registerForm = this.formbuilder.group({
     name: [null, Validators.compose(
       [
         Validators.required,
@@ -47,7 +47,7 @@ export class RegisterComponent {
   }
 
   formSubmit(form: {name: string, email: string, password: string}) {
-    if (this.loginForm.valid) {
+    if (this.registerForm.valid) {
       this.authService.SignUp(form.name, form.email, form.password);
     }
   }

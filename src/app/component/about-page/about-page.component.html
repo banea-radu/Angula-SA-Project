@@ -1,13 +1,12 @@
 <div class="main" *ngIf="!menuOpened">
-  
-  <section class="welcome d-flex justify-content-center align-items-center">
+  <!-- Welcome section -->
+  <section class="welcome-section-50vh d-flex justify-content-center align-items-center">
     <div class="text-white">
       <h1> {{ 'About.Welcome-Title' | translate }} </h1>
     </div>
   </section>
-
+  <!-- Main section -->
   <section class="bg-white">
       <app-about-cards></app-about-cards>
   </section>
-  
 </div>

@@ -1,73 +1,74 @@
 <div class="main" *ngIf="!menuOpened">
   
-<section class="welcome d-flex justify-content-center align-items-center">
-  <div class="text-white">
-    <h1> Register </h1>
-  </div>
-</section>
-
-<section class="bg-white p-4">
-
-  <div class="d-flex flex-column align-items-center justify-content-center">
-
-    <p class="text-center"> <strong> To create an account fill out the form below: </strong></p>
-   
-    <form 
-      #form='ngForm'
-      [formGroup]="loginForm"
-      (ngSubmit)="formSubmit(form.value)"
-      class="login-form d-flex flex-column m-2 w-100"
-    >
-
-      <label for="name"> Name </label>
-      <input type="text"
-        formControlName="name"
-        name="name"
-        placeholder="{{ 'Login.Form.Name.Placeholder' | translate }}"
-        class="p-2 border border-success rounded mb-2"
-        [ngClass]="form.submitted ? 'ng-touched' : ''">
-      <small
-        *ngIf="(loginForm.controls.name.invalid && loginForm.controls.name.dirty)
-          || (loginForm.controls.name.invalid && form.submitted)"
-        class="alert alert-danger">
-          {{ 'Login.Form.Name.Invalid-Message' | translate }}
-      </small>
-
-      <label for="email"> {{ 'Login.Form.Email.Label' | translate }} </label>
-      <input type="email"
-        formControlName="email"
-        name="email"
-        placeholder="{{ 'Login.Form.Email.Placeholder' | translate }}"
-        class="p-2 border border-success rounded mb-2"
-        [ngClass]="form.submitted ? 'ng-touched' : ''">
-      <small
-        *ngIf="(loginForm.controls.email.invalid && loginForm.controls.email.dirty)
-          || (loginForm.controls.email.invalid && form.submitted)"
-        class="alert alert-danger">
-          {{ 'Login.Form.Email.Invalid-Message' | translate }}
-      </small>
-
-      <label for="password"> {{ 'Login.Form.Password.Label' | translate }} </label>
-      <input type="password"
-        formControlName="password"
-        name="password"
-        placeholder="{{ 'Login.Form.Password.Placeholder' | translate }}"
-        class="p-2 border border-success rounded mb-2"
-        [ngClass]="form.submitted ? 'ng-touched' : ''">
-      <small
-        *ngIf="(loginForm.controls.password.invalid && loginForm.controls.password.dirty)
-          || (loginForm.controls.password.invalid && form.submitted)"
-        class="alert alert-danger">
-          {{ 'Login.Form.Password.Invalid-Message' | translate }}
-      </small>
-      
-      <app-button type="submit" title="Register"></app-button>
-    </form>
-
-    <div>
-      <span class="align-middle"> Already have an account? </span><span class="btn text-success link-warning" routerLink="/login"> Login </span>
+  <section class="welcome-section-25vh d-flex justify-content-center align-items-center">
+    <div class="text-white">
+      <h1> {{ 'Register.Welcome-Title' | translate }} </h1>
     </div>
+  </section>
 
-  </div>
-</section>
+  <section class="section-50vh bg-white p-4 d-flex justify-content-center align-items-center">
+
+    <div class="d-flex flex-column align-items-center justify-content-center">
+
+      <p class="text-center"> <strong> {{ 'Register.Form.Title' | translate }} </strong></p>
+    
+      <form 
+        #form='ngForm'
+        [formGroup]="registerForm"
+        (ngSubmit)="formSubmit(form.value)"
+        class="register-form d-flex flex-column m-2 w-100"
+      >
+
+        <label for="name"> {{ 'Register.Form.Name.Label' | translate }} </label>
+        <input type="text"
+          formControlName="name"
+          name="name"
+          placeholder="{{ 'Register.Form.Name.Placeholder' | translate }}"
+          class="p-2 border border-success rounded mb-2"
+          [ngClass]="form.submitted ? 'ng-touched' : ''">
+        <small
+          *ngIf="(registerForm.controls.name.invalid && registerForm.controls.name.dirty)
+            || (registerForm.controls.name.invalid && form.submitted)"
+          class="alert alert-danger">
+            {{ 'Register.Form.Name.Invalid-Message' | translate }}
+        </small>
+
+        <label for="email"> {{ 'Register.Form.Email.Label' | translate }} </label>
+        <input type="email"
+          formControlName="email"
+          name="email"
+          placeholder="{{ 'Register.Form.Email.Placeholder' | translate }}"
+          class="p-2 border border-success rounded mb-2"
+          [ngClass]="form.submitted ? 'ng-touched' : ''">
+        <small
+          *ngIf="(registerForm.controls.email.invalid && registerForm.controls.email.dirty)
+            || (registerForm.controls.email.invalid && form.submitted)"
+          class="alert alert-danger">
+            {{ 'Register.Form.Email.Invalid-Message' | translate }}
+        </small>
+
+        <label for="password"> {{ 'Register.Form.Password.Label' | translate }} </label>
+        <input type="password"
+          formControlName="password"
+          name="password"
+          placeholder="{{ 'Register.Form.Password.Placeholder' | translate }}"
+          class="p-2 border border-success rounded mb-2"
+          [ngClass]="form.submitted ? 'ng-touched' : ''">
+        <small
+          *ngIf="(registerForm.controls.password.invalid && registerForm.controls.password.dirty)
+            || (registerForm.controls.password.invalid && form.submitted)"
+          class="alert alert-danger">
+            {{ 'Register.Form.Password.Invalid-Message' | translate }}
+        </small>
+        
+        <app-button type="submit" title="{{ 'Register.Form.Submit-Button-Text' | translate }}"></app-button>
+      </form>
+
+      <div>
+        <span class="align-middle"> {{ 'Register.Already-have-an-account' | translate }} </span>
+        <span class="btn text-success link-warning" routerLink="/login"> {{ 'Register.Login' | translate }} </span>
+      </div>
+
+    </div>
+  </section>
 </div>

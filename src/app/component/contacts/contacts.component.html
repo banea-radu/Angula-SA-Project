@@ -20,7 +20,7 @@
             <tbody class="table-group-divider">
               <tr *ngFor="let contact of contacts; let i=index">
                 <td> {{ i+1 }} </td>
-                <td> {{ contact.dateSubmitted | date: 'yyyy/mm/dd HH:MM' }} </td>
+                <td> {{ contact.dateSubmitted | date: 'yyyy/MM/dd'}} </td>
                 <td> {{ contact.email }} </td>
                 <td> {{ contact.subject }} </td>
                 <td [ngClass]="{'table-danger': contact.reply == null}" > {{ contact.reply != null ? "Yes" : "No" }} </td>
@@ -60,7 +60,7 @@
           <div class="d-flex flex-column">
             <label class="text-start" for="name"> <strong> Name: </strong> {{ contactReplyData.name }} </label>
             <label for="email"> <strong> Email: </strong> {{ contactReplyData.email }} </label>
-            <label for="email"> <strong> Date: </strong> {{ contactReplyData.dateSubmitted | date: 'yyyy/mm/dd HH:MM' }} </label>
+            <label for="email"> <strong> Date: </strong> {{ contactReplyData.dateSubmitted | date: 'yyyy/MM/dd' }} </label>
             <label for="email"> <strong> Subject: </strong> {{ contactReplyData.subject }} </label>
             <label for="email"> <strong> Message: </strong> {{ contactReplyData.message }} </label>
           </div>

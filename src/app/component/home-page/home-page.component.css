@@ -1,6 +1,7 @@
 /* || Slider */
 #slider {
-  width: 95%;
+  width: 700px;
+  max-width: 95%;
 }
 
 .slide-from-left {
@@ -9,22 +10,4 @@
 
 .slide-from-right {
   animation: slide-from-right 500ms;
-}
-
-@keyframes slide-from-left {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes slide-from-right {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
 }

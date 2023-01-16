@@ -120,9 +120,9 @@
     }
   },
   "Login" : {
-    "Welcome-Title" : "Sign-in",
+    "Welcome-Title" : "Login",
     "Form" : {
-      "Title" : "To access your account you need to sign-in:",
+      "Title" : "To access your account you need to login:",
       "Email" : {
         "Label" : "E-mail address:",
         "Placeholder" : "Ex: john.doe@gmail.com",
@@ -133,8 +133,60 @@
         "Placeholder" : "Ex: Password1234",
         "Invalid-Message" : "The password must contain at least 5 characters."
       },
-      "Submit-Button-Text" : "Sign-in",
+      "Submit-Button-Text" : "Login",
       "Submit-Alert-Warning" : "⚠ Email or Password incorrect! Please try again!"
-    }
+    },
+    "Forgot-Password" : "Forgot Password?",
+    "Don't-have-an-account" : "Don't have an account?",
+    "Register" : "Register"
+  },
+  "Reset-Password" : {
+    "Welcome-Title" : "Reset Password",
+    "Form" : {
+      "Title" : "Please enter your email address to request a password reset:",
+      "Email" : {
+        "Label" : "E-mail address:",
+        "Placeholder" : "Ex: john.doe@gmail.com",
+        "Invalid-Message" : "Please enter a valid email."
+      },
+      "Submit-Button-Text" : "Reset Password",
+      "Submit-Alert-Warning" : "⚠ The email address is badly formatted or does not exist in database! Please try again!",
+      "Submit-Alert-Success" : "Password reset email sent, check your inbox."
+    },
+    "Go-Back" : "Go back to?",
+    "Login" : "Login"
+  },
+  "Register" : {
+    "Welcome-Title" : "Register",
+    "Form" : {
+      "Title" : "To create an account fill out the form below:",
+      "Name" : {
+        "Label" : "First and Last Name:",
+        "Placeholder" : "Ex: John Doe",
+        "Invalid-Message" : "Name must contain at least 3 characters (numbers are not allowed)."
+      },
+      "Email" : {
+        "Label" : "E-mail address:",
+        "Placeholder" : "Ex: john.doe@gmail.com",
+        "Invalid-Message" : "Please enter a valid email."
+      },
+      "Password" : {
+        "Label" : "Password:",
+        "Placeholder" : "Ex: Password1234",
+        "Invalid-Message" : "The password must contain at least 5 characters."
+      },
+      "Submit-Button-Text" : "Register",
+      "Submit-Alert-Warning" : "⚠ The email address is already in use by another account or there is a server problem! Please try again!"
+    },
+    "Already-have-an-account" : "Already have an account?",
+    "Login" : "Login"
+  },
+  "Verify-Email-Address" : {
+    "Welcome-Title" : "Thank You for Registering",
+    "Email-Sent-To" : "We have sent a confirmation email to",
+    "Please-Check-Email" : "Please check your email and click on the link to verfiy your email address",
+    "Resend-Verification-Email" : "Resend Verification Email",
+    "Go-Back" : "Go back to?",
+    "Login" : "Login"
   }
 }
