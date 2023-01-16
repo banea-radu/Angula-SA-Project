@@ -4,11 +4,11 @@ import { MenuService } from 'src/app/service/menu.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SignInComponent {
+export class LoginComponent {
   menuOpened: boolean = false;
 
   loginForm = this.formbuilder.group({

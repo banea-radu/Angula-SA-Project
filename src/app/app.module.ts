@@ -15,10 +15,10 @@ import { AboutPageComponent } from './component/about-page/about-page.component'
 import { ContactPageComponent } from './component/contact-page/contact-page.component';
 import { AboutCardsComponent } from './component/shared/about-cards/about-cards.component';
 import { MyAccountComponent } from './component/my-account/my-account.component';
-import { SignInComponent } from './component/sign-in/sign-in.component';
-import { SignUpComponent } from './component/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
+import { LoginComponent } from './component/my-account/login/login.component';
+import { RegisterComponent } from './component/my-account/register/register.component';
+import { ForgotPasswordComponent } from './component/my-account/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './component/my-account/verify-email/verify-email.component';
 import { UsersComponent } from './component/users/users.component';
 import { ProgramsComponent } from './component/programs/programs.component';
 import { ContactsComponent } from './component/contacts/contacts.component';
@@ -54,8 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactPageComponent,
     AboutCardsComponent,
     MyAccountComponent,
-    SignInComponent,
-    SignUpComponent,
+    LoginComponent,
+    RegisterComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
     UsersComponent,

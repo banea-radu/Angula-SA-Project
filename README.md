@@ -64,17 +64,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - General:
 	- personalization:
 		- My account component:
-			- show/add/delete programs
-			- show/delete/reply contacts
-			- show subscribers
 			- translate all texts
-			- components reareange: users/programs/newsletter/contact outside myaccount, insert sign-in/sign-up...
 	- routing:
 		- page not found route
 - Nice to have's:
+	- loading screen
 	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
-	- book tables
 	- home-card redesign as single, transfer *ngFor to parent component
 	- about-card redesign as single, transfer *ngFor to parent component
 
@@ -95,6 +91,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- firebase authenticated users rules for database
 		- My account component:
 			-	route to redirect to login component if not logged
+			- show/add/delete programs
+			- show/delete/reply contacts
+			- show subscribers
+			- components reareange: users/programs/newsletter/contact outside myaccount, insert sign-in/sign-up...
 - Components
 	- Header:
 		- hide main body if burger menu opened

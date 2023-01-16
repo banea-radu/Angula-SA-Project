@@ -2,7 +2,7 @@
   
   <section class="welcome d-flex justify-content-center align-items-center">
     <div class="text-white">
-      <h1> Reset Password </h1>
+      <h1> {{ 'Login.Welcome-Title' | translate }} </h1>
     </div>
   </section>
 
@@ -10,8 +10,8 @@
 
     <div class="d-flex flex-column align-items-center justify-content-center">
 
-      <p class="text-center"> <strong> Please enter your email address to request a password reset: </strong></p>
-    
+      <p class="text-center"> <strong> {{ 'Login.Form.Title' | translate }} </strong></p>
+     
       <form 
         #form='ngForm'
         [formGroup]="loginForm"
@@ -32,12 +32,29 @@
           class="alert alert-danger">
             {{ 'Login.Form.Email.Invalid-Message' | translate }}
         </small>
-      
+
+        <label for="password"> {{ 'Login.Form.Password.Label' | translate }} </label>
+        <input type="password"
+          formControlName="password"
+          name="password"
+          placeholder="{{ 'Login.Form.Password.Placeholder' | translate }}"
+          class="p-2 border border-success rounded mb-2"
+          [ngClass]="form.submitted ? 'ng-touched' : ''">
+        <small
+          *ngIf="(loginForm.controls.password.invalid && loginForm.controls.password.dirty)
+            || (loginForm.controls.password.invalid && form.submitted)"
+          class="alert alert-danger">
+            {{ 'Login.Form.Password.Invalid-Message' | translate }}
+        </small>
+        
         <app-button type="submit" title="{{ 'Login.Form.Submit-Button-Text' | translate }}"></app-button>
       </form>
 
+      <div class="btn text-success link-warning">
+        <span routerLink="/forgot-password">Forgot Password?</span>
+      </div>
       <div>
-        <span class="align-middle">Go back to ?</span><span class="btn text-success link-warning" routerLink="/sign-in"> Sign In</span>
+        <span class="align-middle">Don't have an account?</span><span class="btn text-success link-warning" routerLink="/register"> Register </span>
       </div>
 
     </div>
