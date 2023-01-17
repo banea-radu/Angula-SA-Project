@@ -2,13 +2,16 @@
 <div class="container text-center mb-3" *ngIf="authService.userData as user">
   <div class="card p-2">
     <div class="card-title d-flex justify-content-center align-items-center">
-      <h5> My Profile </h5>
+      <h5> {{ 'My-Profile.Title' | translate }} </h5>
     </div>
     <div>
       <div class="card-table">
-        <p>Name: <strong>{{(user.displayName) ? user.displayName : userName}}</strong></p>
-        <p>Email: <strong>{{user.email}}</strong></p>
-        <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+        <p> {{ 'My-Profile.Name' | translate }} <strong> {{ (user.displayName) ? user.displayName : userName }} </strong></p>
+        <p> {{ 'My-Profile.Email' | translate }} <strong> {{ user.email }} </strong></p>
+        <p>
+          {{ 'My-Profile.Email-Verified' | translate }}
+          <strong> {{ user.emailVerified ? ('My-Profile.Email-Verified-True' | translate) : ('My-Profile.Email-Verified-False' | translate) }} </strong>
+        </p>
       </div>
     </div>
   </div>

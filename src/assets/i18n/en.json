@@ -188,5 +188,46 @@
     "Resend-Verification-Email" : "Resend Verification Email",
     "Go-Back" : "Go back to?",
     "Login" : "Login"
+  },
+  "My-Account" : {
+    "Welcome-Title" : "My Account",
+    "My-Profile" : "My profile",
+    "Programs" : "Programs",
+    "Contacts" : "Contacts",
+    "Newsletter" : "Newsletter",
+    "Users" : "Users",
+    "Log-Out" : "Log out"
+  },
+  "My-Profile" : {
+    "Title" : "My profile",
+    "Name" : "Name:",
+    "Email" : "Email:",
+    "Email-Verified" : "Email Verified:",
+    "Email-Verified-True" : "Yes",
+    "Email-Verified-False" : "No"
+  },
+  "Programs" : {
+    "Title" : "Programs",
+    "Day" : "Day",
+    "Time" : "Time",
+    "Category" : "Category",
+    "Delete" : "Delete",
+    "Add-New" : "Add New",
+    "Are-You-Sure-Delete" : "Are you sure you want to delete this Program?",
+    "Button-Delete" :"Delete",
+    "Button-Cancel" :"Cancel"
+  },
+  "Contacts" : {
+    "Title" : "Contacts messages",
+    "Date" : "Date",
+    "Email" : "Email",
+    "Subject" : "Subject",
+    "Replied" : "Replied",
+    "Reply/Delete" : "Reply/Delete",
+    "Replied-Yes" : "Yes",
+    "Replied-No" : "No",
+    "Are-You-Sure-Delete" : "Are you sure you want to delete this message?",
+    "Button-Delete" :"Delete",
+    "Button-Cancel" :"Cancel"
   }
 }

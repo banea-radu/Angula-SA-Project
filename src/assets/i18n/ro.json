@@ -188,5 +188,46 @@
     "Resend-Verification-Email" : "Retrimite email-ul de verificare",
     "Go-Back" : "Întoarce-te la?",
     "Login" : "Autentificare"
+  },
+  "My-Account" : {
+    "Welcome-Title" : "Contul meu",
+    "My-Profile" : "Profilul meu",
+    "Programs" : "Programe",
+    "Contacts" : "Contacte",
+    "Newsletter" : "Newsletter",
+    "Users" : "Utilizatori",
+    "Log-Out" : "Deconectare"
+  },
+  "My-Profile" : {
+    "Title" : "Profilul meu",
+    "Name" : "Nume:",
+    "Email" : "Email:",
+    "Email-Verified" : "Email verificat:",
+    "Email-Verified-True" : "Da",
+    "Email-Verified-False" : "Nu"
+  },
+  "Programs" : {
+    "Title" : "Programe",
+    "Day" : "Ziua",
+    "Time" : "Ora",
+    "Category" : "Categoria",
+    "Delete" : "Sterge",
+    "Add-New" : "Adaugă Program",
+    "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest program?",
+    "Button-Delete" :"Șterge",
+    "Button-Cancel" :"Anulare"
+  },
+  "Contacts" : {
+    "Title" : "Mesaje contacte",
+    "Date" : "Dată",
+    "Email" : "Email",
+    "Subject" : "Subiect",
+    "Replied" : "Răspuns",
+    "Reply/Delete" : "Răspunde/Șterge",
+    "Replied-Yes" : "Da",
+    "Replied-No" : "Nu",
+    "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest mesaj?",
+    "Button-Delete" :"Șterge",
+    "Button-Cancel" :"Anulare"
   }
 }

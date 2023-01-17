@@ -2,7 +2,7 @@
   <!-- Welcome section -->
   <section class="welcome d-flex justify-content-center align-items-center">
     <div class="text-white">
-      <h1> My Account </h1>
+      <h1> {{ 'My-Account.Welcome-Title' | translate }} </h1>
     </div>
   </section>
   <!-- Main section -->
@@ -13,37 +13,37 @@
         <li>
           <a class="btn text-black link-warning"
             [ngClass]="{'active': myaccountSectionSelected == 'My Profile'}" (click)="myaccountSectionSelect('My Profile')">
-            <i class="fas fa-user"></i> My Profile
+            <i class="fas fa-user"></i> {{ 'My-Account.My-Profile' | translate }}
           </a>
         </li>
         <li>
           <a class="btn text-black link-warning"
             [ngClass]="{'active': myaccountSectionSelected == 'Programs'}" (click)="myaccountSectionSelect('Programs')">
-            <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball"></i> Programs
+            <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball"></i> {{ 'My-Account.Programs' | translate }}
           </a>
         </li>
         <li>
           <a class="btn text-black link-warning"
             [ngClass]="{'active': myaccountSectionSelected == 'Contact'}" (click)="myaccountSectionSelect('Contact')">
-            <i class="fas fa-comment-dots"></i> Contact
+            <i class="fas fa-comment-dots"></i> {{ 'My-Account.Contacts' | translate }}
           </a>
         </li>
         <li>
           <a class="btn text-black link-warning"
           [ngClass]="{'active': myaccountSectionSelected == 'Newsletter'}" (click)="myaccountSectionSelect('Newsletter')">
-            <i class="fa-solid fa-newspaper"></i> Newsletter
+            <i class="fa-solid fa-newspaper"></i> {{ 'My-Account.Newsletter' | translate }}
           </a>
         </li>
         <li>
           <a class="btn text-black link-warning"
             [ngClass]="{'active': myaccountSectionSelected == 'Users'}" (click)="myaccountSectionSelect('Users')">
-            <i class="fa-solid fa-users"></i> Users
+            <i class="fa-solid fa-users"></i> {{ 'My-Account.Users' | translate }}
           </a>
         </li>
         <!-- Call SignOut() Api from AuthService -->
         <li>
           <a class="btn text-black link-warning" (click)="authService.SignOut()">
-            <i class="fas fa-sign-out-alt"></i> Log out
+            <i class="fas fa-sign-out-alt"></i> {{ 'My-Account.Log-Out' | translate }}
           </a>
         </li>
       </ul>
