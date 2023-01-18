@@ -213,6 +213,14 @@
     "Category" : "Category",
     "Delete" : "Delete",
     "Add-New" : "Add New",
+    "Add-New-Program" : {
+      "Title" : "Add New Program",
+      "Day" : "Day",
+      "Time" : "Time",
+      "Category" : "Category",
+      "Button-Save" : "Save",
+      "Button-Cancel" : "Cancel"
+    },
     "Are-You-Sure-Delete" : "Are you sure you want to delete this Program?",
     "Button-Delete" :"Delete",
     "Button-Cancel" :"Cancel"
@@ -226,7 +234,38 @@
     "Reply/Delete" : "Reply/Delete",
     "Replied-Yes" : "Yes",
     "Replied-No" : "No",
+    "Reply-Window" : {
+      "Title" : "Reply to message from:",
+      "Name" : "Name:",
+      "Email" : "Email:",
+      "Date" : "Date:",
+      "Subject" : "Subject:",
+      "Message" : "Message:",
+      "Reply-Message" : "Reply message:",
+      "Button-Reply" : "Reply",
+      "Button-Cancel" : "Cancel"
+    },
     "Are-You-Sure-Delete" : "Are you sure you want to delete this message?",
+    "Button-Delete" :"Delete",
+    "Button-Cancel" :"Cancel"
+  },
+  "Newsletter" : {
+    "Title" : "Newsletter subscribers",
+    "Date" : "Date",
+    "Name" : "Name",
+    "Email" : "Email",
+    "Delete" : "Delete",
+    "Are-You-Sure-Delete" : "Are you sure you want to delete this email?",
+    "Button-Delete" :"Delete",
+    "Button-Cancel" :"Cancel"
+  },
+  "Users" : {
+    "Title" : "Registered users",
+    "Name" : "Name",
+    "Email" : "Email",
+    "Registered" : "Registered date",
+    "Delete" : "Delete",
+    "Are-You-Sure-Delete" : "Are you sure you want to delete this user?",
     "Button-Delete" :"Delete",
     "Button-Cancel" :"Cancel"
   }

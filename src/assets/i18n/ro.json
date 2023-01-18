@@ -213,6 +213,14 @@
     "Category" : "Categoria",
     "Delete" : "Sterge",
     "Add-New" : "Adaugă Program",
+    "Add-New-Program" : {
+      "Title" : "Adaugă Program",
+      "Day" : "Ziua",
+      "Time" : "Ora",
+      "Category" : "Categoria",
+      "Button-Save" : "Adaugă",
+      "Button-Cancel" : "Anulare"
+    },
     "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest program?",
     "Button-Delete" :"Șterge",
     "Button-Cancel" :"Anulare"
@@ -226,7 +234,38 @@
     "Reply/Delete" : "Răspunde/Șterge",
     "Replied-Yes" : "Da",
     "Replied-No" : "Nu",
+    "Reply-Window" : {
+      "Title" : "Răspunde la mesajul primit de la:",
+      "Name" : "Nume:",
+      "Email" : "Email:",
+      "Date" : "Data:",
+      "Subject" : "Subiect:",
+      "Message" : "Mesaj:",
+      "Reply-Message" : "Răspunsul:",
+      "Button-Reply" : "Răspunde",
+      "Button-Cancel" : "Anulare"
+    },
     "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest mesaj?",
+    "Button-Delete" :"Șterge",
+    "Button-Cancel" :"Anulare"
+  },
+  "Newsletter" : {
+    "Title" : "Înscriși la Newsletter",
+    "Date" : "Data",
+    "Name" : "Nume",
+    "Email" : "Email",
+    "Delete" : "Șterge",
+    "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest email?",
+    "Button-Delete" :"Șterge",
+    "Button-Cancel" :"Anulare"
+  },
+  "Users" : {
+    "Title" : "Utilizatori înscriși",
+    "Name" : "Nume",
+    "Email" : "Email",
+    "Registered" : "Data înregistrării",
+    "Delete" : "Șterge",
+    "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest user?",
     "Button-Delete" :"Șterge",
     "Button-Cancel" :"Anulare"
   }

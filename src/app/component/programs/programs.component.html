@@ -47,13 +47,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h1 class="fs-5 text-center"> Add New Program </h1>
+        <h1 class="fs-5 text-center"> {{ 'Programs.Add-New-Program.Title' | translate }} </h1>
         <form 
           #form='ngForm'
           (ngSubmit)="addNewProgram(form.value)"
           [formGroup]="newProgramForm"
           class="d-flex flex-column align-items-center justify-content-center">
-          <label for="Day" class="fs-6"> Day </label>
+          <label for="Day" class="fs-6"> {{ 'Programs.Add-New-Program.Day' | translate }} </label>
           <select
             formControlName="Day"
             class="p-2 border border-success rounded mb-2">
@@ -65,7 +65,7 @@
             <option> Saturday </option>
             <option> Sunday </option>
           </select>
-          <label for="Time" class="fs-6"> Time </label>
+          <label for="Time" class="fs-6"> {{ 'Programs.Add-New-Program.Time' | translate }} </label>
           <div>
             <select
               formControlName="StartHour"
@@ -91,7 +91,7 @@
               <option *ngFor="let minute of timeMinutes"> {{ minute }} </option>
             </select>
           </div>
-          <label for="Category" class="fs-6"> Category </label>
+          <label for="Category" class="fs-6"> {{ 'Programs.Add-New-Program.Category' | translate }} </label>
           <select 
             formControlName="Category"
             class="p-2 border border-success rounded mb-2">
@@ -100,8 +100,8 @@
             <option> Advance </option>
           </select>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> Save </button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Programs.Add-New-Program.Button-Save' | translate }} </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Programs.Add-New-Program.Button-Cancel' | translate }} </button>
           </div>
         </form>
       </div>
@@ -120,7 +120,7 @@
       <h2 class="delete-modal-body-height fs-5 row justify-content-center align-items-center"> {{ 'Programs.Are-You-Sure-Delete' | translate }} </h2>
       <div class="modal-footer">
         <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteProgram()"> {{ 'Programs.Button-Delete' | translate }} </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Programs.Button-Cancel' | translate }} </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Programs.Button-Cancel' | translate }} </button>
       </div>
     </div>
   </div>

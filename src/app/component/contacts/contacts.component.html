@@ -56,15 +56,32 @@
           (ngSubmit)="addReply(form.value)"
           [formGroup]="addReplyForm"
           class="d-flex flex-column align-items-center justify-content-center">
-          <h2 class="fs-5"> Reply to message from: </h2>
+          <h2 class="fs-5"> {{ 'Contacts.Reply-Window.Title' | translate }} </h2>
           <div class="d-flex flex-column">
-            <label class="text-start" for="name"> <strong> Name: </strong> {{ contactReplyData.name }} </label>
-            <label for="email"> <strong> Email: </strong> {{ contactReplyData.email }} </label>
-            <label for="email"> <strong> Date: </strong> {{ contactReplyData.dateSubmitted | date: 'yyyy/MM/dd' }} </label>
-            <label for="email"> <strong> Subject: </strong> {{ contactReplyData.subject }} </label>
-            <label for="email"> <strong> Message: </strong> {{ contactReplyData.message }} </label>
+            <label class="text-start" for="name">
+                <strong> {{ 'Contacts.Reply-Window.Name' | translate }} </strong>
+                {{ contactReplyData.name }}
+            </label>
+            <label for="email">
+              <strong> {{ 'Contacts.Reply-Window.Email' | translate }} </strong>
+              {{ contactReplyData.email }}
+            </label>
+            <label for="date">
+              <strong> {{ 'Contacts.Reply-Window.Date' | translate }} </strong>
+              {{ contactReplyData.dateSubmitted | date: 'yyyy/MM/dd' }}
+            </label>
+            <label for="subject">
+              <strong> {{ 'Contacts.Reply-Window.Subject' | translate }} </strong>
+              {{ contactReplyData.subject }}
+            </label>
+            <label for="message">
+              <strong> {{ 'Contacts.Reply-Window.Message' | translate }} </strong>
+              {{ contactReplyData.message }}
+            </label>
           </div>
-          <label class="fs-5" for="reply"> <strong> Reply Message: </strong> </label>
+          <label class="fs-5" for="reply">
+            <strong> {{ 'Contacts.Reply-Window.Reply-Message' | translate }} </strong>
+          </label>
           <textarea
             formControlName="reply"
             name="reply"
@@ -73,8 +90,8 @@
             ngModel='{{ contactReplyData.reply }}'>
           </textarea>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> Reply </button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Contacts.Reply-Window.Button-Reply' | translate }} </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Contacts.Reply-Window.Button-Cancel' | translate }} </button>
           </div>
         </form>
       </div>
@@ -93,7 +110,7 @@
         <h2 class="delete-modal-body-height fs-5 row justify-content-center align-items-center"> {{ 'Contacts.Are-You-Sure-Delete' | translate }} </h2>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteContact()"> {{ 'Contacts.Button-Delete' | translate }} </button>
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Contacts.Button-Cancel' | translate }} </button>
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Contacts.Button-Cancel' | translate }} </button>
         </div>
       </div>
     </div>
