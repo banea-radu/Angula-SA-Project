@@ -268,5 +268,10 @@
     "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest user?",
     "Button-Delete" :"Șterge",
     "Button-Cancel" :"Anulare"
+  },
+  "Page-Not-Found" : {
+    "Title" : "Pagina nu a fost găsită (404)",
+    "Message" : "Pagina pe care ai încercat să o accesezi nu există!",
+    "Go-Back" : "Întoarce-te pe Pagina Principală"
   }
 }

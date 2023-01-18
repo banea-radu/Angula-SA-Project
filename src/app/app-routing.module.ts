@@ -10,7 +10,7 @@ import { LoginComponent } from './component/my-account/login/login.component';
 import { RegisterComponent } from './component/my-account/register/register.component';
 import { ForgotPasswordComponent } from './component/my-account/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './component/my-account/verify-email/verify-email.component';
-
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { MyAccountGuardService } from './service/my-account-guard.service';
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  // {path: '**', component: PageNotFoundComponent},  // Page not found route for a 404 page
+  { path: '**', component: PageNotFoundComponent },  // Page not found route for a 404 page
 ];
 
 @NgModule({

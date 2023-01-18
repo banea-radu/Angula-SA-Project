@@ -268,5 +268,10 @@
     "Are-You-Sure-Delete" : "Are you sure you want to delete this user?",
     "Button-Delete" :"Delete",
     "Button-Cancel" :"Cancel"
+  },
+  "Page-Not-Found" : {
+    "Title" : "Page Not Found (404)",
+    "Message" : "The page you tried to open does not exist!",
+    "Go-Back" : "Go Back to Home Page"
   }
 }

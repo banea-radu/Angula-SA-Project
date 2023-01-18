@@ -1,0 +1,14 @@
+<div class="main" *ngIf="!(menuService.menuOpened$ | async)">
+  
+  <section class="welcome-section-25vh d-flex justify-content-center align-items-center">
+    <div class="text-white">
+      <h1> {{ 'Page-Not-Found.Title' | translate }} </h1>
+    </div>
+  </section>
+
+  <section class="section-50vh bg-white p-4 d-flex flex-column justify-content-center align-items-center">
+    <h3 class="align-middle"> {{ 'Page-Not-Found.Message' | translate }} </h3>
+    <h5 class="btn text-success link-warning" routerLink="/home"> {{ 'Page-Not-Found.Go-Back' | translate }} </h5>
+  </section>
+
+</div>
