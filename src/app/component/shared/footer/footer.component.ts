@@ -45,7 +45,7 @@ export class FooterComponent {
   formSubmit(form: {name: string, email: string, dateSubmitted?: Date}) {
     if (this.newsletterForm.valid) {
       let alreadySubscribed: boolean = false;
-      
+
       this.databaseService.getData('newsletter').subscribe((response) => {
         if (response !== null) {
           for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object

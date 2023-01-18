@@ -1,5 +1,4 @@
 <footer [ngClass]="{'menu-open': (menuService.menuOpened$ | async)}" class="text-white">
-
   <div class="d-flex flex-column justify-content-center align-items-center">
 
     <form
@@ -45,7 +44,6 @@
         </small>
         
         <app-button id="submit-newsletter" type="submit" title="{{ 'Footer.Newsletter.Submit-Button-Text' | translate }}"></app-button>
-
     </form>
 
     <div class="container d-flex flex-column align-items-center mt-4">
@@ -90,11 +88,9 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <div>
     <p class="text-center m-0 p-4"> {{ "Footer.Copyright-Text" | translate: {ownerName: ownerName, currentYear: currentYear} }} </p>
   </div>
-
 </footer>
