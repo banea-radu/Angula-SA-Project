@@ -9,7 +9,6 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  menuOpened: boolean = false;
   loginForm = this.formbuilder.group({
     email: [null, Validators.compose(
       [
@@ -26,17 +25,10 @@ export class LoginComponent {
   })
 
   constructor(
-    private menuService: MenuService,
+    public menuService: MenuService,
     private formbuilder: FormBuilder,
     public authService: AuthService
   ) {}
-
-  ngOnInit() {
-    // Subscribe to observable from MenuService
-    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
-      this.menuOpened = response;
-    });
-  }
 
   formSubmit(form: {email: string, password: string}) {
     if (this.loginForm.valid) {

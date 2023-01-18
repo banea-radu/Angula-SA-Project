@@ -11,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  menuOpened: boolean = false;
   ownerName:string = "SC Believe IT SRL";
   currentYear:number = new Date().getFullYear();
 
@@ -32,19 +31,13 @@ export class FooterComponent {
   })
 
   constructor(
-    private menuService: MenuService,
+    public menuService: MenuService,
     private formbuilder: FormBuilder,
     private databaseService: DatabaseService,
     private viewportScroller: ViewportScroller,
     public translate: TranslateService
   ) {}
-  
-  ngOnInit() {
-    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
-      this.menuOpened = response;
-    });
-  }
-  
+   
   scrollToTop() {
     this.viewportScroller.scrollToPosition([0, 0]);
   }
@@ -76,10 +69,8 @@ export class FooterComponent {
             window.location.reload();
           })
         }
-
       })
     }
-
   }
   
 }

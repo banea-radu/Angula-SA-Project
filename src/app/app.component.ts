@@ -17,7 +17,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.translate.addLangs(['ro', 'en']);
-    this.localStorageService.currentLanguage.subscribe((response) => {
+    this.localStorageService.currentLanguage$.subscribe((response) => {
       this.translateTexts(response);
     });
   }

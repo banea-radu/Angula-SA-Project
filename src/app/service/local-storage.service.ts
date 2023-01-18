@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LocalStorageService {
   defaultLanguage: string = 'ro';
-  currentLanguage = new BehaviorSubject<string>('');
+  currentLanguage$ = new BehaviorSubject<string>('');
 
   constructor () {
     let storedLanguage!: string;
@@ -24,7 +24,7 @@ export class LocalStorageService {
   }
 
   setLanguageFromLocalStorage(language: string) {
-    this.currentLanguage.next(language);
+    this.currentLanguage$.next(language);
   }
   
 }

@@ -9,8 +9,6 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent {
-  menuOpened: boolean = false;
-
   resetForm = this.formbuilder.group({
     email: [null, Validators.compose(
       [
@@ -21,17 +19,10 @@ export class ForgotPasswordComponent {
   })
 
   constructor(
-    private menuService: MenuService,
+    public menuService: MenuService,
     private formbuilder: FormBuilder,
     public authService: AuthService
   ) {}
-
-  ngOnInit() {
-    // Subscribe to observable from MenuService
-    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
-      this.menuOpened = response;
-    });
-  }
 
   formSubmit(form: {email: string}) {
     if (this.resetForm.valid) {

@@ -10,16 +10,15 @@ import { LocalStorageService } from 'src/app/service/local-storage.service';
 })
 export class HeaderComponent {
   menuOpened: boolean = false;
-  languageSelected: string = '';
 
   constructor(
     private menuService: MenuService,
-    private localStorageService: LocalStorageService,
+    public localStorageService: LocalStorageService,
     private viewportScroller: ViewportScroller
   ) {}
     
   ngOnInit() {
-    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
+    this.menuService.menuOpened$.subscribe((response: boolean) => {
       this.menuOpened = response;
     });
   }
@@ -40,9 +39,11 @@ export class HeaderComponent {
   dropdownSelectLanguage(language: string) {
     if (language == 'ro') {
       this.localStorageService.saveLanguageInLocalStorage('ro');
+      this.menuService.closeMenuIfOpened(this.menuOpened);
     } else {
       if (language == 'en') {
         this.localStorageService.saveLanguageInLocalStorage('en');
+        this.menuService.closeMenuIfOpened(this.menuOpened);
       }
     }
   }

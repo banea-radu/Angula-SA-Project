@@ -10,8 +10,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./contact-page.component.css']
 })
 export class ContactPageComponent {
-  menuOpened: boolean = false;
-
   contactForm = this.formbuilder.group({
     name: [null, Validators.compose(
       [
@@ -41,18 +39,11 @@ export class ContactPageComponent {
   })
 
   constructor(
-    private menuService: MenuService,
+    public menuService: MenuService,
     private formbuilder: FormBuilder,
     private databaseService: DatabaseService,
     public translate: TranslateService
   ) {}
-
-  ngOnInit() {
-    // Subscribe to observable from MenuService
-    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
-      this.menuOpened = response;
-    });
-  }
 
   formSubmit(form: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}) {
     if (this.contactForm.valid) {

@@ -87,7 +87,8 @@
             name="reply"
             id="reply-textarea"
             class="p-2 border border-success rounded mb-2"
-            ngModel='{{ contactReplyData.reply }}'>
+            >
+            {{ addReplyForm.get('reply').setValue(contactReplyData.reply) }}
           </textarea>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Contacts.Reply-Window.Button-Reply' | translate }} </button>

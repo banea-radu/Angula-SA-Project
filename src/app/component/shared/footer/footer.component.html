@@ -1,4 +1,4 @@
-<footer [ngClass]="{'menu-open': menuOpened}" class="text-white">
+<footer [ngClass]="{'menu-open': (menuService.menuOpened$ | async)}" class="text-white">
 
   <div class="d-flex flex-column justify-content-center align-items-center">
 
@@ -50,7 +50,7 @@
 
     <div class="container d-flex flex-column align-items-center mt-4">
       <div class="d-flex">
-        <div [ngClass]="{'menu-open': menuOpened}" class="footer-links d-flex">
+        <div [ngClass]="{'menu-open': (menuService.menuOpened$ | async)}" class="footer-links d-flex">
           <div class="d-flex flex-column">
             <h3 class="fw-semibold"> {{ 'Footer.Links' | translate }} </h3>
             <a routerLink="/home" class="text-decoration-none text-white link-warning fw-semibold" (click)="scrollToTop()">

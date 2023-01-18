@@ -5,10 +5,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class MenuService {
-  menuOpenedObservable = new BehaviorSubject<boolean>(false);
+  menuOpened$ = new BehaviorSubject<boolean>(false);
   
   toggleMenu(menuOpened: boolean) {
-    this.menuOpenedObservable.next(!menuOpened);
+    this.menuOpened$.next(!menuOpened);
   }
 
   closeMenuIfOpened(menuOpened: boolean) {

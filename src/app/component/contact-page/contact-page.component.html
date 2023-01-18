@@ -1,4 +1,4 @@
-<div class="main" *ngIf="!menuOpened">
+<div class="main" *ngIf="!(menuService.menuOpened$ | async)">
   
   <section class="welcome-section-50vh d-flex justify-content-center align-items-center">
     <div class="text-white">

@@ -8,20 +8,15 @@ import { ViewportScroller } from '@angular/common';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-  menuOpened: boolean = false;
   totalSlides: number = 5; // total nmumber of slides
   currentSlide:number = 1; // starting slide
   pressedSliderButton:string = '';
 
-  constructor(private menuService: MenuService, private viewportScroller: ViewportScroller) { }
-  
-  ngOnInit() {
-    // Subscribe to observable from MenuService
-    this.menuService.menuOpenedObservable.subscribe((response: boolean) => {
-      this.menuOpened = response;
-    });
-  }
-    
+  constructor(
+    public menuService: MenuService,
+    private viewportScroller: ViewportScroller
+  ) { }
+      
   goToElementId(elementId: string) {
     this.viewportScroller.scrollToAnchor(elementId);
   }

@@ -32,13 +32,13 @@
             </button>
             <ul id="dropdown-list" class="dropdown-menu dropdown-menu-dark">
               <li>
-                <a class="dropdown-item" [ngClass]="{'active': languageSelected == 'ro'}"  href="#" (click)="dropdownSelectLanguage('ro')">
+                <a class="dropdown-item" [ngClass]="{'active': (localStorageService.currentLanguage$ | async) == 'ro'}" (click)="dropdownSelectLanguage('ro')">
                   <img src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Fro.svg?alt=media&token=4e6c4530-6318-4ecc-b214-2a141df2182b" alt="flag romanian language" class="flag-img">
                   Română
                 </a>
-              </li>
+              </li>            
               <li>
-                <a class="dropdown-item" [ngClass]="{'active': languageSelected == 'en'}" href="#" (click)="dropdownSelectLanguage('en')">
+                <a class="dropdown-item" [ngClass]="{'active': (localStorageService.currentLanguage$ | async) == 'en'}" (click)="dropdownSelectLanguage('en')">
                   <img src="https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/flags%2Feu.svg?alt=media&token=c4f55191-b930-452e-9645-06b742f76b0e" alt="flag english language" class="flag-img">
                   English
                 </a>
