@@ -62,9 +62,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - General:
-	- personalization:
-		- My account component:
-			- translate all texts
 	- routing:
 		- page not found route
 - Nice to have's:
@@ -95,6 +92,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 			- show/delete/reply contacts
 			- show subscribers
 			- components reareange: users/programs/newsletter/contact outside myaccount, insert sign-in/sign-up...
+			- translate all texts
 - Components
 	- Header:
 		- hide main body if burger menu opened

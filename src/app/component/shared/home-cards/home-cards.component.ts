@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
 import { TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from "rxjs";
+import { DbProgram } from 'src/app/model/db-program';
 
 @Component({
   selector: 'app-home-cards',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./home-cards.component.css']
 })
 export class HomeCardsComponent {
-  programsData: string = "";
+  programs$: Observable<DbProgram[]>;
   cardsData = [
     {
       id: "beneficii",
@@ -26,43 +27,17 @@ export class HomeCardsComponent {
   ]
 
   constructor(
-    private databaseService: DatabaseService,
-    public translate: TranslateService,
-    private router: Router,
-    private routerActive: ActivatedRoute
+    public databaseService: DatabaseService,
+    public translate: TranslateService
   ) {}
 
   ngOnInit() {
-    this.routerActive.paramMap.subscribe(paramMap => {
-      if (this.router.url === "/" || "/home") {
-        this.getPrograms();
-      }
-    });
+    this.getPrograms();
   }
 
   getPrograms() {
-    this.programsData = ''; // clear old data before translating again
-    this.databaseService.getData('programs').subscribe((response) => {
-      for (let item of Object.values(response)) { // observable returns object of objects, Object.values = individual object
-        let dayToTranslate: string = '';
-        let categoryToTranslate: string = '';
-        this.translate.get('Home.Card-3.Programs.' + item.Day).subscribe((res: string) => {
-          dayToTranslate = res;
-        })
-        this.translate.get('Home.Card-3.Programs.' + item.Category).subscribe((res: string) => {
-          categoryToTranslate = res;
-        })
-        this.programsData = this.programsData
-          + "🏓"
-          + " "
-          + dayToTranslate
-          + " "
-          + item.Time
-          + " "
-          + categoryToTranslate
-          + " "
-      }
-    })
+    // get programs data as observable from database
+    this.programs$ = this.databaseService.getData('programs');
   }
 
 }

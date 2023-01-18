@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
+import { Observable } from "rxjs";
+import { DbUser } from 'src/app/model/db-user';
 
 @Component({
   selector: 'app-users',
@@ -7,7 +9,7 @@ import { DatabaseService } from 'src/app/service/database.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-  users: any;
+  users$: Observable<DbUser[]>;
   idToDeleteAfterConfirmation: string = '';
 
   constructor(
@@ -19,10 +21,7 @@ export class UsersComponent {
   }
 
   getUsers() {
-    this.databaseService.getData('users')
-    .subscribe((response: any) => {
-      this.users = response;
-    })
+    this.users$ = this.databaseService.getData('users');
   }
 
   saveIdToDeleteAfterConfirmation(id: string) {

@@ -17,7 +17,8 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr *ngFor="let program of programs; let i=index">
+              <!-- <tr *ngFor="let program of programs; let i=index"> -->
+              <tr *ngFor="let program of programs$ | async; let i=index"> 
                 <td> {{ i+1 }} </td>
                 <td> {{ program.Day }} </td>
                 <td> {{ program.Time }} </td>

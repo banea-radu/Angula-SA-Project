@@ -18,7 +18,7 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr *ngFor="let contact of contacts; let i=index">
+              <tr *ngFor="let contact of contacts$ | async; let i=index">
                 <td> {{ i+1 }} </td>
                 <td> {{ contact.dateSubmitted | date: 'yyyy/MM/dd'}} </td>
                 <td> {{ contact.email }} </td>

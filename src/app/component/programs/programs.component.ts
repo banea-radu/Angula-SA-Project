@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DatabaseService } from 'src/app/service/database.service';
+import { Observable } from "rxjs";
+import { DbProgram } from 'src/app/model/db-program';
 
 @Component({
   selector: 'app-programs',
@@ -8,7 +10,7 @@ import { DatabaseService } from 'src/app/service/database.service';
   styleUrls: ['./programs.component.css']
 })
 export class ProgramsComponent {
-  programs: any;
+  programs$: Observable<DbProgram[]>;
   idToDeleteAfterConfirmation: string = '';
   newProgramForm = this.formbuilder.group({
     Day: ['Monday'],
@@ -31,10 +33,7 @@ export class ProgramsComponent {
   }
 
   getPrograms() {
-    this.databaseService.getData('programs')
-    .subscribe((response: any) => {
-      this.programs = response;
-    })
+    this.programs$ = this.databaseService.getData('programs');
   }
 
   saveIdToDeleteAfterConfirmation(id: string) {

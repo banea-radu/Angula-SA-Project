@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
+import { Observable } from "rxjs";
+import { DbNewsletter } from 'src/app/model/db-newsletter';
 
 @Component({
   selector: 'app-newsletter',
@@ -7,8 +9,7 @@ import { DatabaseService } from 'src/app/service/database.service';
   styleUrls: ['./newsletter.component.css']
 })
 export class NewsletterComponent {
-  newsletter: any;
-  // keys: string[] = [];
+  newsletter$: Observable<DbNewsletter[]>;
   idToDeleteAfterConfirmation: string = '';
 
   constructor(
@@ -20,10 +21,7 @@ export class NewsletterComponent {
   }
 
   getNewsletter() {
-    this.databaseService.getData('newsletter')
-    .subscribe((response: any) => {
-      this.newsletter = response;
-    })
+    this.newsletter$ = this.databaseService.getData('newsletter');
   }
 
   saveIdToDeleteAfterConfirmation(id: string) {

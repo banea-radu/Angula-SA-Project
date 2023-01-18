@@ -18,7 +18,7 @@
             </thead>
             <tbody class="table-group-divider">
               <!-- <tr *ngFor="let key of keys; let i=index"> -->
-              <tr *ngFor="let subscriber of newsletter; let i=index">
+              <tr *ngFor="let subscriber of newsletter$ | async; let i=index">
                 <td> {{ i+1 }} </td>
                 <td> {{ subscriber.dateSubmitted | date: 'yyyy/MM/dd' }} </td>
                 <td> {{ subscriber.name }} </td>
