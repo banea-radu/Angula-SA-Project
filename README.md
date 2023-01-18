@@ -61,9 +61,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO:
-- General:
-	- routing:
-		- page not found route
 - Nice to have's:
 	- loading screen
 	- prettyprint/clean the code, replace any's with interfaces, etc..
@@ -78,6 +75,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- routing:
 		- implement routing
 		- configure routes
+		- page not found route
 	- move images to firebase storage due to stackblitz limitation
 	- move favicon to firebase storage due to stackblitz limitation
 	- internationalization implementation (https://github.com/ngx-translate/core)
