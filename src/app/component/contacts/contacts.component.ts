@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
-import { FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Observable } from "rxjs";
 import { DbContact } from 'src/app/model/db-contact';
 
@@ -12,8 +12,8 @@ import { DbContact } from 'src/app/model/db-contact';
 export class ContactsComponent {
   contacts$: Observable<DbContact[]>;
   idToChangeAfterConfirmation: string = ''; // this is used for id storing until confirmation of delete/reply is handled in modal
-  addReplyForm = this.formbuilder.group({
-    reply: [null],
+  addReplyForm: FormGroup= new FormGroup({
+    reply: new FormControl(null)
   })
   contactReplyData: DbContact = {
     dateSubmitted: new Date(),
@@ -24,8 +24,7 @@ export class ContactsComponent {
   };
 
   constructor(
-    private databaseService: DatabaseService,
-    private formbuilder: FormBuilder
+    private databaseService: DatabaseService
   ) {}
 
   ngOnInit() {
@@ -39,10 +38,13 @@ export class ContactsComponent {
   saveIdToChangeAfterConfirmation(contact: any) {
     this.idToChangeAfterConfirmation = contact.id;
     this.contactReplyData = contact;
+    this.addReplyForm = new FormGroup({
+      reply: new FormControl(contact.reply)
+    })
   }
 
-  addReply(form: {reply: string}) {
-    this.databaseService.patchData('contact', form, this.idToChangeAfterConfirmation)
+  addReply() {
+    this.databaseService.patchData('contact', this.addReplyForm.value, this.idToChangeAfterConfirmation)
       .subscribe(() => {
         console.log('contact replied');
         this.getContacts();

@@ -23,7 +23,15 @@
                 <td> {{ contact.dateSubmitted | date: 'yyyy/MM/dd'}} </td>
                 <td> {{ contact.email }} </td>
                 <td> {{ contact.subject }} </td>
-                <td [ngClass]="{'table-danger': contact.reply == null}" > {{ contact.reply != null ? ('Contacts.Replied-Yes' | translate) :  ('Contacts.Replied-No' | translate) }} </td>
+                <td [ngClass]="{'table-danger': contact.reply === null || contact.reply === '' }" >
+                  {{
+                    contact.reply === null
+                      ? ('Contacts.Replied-No' | translate)
+                      : contact.reply ===''
+                        ?  ('Contacts.Replied-No' | translate)
+                        : ('Contacts.Replied-Yes' | translate)
+                  }}
+                </td>
                 <td>
                   <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#replyModal" (click)="saveIdToChangeAfterConfirmation(contact)">
                     <i class="fa-solid fa-reply"></i>
@@ -52,8 +60,7 @@
       </div>
       <div class="modal-body">
         <form 
-          #form='ngForm'
-          (ngSubmit)="addReply(form.value)"
+          (ngSubmit)="addReply()"
           [formGroup]="addReplyForm"
           class="d-flex flex-column align-items-center justify-content-center">
           <h2 class="fs-5"> {{ 'Contacts.Reply-Window.Title' | translate }} </h2>
@@ -84,11 +91,10 @@
           </label>
           <textarea
             formControlName="reply"
-            name="reply"
             id="reply-textarea"
             class="p-2 border border-success rounded mb-2"
             >
-            <!-- {{ addReplyForm.get('reply').setValue(contactReplyData.reply) }} -->
+
           </textarea>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Contacts.Reply-Window.Button-Reply' | translate }} </button>

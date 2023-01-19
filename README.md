@@ -62,8 +62,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 - Nice to have's:
+	- refactor and reset the reactive forms without window reload
 	- loading screen
-	- prettyprint/clean the code, replace any's with interfaces, etc..
 	- bootstrap carrousel
 	- home-card redesign as single, transfer *ngFor to parent component
 	- about-card redesign as single, transfer *ngFor to parent component
