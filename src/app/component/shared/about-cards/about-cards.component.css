@@ -23,3 +23,16 @@
 	.staff img:hover {
 		filter: grayscale(0);
 	}
+
+	#test1 {
+		position: relative;
+	}
+
+	#test2:hover {
+		transform: scale(1.3);
+		transition: transform 0.8s;
+	}
+
+	#test {
+		
+	}
