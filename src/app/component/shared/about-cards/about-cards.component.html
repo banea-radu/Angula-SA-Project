@@ -1,8 +1,8 @@
 <div class="container staffs d-flex flex-column flex-lg-row">
   <div *ngFor="let card of cardsData; let i = index" class="staff border border-1 rounded p-2 mt-5 me-3 mb-4 ms-3">
-    <div id="img-wrapper" class="">
+    <div class="img-wrapper mx-auto">
       <img class="background-img rounded-circle" src="{{ card.imgSrc }}" alt="{{ card.imgAlt }}">
-      <img *ngIf="card.imgSrc2" id="foreground" class="rounded-circle" src="{{ card.imgSrc2 }}" alt="{{ card.imgAlt }}">
+      <img class="foreground-img rounded-circle" src="{{ card.imgSrc2 }}" alt="{{ card.imgAlt }}">
     </div>
     <h6 class="position-relative ms-auto me-auto fw-light text-center rounded-2 p-1 mb-2 text-warning"> {{ card.title }} </h6>
     <p innerHTML="{{ 'About.Card-Text-' + (i+1) | translate }}"></p>

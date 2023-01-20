@@ -24,22 +24,28 @@
 		filter: grayscale(0);
 	}
 
-	#img-wrapper .background-img {
-		position: absolute;
-	}
-
-	#foreground:hover {
-		scale: 1.2;
-		transition: all 0.5s ease-in-out;
-	}
-
-	#img-wrapper {
+	.img-wrapper {
+		width: 70vw;
+	  height: 70vw;
 		max-width: 400px;
 		max-height: 400px;
-		margin-inline: auto;
+	  min-width: 150px;
+	  min-height: 150px;
+		transition: all .8s ease;
 	}
 
-	#img-wrapper:hover {
-		scale: 1.1;
-		transition: all 0.3s ease-in-out;
-	}
+		.img-wrapper:hover {
+			scale: 1.2;
+		}
+
+		.background-img {
+			position: absolute;
+		}
+
+		.foreground-img {
+			transition: all .5s ease;
+		}
+
+		.foreground-img:hover {
+			scale: 1.25;
+		}

@@ -15,7 +15,8 @@ export class AboutCardsComponent {
     },
     {
       title : "AREA B52",
-      imgSrc : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/sala_tenis_de_masa_sibiu.jpg?alt=media&token=2e9a122a-d247-48c4-8c03-0cd4be77a530",
+      imgSrc : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/sala_tenis_de_masa_sibiu_background.jpg?alt=media&token=c84d6995-fbc6-45c7-8647-3869584476aa",
+      imgSrc2 : "https://firebasestorage.googleapis.com/v0/b/sa-project-11a2c.appspot.com/o/sala_tenis_de_masa_sibiu_no_background.png?alt=media&token=b68159ad-927f-4ed4-b8e6-33869cdd9c4a",
       imgAlt : "AREA B52"
     },
   ]
