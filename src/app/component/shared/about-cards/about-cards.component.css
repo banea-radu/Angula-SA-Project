@@ -24,15 +24,22 @@
 		filter: grayscale(0);
 	}
 
-	#test1 {
-		position: relative;
+	#img-wrapper .background-img {
+		position: absolute;
 	}
 
-	#test2:hover {
-		transform: scale(1.3);
-		transition: transform 0.8s;
+	#foreground:hover {
+		scale: 1.2;
+		transition: all 0.5s ease-in-out;
 	}
 
-	#test {
-		
+	#img-wrapper {
+		max-width: 400px;
+		max-height: 400px;
+		margin-inline: auto;
+	}
+
+	#img-wrapper:hover {
+		scale: 1.1;
+		transition: all 0.3s ease-in-out;
 	}
