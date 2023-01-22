@@ -84,7 +84,7 @@
           [ngClass]="form.submitted ? 'ng-touched' : ''">
         <small
           *ngIf="(contactForm.controls.name.invalid && contactForm.controls.name.dirty)
-            || (contactForm.controls.name.invalid && form.submitted)"
+            || (contactForm.controls.name.invalid && contactFormSubmitted)"
           class="alert alert-danger">
             {{ 'Contact.Form.Name.Invalid-Message' | translate }}
         </small>
@@ -98,7 +98,7 @@
           [ngClass]="form.submitted ? 'ng-touched' : ''">
         <small
           *ngIf="(contactForm.controls.email.invalid && contactForm.controls.email.dirty)
-            || (contactForm.controls.email.invalid && form.submitted)"
+            || (contactForm.controls.email.invalid && contactFormSubmitted)"
           class="alert alert-danger">
             {{ 'Contact.Form.Email.Invalid-Message' | translate }}
         </small>
@@ -112,7 +112,7 @@
           [ngClass]="form.submitted ? 'ng-touched' : ''">
         <small
           *ngIf="(contactForm.controls.subject.invalid && contactForm.controls.subject.dirty)
-            || (contactForm.controls.subject.invalid && form.submitted)"
+            || (contactForm.controls.subject.invalid && contactFormSubmitted)"
           class="alert alert-danger">
             {{ 'Contact.Form.Subject.Invalid-Message' | translate }}
         </small>
@@ -126,7 +126,7 @@
           [ngClass]="form.submitted ? 'ng-touched' : ''"> </textarea>
         <small
           *ngIf="(contactForm.controls.message.invalid && contactForm.controls.message.dirty)
-            || (contactForm.controls.message.invalid && form.submitted)"
+            || (contactForm.controls.message.invalid && contactFormSubmitted)"
           class="alert alert-danger">
             {{ 'Contact.Form.Message.Invalid-Message' | translate }}
         </small>

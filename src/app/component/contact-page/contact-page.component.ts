@@ -37,6 +37,7 @@ export class ContactPageComponent {
       ]
     )]
   })
+  contactFormSubmitted = false;
 
   constructor(
     public menuService: MenuService,
@@ -46,13 +47,15 @@ export class ContactPageComponent {
   ) {}
 
   formSubmit(form: {name: string, email: string, subject: string, message: string, dateSubmitted?: Date}) {
+    this.contactFormSubmitted = true;
     if (this.contactForm.valid) {
       form.dateSubmitted = new Date();
       this.databaseService.postData('contact', form).subscribe((response) => {
         this.translate.get('Footer.Newsletter.Submit-Alert-Success', {email : form.email}).subscribe((res: string) => {
           alert(res);
         });
-        window.location.reload();
+        this.contactForm.reset();
+        this.contactFormSubmitted = false;
       })
     }
   }

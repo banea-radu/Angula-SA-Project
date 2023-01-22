@@ -13,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class FooterComponent {
   ownerName:string = "SC Believe IT SRL";
   currentYear:number = new Date().getFullYear();
+  newsletterFormSubmitted = false;
 
   newsletterForm = this.formbuilder.group({
     name: [null, Validators.compose(
@@ -43,6 +44,7 @@ export class FooterComponent {
   }
 
   formSubmit(form: {name: string, email: string, dateSubmitted?: Date}) {
+    this.newsletterFormSubmitted = true;
     if (this.newsletterForm.valid) {
       let alreadySubscribed: boolean = false;
 
@@ -66,7 +68,8 @@ export class FooterComponent {
             this.translate.get('Contact.Form.Submit-Alert-Success', {email : form.email}).subscribe((res: string) => {
               alert(res);
             });
-            window.location.reload();
+            this.newsletterForm.reset();
+            this.newsletterFormSubmitted = false;
           })
         }
       })

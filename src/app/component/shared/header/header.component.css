@@ -1,3 +1,7 @@
+.burger {
+	transition:0.5s ease-in-out;
+}
+
 .burger .line-wrapper {
 	width:2.8rem;
 	-webkit-transition:0.5s ease-in-out;
@@ -7,7 +11,12 @@
 	.burger .line-wrapper:hover {
 		cursor: pointer;
 	}
-	
+
+	.burger.menu-open {
+		transition:0.5s ease-in-out;
+		rotate: 90deg;
+	}
+
 	.burger .line {
 		height:5px;
 		margin:6px 0;

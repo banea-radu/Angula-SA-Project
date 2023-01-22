@@ -63,7 +63,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## TODO:
 - Nice to have's:
 	- refactor and reset the reactive forms without window reload
-	- loading screen
+	- loading screen in myaccount
+	- routing rules for childrens of myaccount
 	- bootstrap carrousel
 	- home-card redesign as single, transfer *ngFor to parent component
 	- about-card redesign as single, transfer *ngFor to parent component

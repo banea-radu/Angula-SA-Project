@@ -22,7 +22,7 @@
       >
       <small
         *ngIf="(newsletterForm.controls.name.invalid && newsletterForm.controls.name.dirty)
-          || (newsletterForm.controls.name.invalid && form.submitted)"
+          || (newsletterForm.controls.name.invalid && newsletterFormSubmitted)"
         class="alert alert-danger">
           {{ 'Footer.Newsletter.Name.Invalid-Message' | translate }}
       </small>
@@ -38,7 +38,7 @@
       >
         <small
           *ngIf="(newsletterForm.controls.email.invalid && newsletterForm.controls.email.dirty)
-            || (newsletterForm.controls.email.invalid && form.submitted)"
+            || (newsletterForm.controls.email.invalid && newsletterFormSubmitted)"
           class="alert alert-danger">
             {{ 'Footer.Newsletter.Email.Invalid-Message' | translate }}
         </small>
