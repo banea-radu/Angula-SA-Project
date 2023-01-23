@@ -111,7 +111,7 @@
       },
       "Message" : {
         "Label" : "Your Message:",
-        "Placeholder" : "Ex: I really really want to learn table tennis. Please teach me Claudia?",
+        "Placeholder" : "Ex: I really want to learn table tennis..",
         "Invalid-Message" : "The message must contain at least 20 characters."
       },
       "Submit-Button-Text" : "Submit",

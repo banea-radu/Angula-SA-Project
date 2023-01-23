@@ -84,7 +84,7 @@
       "Title" : "Mă poţi contacta la:",
       "Mobile" : "Mobil:",
       "Email" : "E-mail:",
-      "Social-Media:" : "Facebook:",
+      "Social-Media" : "Facebook:",
       "Schedule" : {
         "Title" : "Program:",
         "Day-1" : "Marţi",
@@ -111,7 +111,7 @@
       },
       "Message" : {
         "Label" : "Mesajul tău:",
-        "Placeholder" : "Ex: Vreau tare de tot să învăț tenis de masă. Te rog eu frumos, mă înveți Claudia?",
+        "Placeholder" : "Ex: Vreau să învăț tenis de masă..",
         "Invalid-Message" : "Mesajul trebuie să conțină cel puțin 20 de caractere."
       },
       "Submit-Button-Text" : "Trimite",
