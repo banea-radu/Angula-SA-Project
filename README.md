@@ -2,6 +2,9 @@
 
 ## Live version deployed here: https://angular-proiect-sa.netlify.app/
 
+## Benefit:
+  - We need to migrate initial initial project to an Angular application
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
 ## Development server
