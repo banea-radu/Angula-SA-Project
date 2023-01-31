@@ -1,8 +1,8 @@
-# Angular Software Academy Project
+# Project for the Web Developer course, by Software Academy from Sibiu.
 
 ## Live version deployed here: https://angular-proiect-sa.netlify.app/
 
-## Benefit:
+## Project Requirements:
   - We need to migrate our initial project to an Angular application
 
 ##
