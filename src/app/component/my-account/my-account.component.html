@@ -1,8 +1,12 @@
 <div class="main" *ngIf="!(menuService.menuOpened$ | async)">
   <!-- Welcome section -->
-  <section class="welcome d-flex justify-content-center align-items-center">
+  <section class="welcome d-flex justify-content-center align-items-center position-relative">
     <div class="text-white">
       <h1> {{ 'My-Account.Welcome-Title' | translate }} </h1>
+      <!-- Call SignOut() Api from AuthService -->
+      <a class="btn text-white link-warning position-absolute bottom-0 end-0" (click)="authService.SignOut()">
+        <i class="fas fa-sign-out-alt"></i> {{ 'My-Account.Log-Out' | translate }}
+      </a>
     </div>
   </section>
   <!-- Main section -->
@@ -38,12 +42,6 @@
           <a class="btn text-black link-warning"
             [ngClass]="{'active': myaccountSectionSelected == 'Users'}" (click)="myaccountSectionSelect('Users')">
             <i class="fa-solid fa-users"></i> {{ 'My-Account.Users' | translate }}
-          </a>
-        </li>
-        <!-- Call SignOut() Api from AuthService -->
-        <li>
-          <a class="btn text-black link-warning" (click)="authService.SignOut()">
-            <i class="fas fa-sign-out-alt"></i> {{ 'My-Account.Log-Out' | translate }}
           </a>
         </li>
       </ul>
