@@ -196,7 +196,12 @@
     "Contacts" : "Contacte",
     "Newsletter" : "Newsletter",
     "Users" : "Utilizatori",
-    "Log-Out" : "Deconectare"
+    "Log-Out" : "Deconectare",
+    "Modal-Logout" : {
+      "Are-You-Sure" : "Esti sigur ca vrei sa te deconectezi de la contul tau?",
+      "Button-Logout" :"Deconectare",
+      "Button-Cancel" :"Anulare"
+    }
   },
   "My-Profile" : {
     "Title" : "Profilul meu",

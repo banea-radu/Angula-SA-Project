@@ -3,8 +3,9 @@
   <section class="welcome d-flex justify-content-center align-items-center position-relative">
     <div class="text-white">
       <h1> {{ 'My-Account.Welcome-Title' | translate }} </h1>
-      <!-- Call SignOut() Api from AuthService -->
-      <a class="btn text-white link-warning position-absolute bottom-0 end-0" (click)="authService.SignOut()">
+      <a class="btn text-white link-warning position-absolute bottom-0 end-0" 
+         data-bs-toggle="modal" 
+         data-bs-target="#logoutModal">
         <i class="fas fa-sign-out-alt"></i> {{ 'My-Account.Log-Out' | translate }}
       </a>
     </div>
@@ -55,4 +56,26 @@
       <app-users *ngIf="myaccountSectionSelected == 'Users'"></app-users>
     </div>
   </section>
+</div>
+<!-- Modal for logout confirmation -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"> </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <h2 class="logout-modal-body-height fs-5 row justify-content-center align-items-center"> {{ 'My-Account.Modal-Logout.Are-You-Sure' | translate }} </h2>
+      <div class="modal-footer">
+        <!-- Call SignOut() Api from AuthService -->
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="authService.SignOut()">
+          {{ 'My-Account.Modal-Logout.Button-Logout' | translate }}
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ 'My-Account.Modal-Logout.Button-Cancel' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

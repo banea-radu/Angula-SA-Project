@@ -196,7 +196,12 @@
     "Contacts" : "Contacts",
     "Newsletter" : "Newsletter",
     "Users" : "Users",
-    "Log-Out" : "Log out"
+    "Log-Out" : "Logout",
+    "Modal-Logout" : {
+      "Are-You-Sure" : "Are you sure you want to logout from your account?",
+      "Button-Logout" :"Logout",
+      "Button-Cancel" :"Cancel"
+    }
   },
   "My-Profile" : {
     "Title" : "My profile",

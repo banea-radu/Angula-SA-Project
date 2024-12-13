@@ -1,3 +1,7 @@
 .welcome {
 	height: 15vh;
 }
+
+.logout-modal-body-height {
+	min-height: 80px;
+  }
