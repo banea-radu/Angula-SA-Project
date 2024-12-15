@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { DbAuthUser } from '../model/db-auth-user';
+import { DbAuthUser } from '../types/db-auth-user';
 import { Router } from '@angular/router';
 import { DatabaseService } from './database.service';
 import { TranslateService } from '@ngx-translate/core';

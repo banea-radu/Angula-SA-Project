@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
 import { Observable } from "rxjs";
-import { DbNewsletter } from 'src/app/model/db-newsletter';
+import { DbNewsletter } from 'src/app/types/db-newsletter';
 
 @Component({
   selector: 'app-newsletter',

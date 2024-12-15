@@ -17,8 +17,8 @@
       <ul class="nav justify-content-center">
         <li>
           <a class="btn text-black link-warning"
-            [ngClass]="{'active': myaccountSectionSelected == 'My Profile'}" (click)="myaccountSectionSelect('My Profile')">
-            <i class="fas fa-user"></i> {{ 'My-Account.My-Profile' | translate }}
+            [ngClass]="{'active': myaccountSectionSelected == 'Subscriptions'}" (click)="myaccountSectionSelect('Subscriptions')">
+            <i class="fa-sharp fa-solid fa-users"></i> {{ 'My-Account.Subscriptions' | translate }}
           </a>
         </li>
         <li>
@@ -45,15 +45,22 @@
             <i class="fa-solid fa-users"></i> {{ 'My-Account.Users' | translate }}
           </a>
         </li>
+        <li>
+          <a class="btn text-black link-warning"
+            [ngClass]="{'active': myaccountSectionSelected == 'My Profile'}" (click)="myaccountSectionSelect('My Profile')">
+            <i class="fas fa-user"></i> {{ 'My-Account.My-Profile' | translate }}
+          </a>
+        </li>
       </ul>
     </div>
     <!-- Child components -->
     <div>
-      <app-my-profile *ngIf="myaccountSectionSelected == 'My Profile'"></app-my-profile>
-      <app-programs *ngIf="myaccountSectionSelected == 'Programs'"></app-programs>
-      <app-contacts *ngIf="myaccountSectionSelected == 'Contact'"></app-contacts>
-      <app-newsletter *ngIf="myaccountSectionSelected == 'Newsletter'"></app-newsletter>
-      <app-users *ngIf="myaccountSectionSelected == 'Users'"></app-users>
+      <app-subscriptions *ngIf="myaccountSectionSelected === 'Subscriptions'"></app-subscriptions>
+      <app-programs *ngIf="myaccountSectionSelected === 'Programs'"></app-programs>
+      <app-contacts *ngIf="myaccountSectionSelected === 'Contact'"></app-contacts>
+      <app-newsletter *ngIf="myaccountSectionSelected === 'Newsletter'"></app-newsletter>
+      <app-users *ngIf="myaccountSectionSelected === 'Users'"></app-users>
+      <app-my-profile *ngIf="myaccountSectionSelected === 'My Profile'"></app-my-profile>
     </div>
   </section>
 </div>

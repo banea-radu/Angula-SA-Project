@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DatabaseService } from 'src/app/service/database.service';
 import { Observable } from "rxjs";
-import { DbProgram } from 'src/app/model/db-program';
+import { DbProgram } from 'src/app/types/db-program';
 
 @Component({
   selector: 'app-programs',

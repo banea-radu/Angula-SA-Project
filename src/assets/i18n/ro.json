@@ -191,32 +191,35 @@
   },
   "My-Account" : {
     "Welcome-Title" : "Contul meu",
-    "My-Profile" : "Profilul meu",
+    "Subscriptions" : "Abonamente",
     "Programs" : "Programe",
     "Contacts" : "Contacte",
     "Newsletter" : "Newsletter",
     "Users" : "Utilizatori",
-    "Log-Out" : "Deconectare",
+    "My-Profile" : "Profilul meu",
     "Modal-Logout" : {
-      "Are-You-Sure" : "Esti sigur ca vrei sa te deconectezi de la contul tau?",
+      "Are-You-Sure" : "Ești sigur că vrei să te deconectezi de la contul tău?",
       "Button-Logout" :"Deconectare",
       "Button-Cancel" :"Anulare"
-    }
+    },
+    "Log-Out" : "Deconectare"
   },
-  "My-Profile" : {
-    "Title" : "Profilul meu",
-    "Name" : "Nume:",
-    "Email" : "Email:",
-    "Email-Verified" : "Email verificat:",
-    "Email-Verified-True" : "Da",
-    "Email-Verified-False" : "Nu"
+  "Subscriptions" : {
+    "Title": "Lista Abonamente",
+    "Name": "Nume",
+    "Sessions": "Ședințe rămase",
+    "Last-Paid": "Ultima plată",
+    "Edit-Delete": "Editează/Șterge",
+    "Modal-Delete-Title": "Ești sigur că dorești să ștergi abonamentul lui {{name}} ?",
+    "Modal-Button-Delete" : "Șterge",
+    "Modal-Button-Cancel" : "Anulare"
   },
   "Programs" : {
     "Title" : "Programe",
     "Day" : "Ziua",
     "Time" : "Ora",
     "Category" : "Categoria",
-    "Delete" : "Sterge",
+    "Delete" : "Șterge",
     "Add-New" : "Adaugă Program",
     "Add-New-Program" : {
       "Title" : "Adaugă Program",
@@ -273,6 +276,14 @@
     "Are-You-Sure-Delete" : "Ești sigur că dorești să ștergi acest user?",
     "Button-Delete" :"Șterge",
     "Button-Cancel" :"Anulare"
+  },
+  "My-Profile" : {
+    "Title" : "Profilul meu",
+    "Name" : "Nume:",
+    "Email" : "Email:",
+    "Email-Verified" : "Email verificat:",
+    "Email-Verified-True" : "Da",
+    "Email-Verified-False" : "Nu"
   },
   "Page-Not-Found" : {
     "Title" : "Pagina nu a fost găsită (404)",

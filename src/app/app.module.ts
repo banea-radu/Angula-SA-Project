@@ -37,6 +37,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { SubscriptionsComponent } from './component/subscriptions/subscriptions.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -64,7 +65,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactsComponent,
     NewsletterComponent,
     MyProfileComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SubscriptionsComponent
   ],
   imports: [
     BrowserModule,

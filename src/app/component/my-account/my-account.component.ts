@@ -8,7 +8,7 @@ import { MenuService } from 'src/app/service/menu.service';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent {
-  myaccountSectionSelected: string = 'My Profile';
+  myaccountSectionSelected: string = 'Subscriptions';
   
   constructor(
     public menuService: MenuService,

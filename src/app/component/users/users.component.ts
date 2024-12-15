@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
 import { Observable } from "rxjs";
-import { DbUser } from 'src/app/model/db-user';
+import { DbUser } from 'src/app/types/db-user';
 
 @Component({
   selector: 'app-users',

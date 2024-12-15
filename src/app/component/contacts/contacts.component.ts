@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DatabaseService } from 'src/app/service/database.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Observable } from "rxjs";
-import { DbContact } from 'src/app/model/db-contact';
+import { DbContact } from 'src/app/types/db-contact';
 
 @Component({
   selector: 'app-contacts',

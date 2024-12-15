@@ -1,0 +1,109 @@
+<div class="container text-center mb-3">
+  <div class="card p-2">
+    <div class="card-title d-flex justify-content-center align-items-center">
+      <h5> {{ 'Subscriptions.Title' | translate }} </h5>
+    </div>
+    <div>
+      <div class="card-table">
+        <div class="cart-product table-responsive">
+          <table class="table table-striped table-hover table-bordered align-middle table-sm">
+            <thead>
+              <tr class="align-middle">
+                <th> Nr. </th>
+                <th> {{ 'Subscriptions.Name' | translate }} </th>
+                <th> {{ 'Subscriptions.Sessions' | translate }} </th>
+                <th> {{ 'Subscriptions.Last-Paid' | translate }} </th>
+                <th colspan="2"> {{ 'Subscriptions.Edit-Delete' | translate }} </th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let subscription of subscriptions$ | async; let i=index">
+                <td> {{ i+1 }} </td>
+                <td> {{ subscription.name }} </td>
+                <td> {{ subscription.sessionsLeft }} </td>
+                <td> {{ subscription.lastPaid | date: 'dd/MM/yyyy'}} </td>
+                <td>
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openEditModal(subscription)">
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                </td>
+                <td>
+                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="openDeleteModal(subscription)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal and Form for editing subscription -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"> </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form 
+          (ngSubmit)="editSubscription()"
+          [formGroup]="editForm"
+          class="d-flex flex-column align-items-center justify-content-center">
+          <h2 class="fs-5"> {{ 'Subscriptions.Edit-Window.Title' | translate }} </h2>
+          <div class="d-flex flex-column">
+            <label class="text-start" for="name">
+                <strong> {{ 'Subscriptions.Edit-Window.Name' | translate }} </strong>
+                <input formControlName="name">
+            </label>
+            <label for="sessionsLeft">
+              <strong> {{ 'Subscriptions.Edit-Window.SessionsLeft' | translate }} </strong>
+              <input formControlName="sessionsLeft">
+            </label>
+            <label for="lastPaid">
+              <strong> {{ 'Subscriptions.Edit-Window.Date' | translate }} </strong>
+              {{ editForm.value.lastPaid | date: 'dd/MM/yyyy' }}
+              <input type="date"
+                formControlName="lastPaid"
+                class="form-control text-center"
+              >
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Subscriptions.Edit-Window.Button-Save' | translate }} </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Subscriptions.Edit-Window.Button-Cancel' | translate }} </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for delete confirmation -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">  </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h2 class="delete-modal-body-height fs-5 justify-content-center align-items-center">
+          {{ 'Subscriptions.Modal-Delete-Title' | translate: { name: deleteForm.value.name } }}
+        </h2>
+        <div class="modal-footer">
+          <button 
+            type="button" 
+            class="btn btn-danger" 
+            data-bs-dismiss="modal" 
+            (click)="deleteSubscription()">
+              {{ 'Subscriptions.Modal-Button-Delete' | translate }}
+          </button>
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Subscriptions.Modal-Button-Cancel' | translate }} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
