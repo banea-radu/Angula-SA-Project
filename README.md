@@ -80,7 +80,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- freeze table headers
 	- check if name already exists when adding
 	- sort/filter/search table
-- Hide Newsletter and Links footer when in My Account page
 - PWA
 - Create reusable modal with message, custom Proceed button (Delete/Logout) and cancel button
 	- My Account (Logout)
@@ -98,7 +97,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- home-card redesign as single, transfer *ngFor to parent component
 	- about-card redesign as single, transfer *ngFor to parent component
 
-## TO DOne:
+## TO DOne (Date descending):
+- Hide Newsletter and Links footer when in My Account page
+- Subscriptions
+	- add/edit/delete
+	- format dates from add/edit modals
 - General:
 	- deploy build on netlify
 	- add netlify link to readme
@@ -141,12 +144,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- hide main body if burger menu opened
 		- integrate cards component
 	- Contact:
-  	- hide main body if burger menu opened
+  	- Hide main body if burger menu opened
 		- replace icons
 		- form
 			- validation
 			- replace button element with component
 			- submit functionality
-	- Subscriptions
-		- add/edit/delete
-		- format dates from add/edit modals
