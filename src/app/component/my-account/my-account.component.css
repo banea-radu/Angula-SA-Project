@@ -2,6 +2,7 @@
 	height: 15vh;
 }
 
-.logout-modal-body-height {
-	min-height: 80px;
-  }
+.modal {
+  --bs-modal-header-border-width: 0;
+  --bs-modal-footer-border-width: 0;
+}

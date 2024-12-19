@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DatabaseService } from 'src/app/service/database.service';
 import { DbSubscription } from 'src/app/types/database';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-subscriptions',
@@ -10,8 +11,16 @@ import { DbSubscription } from 'src/app/types/database';
   styleUrls: ['./subscriptions.component.css']
 })
 export class SubscriptionsComponent {
+  @ViewChild('hiddenDateInputAddModal') hiddenDateInputAddModal!: ElementRef;
+  @ViewChild('hiddenDateInputEditModal') hiddenDateInputEditModal!: ElementRef;
   subscriptions$: Observable<DbSubscription[]>;
-  idToChangeAfterConfirmation: string = ''; // this is used for id storing until confirmation of edit/reply is handled in modal
+  today = this.datePipe.transform(new Date(), "yyyy-MM-dd"); // get today's date for datepicker
+  addForm: FormGroup= new FormGroup({
+    id: new FormControl(''),
+    name: new FormControl(null),
+    datePaid: new FormControl(this.today),
+    sessionsToAdd: new FormControl(0),
+  });
   editForm: FormGroup= new FormGroup({
     id: new FormControl(''),
     name: new FormControl(null),
@@ -24,7 +33,8 @@ export class SubscriptionsComponent {
   });
 
   constructor(
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private datePipe: DatePipe,
   ) {};
 
   ngOnInit() {
@@ -35,16 +45,32 @@ export class SubscriptionsComponent {
     this.subscriptions$ = this.databaseService.getData('subscriptions');
   };
 
-  // saveIdToChangeAfterConfirmation(subscription: DbSubscription) {
-  //   const {id, name, lastPaid, sessionsLeft} = subscription;
-  //   this.idToChangeAfterConfirmation = id;
-  //   this.editForm = new FormGroup({
-  //     id: new FormControl(id),
-  //     name: new FormControl(name),
-  //     lastPaid: new FormControl(lastPaid),
-  //     sessionsLeft: new FormControl(sessionsLeft),
-  //   });
-  // };
+  openAddModal() {
+    this.addForm = new FormGroup({
+      id: new FormControl(''),
+      name: new FormControl(null),
+      datePaid: new FormControl(this.today),
+      sessionsToAdd: new FormControl(0),
+    });
+  };
+
+  openDatePickerAddModal() {
+     this.hiddenDateInputAddModal.nativeElement.showPicker();
+  };
+
+  addSubscription() {
+    const body = {
+      id: this.addForm.value.id,
+      name: this.addForm.value.name,
+      lastPaid: this.addForm.value.datePaid,
+      sessionsLeft: this.addForm.value.sessionsToAdd,
+    };
+    this.databaseService.postData('subscriptions', body)
+      .subscribe(() => {
+        console.log('subscription added');
+        this.getSubscriptions();
+    });
+  };
 
   openEditModal(subscription: DbSubscription) {
     const {id, name, lastPaid, sessionsLeft} = subscription;
@@ -56,7 +82,11 @@ export class SubscriptionsComponent {
     });
   };
 
-  editSubscription() {
+  openDatePickerEditModal() {
+    this.hiddenDateInputEditModal.nativeElement.showPicker();
+ };
+
+  saveEditedSubscription() {
     const body = this.editForm.value;
     this.databaseService.patchData('subscriptions', body, this.editForm.value.id)
       .subscribe(() => {

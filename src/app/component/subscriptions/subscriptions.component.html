@@ -1,7 +1,11 @@
 <div class="container text-center mb-3">
   <div class="card p-2">
-    <div class="card-title d-flex justify-content-center align-items-center">
-      <h5> {{ 'Subscriptions.Title' | translate }} </h5>
+    <div class="d-flex justify-content-between pb-2">
+      <h5 class="ms-5 mb-0 d-flex align-items-center">{{'Subscriptions.Title' | translate}}</h5>
+      <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addNewModal" (click)="openAddModal()">
+        <i class="fa-solid fa-plus"></i>
+        {{'Subscriptions.Button-Add' | translate}}
+      </button>
     </div>
     <div>
       <div class="card-table">
@@ -9,19 +13,19 @@
           <table class="table table-striped table-hover table-bordered align-middle table-sm">
             <thead>
               <tr class="align-middle">
-                <th> Nr. </th>
-                <th> {{ 'Subscriptions.Name' | translate }} </th>
-                <th> {{ 'Subscriptions.Sessions' | translate }} </th>
-                <th> {{ 'Subscriptions.Last-Paid' | translate }} </th>
-                <th colspan="2"> {{ 'Subscriptions.Edit-Delete' | translate }} </th>
+                <th>Nr.</th>
+                <th>{{'Subscriptions.Name' | translate}}</th>
+                <th>{{'Subscriptions.Sessions' | translate}}</th>
+                <th>{{'Subscriptions.Last-Paid' | translate}}</th>
+                <th colspan="2"> {{ 'Subscriptions.Edit-Delete' | translate}}</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
               <tr *ngFor="let subscription of subscriptions$ | async; let i=index">
-                <td> {{ i+1 }} </td>
-                <td> {{ subscription.name }} </td>
-                <td> {{ subscription.sessionsLeft }} </td>
-                <td> {{ subscription.lastPaid | date: 'dd/MM/yyyy'}} </td>
+                <td>{{i+1}}</td>
+                <td>{{subscription.name}}</td>
+                <td>{{subscription.sessionsLeft}}</td>
+                <td>{{subscription.lastPaid | date: 'dd/MM/yyyy'}}</td>
                 <td>
                   <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openEditModal(subscription)">
                     <i class="fa-solid fa-pen"></i>
@@ -40,6 +44,73 @@
     </div>
   </div>
 </div>
+<!-- Modal and Form for adding subscription -->
+<div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"> </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <form 
+          (ngSubmit)="addSubscription()"
+          [formGroup]="addForm"
+          class="d-flex flex-column align-items-center justify-content-center">
+          <h2 class="fs-5 mb-3">{{'Subscriptions.Modal-Add-Title' | translate}}</h2>
+          <div class="d-flex flex-column">
+            <div class="input-group mb-2">
+              <label class="width-150px input-group-text justify-content-end" for="name">
+                {{'Subscriptions.Modal-Add-Name' | translate}}
+              </label>
+              <input
+                name="name"
+                formControlName="name"
+                class="form-control"
+              >
+            </div>
+            <div class="input-group mb-2">
+              <label class="width-150px input-group-text justify-content-end" for="sessionsToAdd">
+                {{'Subscriptions.Modal-Add-Sessions-Left' | translate}}
+              </label>
+              <input
+                type="number"
+                name="sessionsToAdd"
+                formControlName="sessionsToAdd"
+                class="form-control"
+              >
+            </div>
+            <div class="input-group mb-2">
+              <label class="width-150px input-group-text justify-content-end" for="datePaid">
+                {{'Subscriptions.Modal-Add-Last-Paid' | translate}}
+              </label>
+              <input
+                id="hiddenDateInputAddModal"
+                #hiddenDateInputAddModal
+                type="date"
+                name="datePaid"
+                formControlName="datePaid"
+                class="invisible border-0 p-0"
+              >
+              <div (click)="openDatePickerAddModal()" class="custom-datepicker form-control d-flex justify-content-center align-items-center">
+                <span class="px-2">{{addForm.value.datePaid | date: 'dd/MM/yyyy'}}</span>
+                <i class="fa fa-calendar px-2"></i>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer align-self-end">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+              {{'Subscriptions.Modal-Add-Button-Save' | translate}}
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              {{'Subscriptions.Modal-Add-Button-Cancel' | translate}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Modal and Form for editing subscription -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -48,33 +119,59 @@
         <h1 class="modal-title fs-5"> </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body pt-0">
         <form 
-          (ngSubmit)="editSubscription()"
+          (ngSubmit)="saveEditedSubscription()"
           [formGroup]="editForm"
           class="d-flex flex-column align-items-center justify-content-center">
-          <h2 class="fs-5"> {{ 'Subscriptions.Edit-Window.Title' | translate }} </h2>
+          <h2 class="fs-5 mb-3">{{'Subscriptions.Modal-Edit-Title' | translate}}</h2>
           <div class="d-flex flex-column">
-            <label class="text-start" for="name">
-                <strong> {{ 'Subscriptions.Edit-Window.Name' | translate }} </strong>
-                <input formControlName="name">
-            </label>
-            <label for="sessionsLeft">
-              <strong> {{ 'Subscriptions.Edit-Window.SessionsLeft' | translate }} </strong>
-              <input formControlName="sessionsLeft">
-            </label>
-            <label for="lastPaid">
-              <strong> {{ 'Subscriptions.Edit-Window.Date' | translate }} </strong>
-              {{ editForm.value.lastPaid | date: 'dd/MM/yyyy' }}
-              <input type="date"
-                formControlName="lastPaid"
-                class="form-control text-center"
+            <div class="input-group mb-2">
+              <label class="width-150px input-group-text justify-content-end" for="name">
+                {{'Subscriptions.Modal-Edit-Name' | translate}}
+              </label>
+              <input
+                name="name"
+                formControlName="name"
+                class="form-control"
               >
-            </label>
+            </div>
+            <div class="input-group mb-2">
+              <label class="width-150px input-group-text justify-content-end" for="sessionsLeft">
+                {{'Subscriptions.Modal-Edit-Sessions-Left' | translate}}
+              </label>
+              <input
+                type="number"
+                name="sessionsLeft"
+                formControlName="sessionsLeft"
+                class="form-control"
+              >
+            </div>
+            <div class="input-group mb-2">
+              <label class="width-150px input-group-text justify-content-end" for="lastPaid">
+                {{'Subscriptions.Modal-Edit-Last-Paid' | translate}}
+              </label>
+              <input
+                id="hiddenDateInputEditModal"
+                #hiddenDateInputEditModal
+                type="date"
+                name="lastPaid"
+                formControlName="lastPaid"
+                class="invisible border-0 p-0"
+              >
+              <div (click)="openDatePickerEditModal()" class="custom-datepicker form-control d-flex justify-content-center align-items-center">
+                <span class="px-2">{{editForm.value.lastPaid| date: 'dd/MM/yyyy'}}</span>
+                <i class="fa fa-calendar px-2"></i>
+              </div>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"> {{ 'Subscriptions.Edit-Window.Button-Save' | translate }} </button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Subscriptions.Edit-Window.Button-Cancel' | translate }} </button>
+          <div class="modal-footer align-self-end">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+              {{'Subscriptions.Modal-Edit-Button-Save' | translate}}
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              {{'Subscriptions.Modal-Edit-Button-Cancel' | translate}}
+            </button>
           </div>
         </form>
       </div>
@@ -90,8 +187,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h2 class="delete-modal-body-height fs-5 justify-content-center align-items-center">
-          {{ 'Subscriptions.Modal-Delete-Title' | translate: { name: deleteForm.value.name } }}
+        <h2 class="fs-5 justify-content-center align-items-center">
+          {{'Subscriptions.Modal-Delete-Title' | translate: {name: deleteForm.value.name} }}
         </h2>
         <div class="modal-footer">
           <button 
@@ -99,9 +196,11 @@
             class="btn btn-danger" 
             data-bs-dismiss="modal" 
             (click)="deleteSubscription()">
-              {{ 'Subscriptions.Modal-Button-Delete' | translate }}
+              {{'Subscriptions.Modal-Delete-Button-Delete' | translate}}
           </button>
-          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'Subscriptions.Modal-Button-Cancel' | translate }} </button>
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">
+            {{'Subscriptions.Modal-Delete-Button-Cancel' | translate}}
+          </button>
         </div>
       </div>
     </div>

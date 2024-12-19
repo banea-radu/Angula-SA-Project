@@ -62,19 +62,24 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     	 - Informatii generale
     	 - Formular
     	3.2. Footer
-		4. My account
-			4.1 Login
-			4.2 Forgot password
+		4. My account - Login
+			4.1 Forgot password
 			4.2 Register
 			4.3 Verify email
-			4.4 My Profile
-			4.5 Programs
-			4.6 Contacts
-			4.7 Newsletter
-			4.8 Users
+		5. My account
+			4.1 Subscriptions
+			4.2 Programs
+			4.3 Contacts
+			4.4 Newsletter
+			4.5 Users
+			4.6 My Profile
 
 
 ## TODO:
+- Subscriptions
+	- freeze table headers
+	- check if name already exists when adding
+	- sort/filter/search table
 - Hide Newsletter and Links footer when in My Account page
 - PWA
 - Create reusable modal with message, custom Proceed button (Delete/Logout) and cancel button
@@ -142,3 +147,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 			- validation
 			- replace button element with component
 			- submit functionality
+	- Subscriptions
+		- add/edit/delete
+		- format dates from add/edit modals

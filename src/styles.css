@@ -44,3 +44,7 @@ body {
 .section-50vh {
 	min-height: 50vh;
 }
+
+.width-150px {
+  width: 150px;
+}

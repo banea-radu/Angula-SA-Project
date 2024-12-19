@@ -206,13 +206,26 @@
   },
   "Subscriptions" : {
     "Title": "Lista Abonamente",
+    "Button-Add": "Adaugă",
     "Name": "Nume",
     "Sessions": "Ședințe rămase",
     "Last-Paid": "Ultima plată",
     "Edit-Delete": "Editează/Șterge",
+    "Modal-Add-Title": "Adaugă abonament",
+    "Modal-Add-Name": "Nume",
+    "Modal-Add-Sessions-Left": "Ședințe",
+    "Modal-Add-Last-Paid": "Data plății",
+    "Modal-Add-Button-Save" : "Salvează",
+    "Modal-Add-Button-Cancel" : "Anulare",
+    "Modal-Edit-Title": "Editează abonament",
+    "Modal-Edit-Name": "Nume",
+    "Modal-Edit-Sessions-Left": "Ședințe rămase",
+    "Modal-Edit-Last-Paid": "Ultima plată",
+    "Modal-Edit-Button-Save" : "Salvează",
+    "Modal-Edit-Button-Cancel" : "Anulare",
     "Modal-Delete-Title": "Ești sigur că dorești să ștergi abonamentul lui {{name}} ?",
-    "Modal-Button-Delete" : "Șterge",
-    "Modal-Button-Cancel" : "Anulare"
+    "Modal-Delete-Button-Delete" : "Șterge",
+    "Modal-Delete-Button-Cancel" : "Anulare"
   },
   "Programs" : {
     "Title" : "Programe",
@@ -234,7 +247,7 @@
     "Button-Cancel" :"Anulare"
   },
   "Contacts" : {
-    "Title" : "Mesaje contacte",
+    "Title" : "Mesaje primite din pagina de Contact",
     "Date" : "Dată",
     "Email" : "Email",
     "Subject" : "Subiect",

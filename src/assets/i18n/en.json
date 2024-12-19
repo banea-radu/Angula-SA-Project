@@ -206,13 +206,26 @@
   },
   "Subscriptions" : {
     "Title": "Subscriptions list",
+    "Button-Add": "Add",
     "Name": "Name",
     "Sessions": "Sessions left",
     "Last-Paid": "Last Paid",
     "Edit-Delete": "Edit/Delete",
+    "Modal-Add-Title": "Add subscription",
+    "Modal-Add-Name": "Name",
+    "Modal-Add-Sessions-Left": "Sessions",
+    "Modal-Add-Last-Paid": "Date paid",
+    "Modal-Add-Button-Save" : "Save",
+    "Modal-Add-Button-Cancel" : "Cancel",
+    "Modal-Edit-Title": "Edit subscription",
+    "Modal-Edit-Name": "Name",
+    "Modal-Edit-Sessions-Left": "Sessions left",
+    "Modal-Edit-Last-Paid": "Last Paid",
+    "Modal-Edit-Button-Save" : "Save",
+    "Modal-Edit-Button-Cancel" : "Cancel",
     "Modal-Delete-Title": "Are you sure you want to delete {{name}}'s subscription?",
-    "Modal-Button-Delete" : "Delete",
-    "Modal-Button-Cancel" : "Cancel"
+    "Modal-Delete-Button-Delete" : "Delete",
+    "Modal-Delete-Button-Cancel" : "Cancel"
   },
   "Programs" : {
     "Title" : "Programs",
@@ -234,7 +247,7 @@
     "Button-Cancel" :"Cancel"
   },
   "Contacts" : {
-    "Title" : "Contacts messages",
+    "Title" : "Messages received from Contacts page",
     "Date" : "Date",
     "Email" : "Email",
     "Subject" : "Subject",

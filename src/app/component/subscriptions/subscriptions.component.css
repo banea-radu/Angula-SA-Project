@@ -1,8 +1,8 @@
 .modal {
   --bs-modal-header-border-width: 0;
   --bs-modal-footer-border-width: 0;
-}
-
-.delete-modal-body-height {
-  min-height: 80px;
+  
+  #hiddenDateInputAddModal, #hiddenDateInputEditModal {
+    width: 0;
+  }
 }

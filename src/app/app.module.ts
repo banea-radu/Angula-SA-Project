@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/shared/header/header.component';
 import { FooterComponent } from './component/shared/footer/footer.component';
@@ -24,12 +23,10 @@ import { ProgramsComponent } from './component/programs/programs.component';
 import { ContactsComponent } from './component/contacts/contacts.component';
 import { NewsletterComponent } from './component/newsletter/newsletter.component';
 import { MyProfileComponent } from './component/my-account/my-profile/my-profile.component';
-
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-// Firebase services + environment module
+import { DatePipe } from '@angular/common';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
@@ -86,7 +83,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFireStorageModule,
     AngularFireDatabaseModule,
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
