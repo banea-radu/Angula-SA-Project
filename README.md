@@ -76,10 +76,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO:
+-> NEXT: add sessions to client
 - Subscriptions
+	- client
+		- list table with edit/delete
+	- sessions
+		- add sessions to client
+		- list table with edit/delete
 	- freeze table headers
 	- check if name already exists when adding
 	- sort/filter/search table
+	- log for every db action
 - Hide Newsletter and Links footer when in My Account page
 - PWA
 - Create reusable modal with message, custom Proceed button (Delete/Logout) and cancel button
@@ -88,17 +95,21 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- Contacts (Only delete)
 	- Newsletter
 	- Users
+- Loading screen on API calls
 - Toast messages with status on actions
 - Refactor all 'any' type usages
 - Nice to have's:
 	- refactor and reset the reactive forms without window reload
-	- loading screen in myaccount
 	- routing rules for childrens of myaccount
 	- bootstrap carrousel
 	- home-card redesign as single, transfer *ngFor to parent component
 	- about-card redesign as single, transfer *ngFor to parent component
 
-## TO DOne:
+## TO DOne (Date descending):
+- Subscriptions
+	- client
+		- create
+	- format dates from add/edit modals
 - General:
 	- deploy build on netlify
 	- add netlify link to readme
@@ -141,12 +152,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 		- hide main body if burger menu opened
 		- integrate cards component
 	- Contact:
-  	- hide main body if burger menu opened
+  	- Hide main body if burger menu opened
 		- replace icons
 		- form
 			- validation
 			- replace button element with component
 			- submit functionality
-	- Subscriptions
-		- add/edit/delete
-		- format dates from add/edit modals

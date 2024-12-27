@@ -1,14 +1,28 @@
-<div class="container text-center mb-3">
+  <!-- Modal wih loading spinner -->
+  <div *ngIf="isLoading" class="modal-backdrop show">
+    <div class="modal d-block" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent">
+          <div class="modal-body text-center">
+            <div class="spinner-border text-warning" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center mb-3">
   <div class="card p-2">
     <div class="d-flex justify-content-between pb-2">
       <h5 class="ms-5 mb-0 d-flex align-items-center">{{'Subscriptions.Title' | translate}}</h5>
-      <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addNewModal" (click)="openAddModal()">
+      <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addSubscriptionModal" (click)="openAddModal()">
         <i class="fa-solid fa-plus"></i>
         {{'Subscriptions.Button-Add' | translate}}
       </button>
     </div>
     <div>
-      <div class="card-table">
+      <div class="card-table" *ngIf="subscriptionsClients$ | async as subscriptionsClients">
         <div class="cart-product table-responsive">
           <table class="table table-striped table-hover table-bordered align-middle table-sm">
             <thead>
@@ -16,26 +30,26 @@
                 <th>Nr.</th>
                 <th>{{'Subscriptions.Name' | translate}}</th>
                 <th>{{'Subscriptions.Sessions' | translate}}</th>
-                <th>{{'Subscriptions.Last-Paid' | translate}}</th>
+                <th>{{'Subscriptions.Oldest-Session-Date' | translate}}</th> <!-- CHECK USAGE OF Subscriptions.Last-Paid -->
                 <th colspan="2"> {{ 'Subscriptions.Edit-Delete' | translate}}</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr *ngFor="let subscription of subscriptions$ | async; let i=index">
+              <tr *ngFor="let client of subscriptionsClients; let i=index">
                 <td>{{i+1}}</td>
-                <td>{{subscription.name}}</td>
-                <td>{{subscription.sessionsLeft}}</td>
-                <td>{{subscription.lastPaid | date: 'dd/MM/yyyy'}}</td>
-                <td>
-                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openEditModal(subscription)">
+                <td>{{client.name}}</td>
+                <td>SUM SESSIONS</td>
+                <td>LAST DATE</td>
+                <!-- <td>
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openEditModal(client)">
                     <i class="fa-solid fa-pen"></i>
                   </button>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="openDeleteModal(subscription)">
+                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="openDeleteModal(client)">
                     <i class="fas fa-trash-alt"></i>
                   </button>
-                </td>
+                </td> -->
               </tr>
             </tbody>
           </table>
@@ -45,7 +59,7 @@
   </div>
 </div>
 <!-- Modal and Form for adding subscription -->
-<div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addSubscriptionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -55,23 +69,23 @@
       <div class="modal-body pt-0">
         <form 
           (ngSubmit)="addSubscription()"
-          [formGroup]="addForm"
+          [formGroup]="addSubscriptionForm"
           class="d-flex flex-column align-items-center justify-content-center">
-          <h2 class="fs-5 mb-3">{{'Subscriptions.Modal-Add-Title' | translate}}</h2>
+          <h2 class="fs-5 mb-3">{{'Subscriptions.Modal-Add-Subscription-Title' | translate}}</h2>
           <div class="d-flex flex-column">
             <div class="input-group mb-2">
               <label class="width-150px input-group-text justify-content-end" for="name">
-                {{'Subscriptions.Modal-Add-Name' | translate}}
+                {{'Subscriptions.Modal-Add-Subscription-Name' | translate}}
               </label>
-              <input
-                name="name"
-                formControlName="name"
-                class="form-control"
-              >
+              <select class="form-select text-center" name="name" formControlName="name">
+                <option *ngFor="let client of subscriptionsClients$ | async">
+                  {{ client.name }}
+                </option>
+              </select>
             </div>
             <div class="input-group mb-2">
               <label class="width-150px input-group-text justify-content-end" for="sessionsToAdd">
-                {{'Subscriptions.Modal-Add-Sessions-Left' | translate}}
+                {{'Subscriptions.Modal-Add-Subscription-Sessions-Left' | translate}}
               </label>
               <input
                 type="number"
@@ -82,7 +96,7 @@
             </div>
             <div class="input-group mb-2">
               <label class="width-150px input-group-text justify-content-end" for="datePaid">
-                {{'Subscriptions.Modal-Add-Last-Paid' | translate}}
+                {{'Subscriptions.Modal-Add-Subscription-Date-Paid' | translate}}
               </label>
               <input
                 id="hiddenDateInputAddModal"
@@ -93,17 +107,59 @@
                 class="invisible border-0 p-0"
               >
               <div (click)="openDatePickerAddModal()" class="custom-datepicker form-control d-flex justify-content-center align-items-center">
-                <span class="px-2">{{addForm.value.datePaid | date: 'dd/MM/yyyy'}}</span>
+                <span class="px-2">{{addSubscriptionForm.value.datePaid | date: 'dd/MM/yyyy'}}</span>
                 <i class="fa fa-calendar px-2"></i>
               </div>
             </div>
           </div>
           <div class="modal-footer align-self-end">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
-              {{'Subscriptions.Modal-Add-Button-Save' | translate}}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClientModal">
+              {{'Subscriptions.Modal-Add-Subscription-Button-New-Client' | translate}}
+            </button>
+            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
+              {{'Subscriptions.Modal-Add-Subscription-Button-Add' | translate}}
             </button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              {{'Subscriptions.Modal-Add-Button-Cancel' | translate}}
+              {{'Subscriptions.Modal-Add-Subscription-Button-Cancel' | translate}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal and Form for adding new client -->
+<div class="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"> </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <form 
+          (ngSubmit)="addClient()"
+          [formGroup]="addClientForm"
+          class="d-flex flex-column align-items-center justify-content-center">
+          <h2 class="fs-5 mb-3">{{'Subscriptions.Modal-Add-Client-Title' | translate}}</h2>
+          <div class="d-flex flex-column">
+            <div class="input-group mb-2">
+              <label class="width-150px input-group-text justify-content-end" for="name">
+                {{'Subscriptions.Modal-Add-Client-Name' | translate}}
+              </label>
+              <input
+                name="name"
+                formControlName="name"
+                class="form-control"
+              >
+            </div>
+          </div>
+          <div class="modal-footer align-self-end">
+            <button type="submit" class="btn btn-success" [disabled]="!addClientForm.valid" data-bs-toggle="modal" data-bs-target="#addSubscriptionModal">
+              {{'Subscriptions.Modal-Add-Client-Button-Add' | translate}}
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addSubscriptionModal">
+              {{'Subscriptions.Modal-Add-Client-Button-Cancel' | translate}}
             </button>
           </div>
         </form>
@@ -112,7 +168,7 @@
   </div>
 </div>
 <!-- Modal and Form for editing subscription -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -177,9 +233,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- Modal for delete confirmation -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -205,4 +261,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
