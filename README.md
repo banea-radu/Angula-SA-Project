@@ -81,7 +81,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- client
 		- list table with edit/delete
 	- sessions
-		- add sessions to client
 		- list table with edit/delete
 	- freeze table headers
 	- check if name already exists when adding
@@ -106,6 +105,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- about-card redesign as single, transfer *ngFor to parent component
 
 ## TO DOne (Date descending):
+- Subscriptions
+	- sessions
+		- add sessions to client
 - Subscriptions
 	- client
 		- create

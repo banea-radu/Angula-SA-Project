@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { DbSubscriptionClient } from '../types/database';
 import { Observable } from 'rxjs';
+import { SessionsData } from '../component/subscriptions/subscriptions.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,87 @@ export class DatabaseService {
   endBaseUrl = 'json';
   accessToken: string = JSON.parse(localStorage.getItem('user')).stsTokenManager.accessToken;
   userEmail: string = JSON.parse(localStorage.getItem('user')).email;
-  today = new Date();
 
   constructor(
     private http: HttpClient,
   ) {}
+
+  constructUrl(endpoint: string, id?: string) {
+    // let partialUrl = `${this.startBaseUrl}/${endpoint}`;
+    // /* 
+    //   Check if id was passed to this function.
+    //   If yes, it is needed for a patch/delete request and we need to add it to the full path
+    // */
+    // if (id) {
+    //   partialUrl = `${this.startBaseUrl}/${endpoint}/${id}`;
+    // }
+    // return `${partialUrl}.${this.endBaseUrl}?auth=${this.accessToken}`;
+    return `${this.startBaseUrl}/${endpoint}.${this.endBaseUrl}?auth=${this.accessToken}`;
+  }
+
+  createUniqueId(originalText: string, descendingTimestamp = false): string {
+    let text = originalText.replaceAll(" ", "");
+    let timestamp = new Date().getTime();
+    if (descendingTimestamp) {
+      // Get a new number in a descending order for the database
+      timestamp = 9999999999999 - timestamp;
+    }    
+    return descendingTimestamp ? `${timestamp}_${text}` : `${text}_${timestamp}`;
+  }
+
+  getSubscriptionsClients(): Observable<DbSubscriptionClient[]> {
+    const completeUrl = this.constructUrl('subscriptions/clients');
+    return this.http.get<Record<string, DbSubscriptionClient>>(completeUrl).pipe(
+      map((response: Record<string, DbSubscriptionClient>) => {
+        // Convert the response object into an array
+        return Object.values(response || {});
+      })
+    );
+  }
+
+  addSubscriptionClient(clientName: string) {
+    const uniqueId = this.createUniqueId(clientName);
+    const completeUrl = this.constructUrl(`subscriptions/clients/${uniqueId}`);
+    return this.http.patch(completeUrl, {
+      createdBy: this.userEmail,
+      dateCreated: new Date(),
+      id: uniqueId,
+      name: clientName,
+    });
+  }
+
+  addSubscriptionSessions(sessionsData: SessionsData) {
+    const uniqueId = this.createUniqueId(sessionsData.name, true);
+    const completeUrl = this.constructUrl(`subscriptions/sessions/`);
+    const numberOfSessions = sessionsData.sessionsToAdd;
+    const payload: { [key: string]: any } = {};
+    
+    for (let i = 1; i <= numberOfSessions; i++) {
+      // Create unique ID for each session. "padStart" ensures IDs like 01, 02, etc., maintaining consistency
+      const id = `${uniqueId}_${i.toString().padStart(2, '0')}`;
+      payload[id] = {
+        clientId: sessionsData.clientId,
+        createdBy: this.userEmail,
+        dateCreated: new Date(),
+        datePaid: sessionsData.datePaid,
+        id: id,
+        status: "AVAILABLE",
+        subscriptionType: sessionsData.sessionsToAdd,
+      };
+    }
+    
+    return this.http.patch(completeUrl, payload);
+  }
+
+
+
+
+
+  
+
+
+
+
 
   createCompleteUrl(endpoint: string, id?: string){
     const urlBase: string = "https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app";
@@ -67,49 +144,4 @@ export class DatabaseService {
     return this.http.delete(completeUrl);
   }
 
-  constructUrl(endpoint: string, id?: string) {
-    // let partialUrl = `${this.startBaseUrl}/${endpoint}`;
-    // /* 
-    //   Check if id was passed to this function.
-    //   If yes, it is needed for a patch/delete request and we need to add it to the full path
-    // */
-    // if (id) {
-    //   partialUrl = `${this.startBaseUrl}/${endpoint}/${id}`;
-    // }
-    // return `${partialUrl}.${this.endBaseUrl}?auth=${this.accessToken}`;
-    return `${this.startBaseUrl}/${endpoint}.${this.endBaseUrl}?auth=${this.accessToken}`;
-  }
-
-  createUniqueId(originalText: string, descendingTimestamp = false): string {
-    let text = originalText.replaceAll(" ", "");
-    let timestamp = new Date().getTime();
-    if (descendingTimestamp) {
-      // Get a new number in a descending order for the database
-      timestamp = 9999999999999 - timestamp;
-    }    
-    return descendingTimestamp ? `${timestamp}_${text}` : `${text}_${timestamp}`;
-  }
-
-  getSubscriptionsClients(): Observable<DbSubscriptionClient[]> {
-    const completeUrl = this.constructUrl('subscriptions/clients');
-    return this.http.get<Record<string, DbSubscriptionClient>>(completeUrl).pipe(
-      map((response: Record<string, DbSubscriptionClient>) => {
-        // Convert the response object into an array
-        return Object.values(response || {});
-      })
-    );
-  }
-
-  addNewSubscriptionClient(name: string) {
-    const uniqueId = this.createUniqueId(name);
-    const completeUrl = this.constructUrl(`subscriptions/clients/${uniqueId}`);
-    return this.http.patch(completeUrl, {
-      createdBy: this.userEmail,
-      dateCreated: this.today,
-      id: uniqueId,
-      name,
-    });
-  }
-
-  // timestamp descending when posting new session
 }
