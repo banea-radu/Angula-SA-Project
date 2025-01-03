@@ -4,8 +4,8 @@ export type DbSubscriptionSession = {
   dateCreated: Date;
   datePaid: Date;
   id: string;
-  type: string;
   status: DbSubscriptionSessionStatus;
+  subscriptionSessionsType: number;
 }
 
 export type DbSubscriptionClient = {

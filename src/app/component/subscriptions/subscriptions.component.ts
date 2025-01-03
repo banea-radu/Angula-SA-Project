@@ -21,7 +21,6 @@ export class SubscriptionsComponent {
   @ViewChild('hiddenDateInputAddModal') hiddenDateInputAddModal!: ElementRef;
   @ViewChild('hiddenDateInputEditModal') hiddenDateInputEditModal!: ElementRef;
   sessions$: Observable<DbSubscriptionSession[]>;
-  // clients$: Observable<DbSubscriptionClient[]>;
   clients: DbSubscriptionClient[];
   selectedClientName: string | null = null;
   isLoading = true;
@@ -38,7 +37,8 @@ export class SubscriptionsComponent {
   addClientFormInitialValues = this.addClientForm.value;
 
   addSessionsForm = this.formbuilder.group({
-    id: ['', Validators.required],
+    clientId: ['', Validators.required],
+    datePaid: [this.today, Validators.required],
     name: ['', Validators.compose(
       [
         Validators.required,
@@ -46,7 +46,6 @@ export class SubscriptionsComponent {
         Validators.pattern('[a-zA-Z ]*')
       ]
     )],
-    datePaid: [this.today, Validators.required],
     sessionsToAdd: [0, Validators.compose(
       [
         Validators.required,
@@ -109,7 +108,7 @@ export class SubscriptionsComponent {
   }
 
   setSelectedClientName() {
-    const selectedId = this.addSessionsForm.value.id;
+    const selectedId = this.addSessionsForm.value.clientId;
     const selectedClientName = this.clients.find(client => client.id === selectedId).name;
     this.addSessionsForm.get('name').setValue(selectedClientName);
   }
@@ -123,18 +122,6 @@ export class SubscriptionsComponent {
           this.getClients();
       });
     }
-    
-    // const body = {
-    //   id: this.addSessionsForm.value.id,
-    //   name: this.addSessionsForm.value.name,
-    //   lastPaid: this.addSessionsForm.value.datePaid,
-    //   sessionsLeft: this.addSessionsForm.value.sessionsToAdd,
-    // };
-    // this.databaseService.postData('subscriptions', body)
-    //   .subscribe(() => {
-    //     console.log('subscription added');
-    //     this.getSubscriptions();
-    // });
   }
 
 

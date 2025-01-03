@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { DbSubscriptionClient } from '../types/database';
+import { DbSubscriptionClient, DbSubscriptionSession } from '../types/database';
 import { Observable } from 'rxjs';
 import { SessionsData } from '../component/subscriptions/subscriptions.component';
 
@@ -66,7 +66,7 @@ export class DatabaseService {
     const uniqueId = this.createUniqueId(sessionsData.name, true);
     const completeUrl = this.constructUrl(`subscriptions/sessions/`);
     const numberOfSessions = sessionsData.sessionsToAdd;
-    const payload: { [key: string]: any } = {};
+    const payload: { [key: string]: DbSubscriptionSession } = {};
     
     for (let i = 1; i <= numberOfSessions; i++) {
       // Create unique ID for each session. "padStart" ensures IDs like 01, 02, etc., maintaining consistency
@@ -75,10 +75,10 @@ export class DatabaseService {
         clientId: sessionsData.clientId,
         createdBy: this.userEmail,
         dateCreated: new Date(),
-        datePaid: sessionsData.datePaid,
+        datePaid: new Date(sessionsData.datePaid),
         id: id,
         status: "AVAILABLE",
-        subscriptionType: sessionsData.sessionsToAdd,
+        subscriptionSessionsType: sessionsData.sessionsToAdd,
       };
     }
     

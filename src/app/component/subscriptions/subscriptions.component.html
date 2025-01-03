@@ -77,7 +77,7 @@
               <label class="width-150px input-group-text justify-content-end" for="name">
                 {{'Subscriptions.Modal-Add-Subscription-Name' | translate}}
               </label>
-              <select class="form-select text-center" name="name" formControlName="id" (change)="setSelectedClientName()">
+              <select class="form-select text-center" name="name" formControlName="clientId" (change)="setSelectedClientName()">
                 <option *ngFor="let client of clients" [value]="client.id">
                  {{client.name}}
                 </option>

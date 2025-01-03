@@ -106,11 +106,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TO DOne (Date descending):
 - Subscriptions
-	- sessions
-		- add sessions to client
+
 - Subscriptions
 	- client
 		- create
+	- sessions
+		- add sessions to client
 	- format dates from add/edit modals
 - General:
 	- deploy build on netlify
