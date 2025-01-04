@@ -35,10 +35,10 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr *ngFor="let client of clients; let i=index">
+              <tr *ngFor="let client of clientsData; let i=index">
                 <td>{{i+1}}</td>
                 <td>{{client.name}}</td>
-                <td>SUM SESSIONS</td>
+                <td>{{client.sessionsLeft}}</td>
                 <td>LAST DATE</td>
                 <!-- <td>
                   <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openEditModal(client)">

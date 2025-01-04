@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { delay, finalize, Observable } from 'rxjs';
+import { delay, finalize, forkJoin, Observable } from 'rxjs';
 import { DatabaseService } from 'src/app/service/database.service';
-import { DbSubscriptionSession, DbSubscriptionClient } from 'src/app/types/database';
+import { DbSubscriptionSession, DbSubscriptionClient, DbSubscriptionSessionStatus } from 'src/app/types/database';
 import { DatePipe } from '@angular/common';
 
 export type SessionsData = {
@@ -10,6 +10,12 @@ export type SessionsData = {
   datePaid: string;
   name: string;
   sessionsToAdd: number;
+}
+
+type ClientData = {
+  id: string;
+  name: string;
+  sessionsLeft: number;
 }
 
 @Component({
@@ -20,8 +26,9 @@ export type SessionsData = {
 export class SubscriptionsComponent {
   @ViewChild('hiddenDateInputAddModal') hiddenDateInputAddModal!: ElementRef;
   @ViewChild('hiddenDateInputEditModal') hiddenDateInputEditModal!: ElementRef;
-  sessions$: Observable<DbSubscriptionSession[]>;
   clients: DbSubscriptionClient[];
+  sessions: DbSubscriptionSession[];
+  clientsData: ClientData[];
   selectedClientName: string | null = null;
   isLoading = true;
   today = this.datePipe.transform(new Date(), "yyyy-MM-dd"); // get today's date for datepicker
@@ -77,19 +84,29 @@ export class SubscriptionsComponent {
   ) {}
 
   ngOnInit() {
-    this.getClients();
+    this.isLoading = true;
+    forkJoin([
+      this.getClients(),
+      this.getSessionsData('AVAILABLE')
+    ]).subscribe(([clients, sessions]) => {
+      this.clients = clients;
+      this.sessions = sessions;
+      this.clientsData = clients.map(client => {
+        const sessionsCount = sessions.filter(session => session.clientId === client.id).length;
+        return {
+          id: client.id,
+          name: client.name,
+          sessionsLeft: sessionsCount
+        };
+      });
+      this.isLoading = false;
+    });
   }
 
-  getClients() {
-    this.isLoading = true;
-    this.databaseService.getSubscriptionsClients().pipe(
-      delay(350),
-      finalize(() => {
-        this.isLoading = false;
-      })
-    ).subscribe((res) => {
-      this.clients = res;
-    });
+  getClients(): Observable<DbSubscriptionClient[]> {
+    return this.databaseService.getSubscriptionsClients().pipe(
+      delay(350)
+    );
   }
 
   resetAddSessionsFormValues() {
@@ -98,11 +115,14 @@ export class SubscriptionsComponent {
 
   addClient() {
     if (this.addClientForm.valid) {
-      this.databaseService.addSubscriptionClient(this.addClientForm.value.name)
-        .subscribe(() => {
-          console.log('client added');
-          this.addClientForm.reset(this.addClientFormInitialValues);
-          this.getClients();
+      this.isLoading = true;
+      this.databaseService.addSubscriptionClient(this.addClientForm.value.name).subscribe(() => {
+        console.log('client added');
+        this.addClientForm.reset(this.addClientFormInitialValues);
+        this.getClients().subscribe((res)=> {
+          this.clients = res;
+          this.isLoading = false;
+        });
       });
     }  
   }
@@ -113,13 +133,22 @@ export class SubscriptionsComponent {
     this.addSessionsForm.get('name').setValue(selectedClientName);
   }
 
+  getSessionsData(status: DbSubscriptionSessionStatus): Observable<DbSubscriptionSession[]> {
+    return this.databaseService.getSubscriptionsData(status).pipe(
+      delay(350)
+    );
+  }
+
   addSessions() {
     if (this.addSessionsForm.valid) {
-      this.databaseService.addSubscriptionSessions(this.addSessionsForm.value as SessionsData)
-        .subscribe(() => {
-          console.log('sessions added');
-          this.addClientForm.reset(this.addClientFormInitialValues);
-          this.getClients();
+      this.isLoading = true;
+      this.databaseService.addSubscriptionSessions(this.addSessionsForm.value as SessionsData).subscribe(() => {
+        console.log('sessions added');
+        this.addClientForm.reset(this.addClientFormInitialValues);
+        this.getSessionsData('AVAILABLE').subscribe((res)=> {
+          this.sessions = res;
+          this.isLoading = false;
+        });
       });
     }
   }
@@ -129,19 +158,7 @@ export class SubscriptionsComponent {
 
 
 
-  // openAddClientModal() {
-  //   this.addClientForm = new FormGroup({
-  //     name: new FormControl(null),
-  //   });
-  // };
 
-
-
-
-
-  getSessions() {
-    this.sessions$ = this.databaseService.getData('subscriptions');
-  };
 
   openDatePickerAddModal() {
      this.hiddenDateInputAddModal.nativeElement.showPicker();

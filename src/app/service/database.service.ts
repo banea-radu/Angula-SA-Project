@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { DbSubscriptionClient, DbSubscriptionSession } from '../types/database';
+import { DbSubscriptionClient, DbSubscriptionSession, DbSubscriptionSessionStatus } from '../types/database';
 import { Observable } from 'rxjs';
 import { SessionsData } from '../component/subscriptions/subscriptions.component';
 
@@ -62,9 +62,24 @@ export class DatabaseService {
     });
   }
 
+  getSubscriptionsData(status: DbSubscriptionSessionStatus): Observable<DbSubscriptionSession[]> {
+    const completeUrl = this.constructUrl('subscriptions/sessions');
+    return this.http.get<Record<string, DbSubscriptionSession>>(completeUrl, {
+      params: {
+        orderBy: '"status"',   // Property to filter by (must be indexed)
+        equalTo: `"${status}"`       // Value to match, in double quotes to make it a JSON string
+      }
+    }).pipe(
+      map((response: Record<string, DbSubscriptionSession>) => {
+        // Convert the response object into an array
+        return Object.values(response || {});
+      })
+    );
+  }
+
   addSubscriptionSessions(sessionsData: SessionsData) {
     const uniqueId = this.createUniqueId(sessionsData.name, true);
-    const completeUrl = this.constructUrl(`subscriptions/sessions/`);
+    const completeUrl = this.constructUrl(`subscriptions/sessions`);
     const numberOfSessions = sessionsData.sessionsToAdd;
     const payload: { [key: string]: DbSubscriptionSession } = {};
     

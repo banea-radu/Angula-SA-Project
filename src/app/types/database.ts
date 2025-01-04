@@ -15,4 +15,4 @@ export type DbSubscriptionClient = {
   name: string;
 }
 
-type DbSubscriptionSessionStatus = 'AVAILABLE' | 'USED';
+export type DbSubscriptionSessionStatus = 'AVAILABLE' | 'USED';

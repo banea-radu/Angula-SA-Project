@@ -76,7 +76,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO:
--> NEXT: add sessions to client
+-> NEXT: list table with edit/delete
 - Subscriptions
 	- client
 		- list table with edit/delete
@@ -105,8 +105,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- about-card redesign as single, transfer *ngFor to parent component
 
 ## TO DOne (Date descending):
-- Subscriptions
-
 - Subscriptions
 	- client
 		- create
