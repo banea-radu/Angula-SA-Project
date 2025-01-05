@@ -62,17 +62,29 @@ export class DatabaseService {
     });
   }
 
+  editSubscriptionClientName(id: string, name: string) {
+    const completeUrl = this.constructUrl(`subscriptions/clients/${id}`);
+    return this.http.patch(completeUrl, {
+      name,
+    });
+  }
+
+  deleteSubscriptionClient(id: string) {
+    const completeUrl = this.constructUrl(`subscriptions/clients/${id}`);
+    return this.http.delete(completeUrl);
+  }
+
   getSubscriptionsData(status: DbSubscriptionSessionStatus): Observable<DbSubscriptionSession[]> {
     const completeUrl = this.constructUrl('subscriptions/sessions');
     return this.http.get<Record<string, DbSubscriptionSession>>(completeUrl, {
       params: {
-        orderBy: '"status"',   // Property to filter by (must be indexed)
-        equalTo: `"${status}"`       // Value to match, in double quotes to make it a JSON string
+        orderBy: '"status"',      // Property to filter by (must be indexed)
+        equalTo: `"${status}"`    // Value to match, in double quotes to make it a JSON string
       }
     }).pipe(
       map((response: Record<string, DbSubscriptionSession>) => {
-        // Convert the response object into an array
-        return Object.values(response || {});
+        // Convert the response object into an array an keep original order
+        return Object.values(response || {}).sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
       })
     );
   }

@@ -227,8 +227,7 @@
     "Modal-Edit-Name": "Name",
     "Modal-Edit-Sessions-Left": "Sessions left",
     "Modal-Edit-Last-Paid": "Last Paid",
-    "Modal-Edit-Button-Save" : "Save",
-    "Modal-Edit-Button-Cancel" : "Cancel",
+    "Modal-Edit-Button-Close" : "Close",
     "Modal-Delete-Title": "Are you sure you want to delete {{name}}'s subscription?",
     "Modal-Delete-Button-Delete" : "Delete",
     "Modal-Delete-Button-Cancel" : "Cancel"

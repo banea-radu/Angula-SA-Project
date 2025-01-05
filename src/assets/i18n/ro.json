@@ -227,8 +227,7 @@
     "Modal-Edit-Name": "Nume",
     "Modal-Edit-Sessions-Left": "Ședințe rămase",
     "Modal-Edit-Last-Paid": "Ultima plată",
-    "Modal-Edit-Button-Save" : "Salvează",
-    "Modal-Edit-Button-Cancel" : "Anulare",
+    "Modal-Edit-Button-Close" : "Închide",
     "Modal-Delete-Title": "Ești sigur că dorești să ștergi abonamentul lui {{name}} ?",
     "Modal-Delete-Button-Delete" : "Șterge",
     "Modal-Delete-Button-Cancel" : "Anulare"

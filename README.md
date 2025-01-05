@@ -76,27 +76,24 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO:
--> NEXT: list table with edit/delete
+-> NEXT: sessions - list table with edit/delete
 - Subscriptions
-	- client
-		- list table with edit/delete
 	- sessions
 		- list table with edit/delete
 	- freeze table headers
-	- check if name already exists when adding
-	- sort/filter/search table
 	- log for every db action
-- Hide Newsletter and Links footer when in My Account page
+- Refactor API calls from all previous section in my account
 - PWA
+- Hide Newsletter and Links footer when in My Account page
+- Loading screen on API calls
+- Toast messages with status on actions
+- Refactor all 'any' type usages
 - Create reusable modal with message, custom Proceed button (Delete/Logout) and cancel button
 	- My Account (Logout)
 	- Programs
 	- Contacts (Only delete)
 	- Newsletter
 	- Users
-- Loading screen on API calls
-- Toast messages with status on actions
-- Refactor all 'any' type usages
 - Nice to have's:
 	- refactor and reset the reactive forms without window reload
 	- routing rules for childrens of myaccount
@@ -108,6 +105,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Subscriptions
 	- client
 		- create
+		- list table with edit/delete
 	- sessions
 		- add sessions to client
 	- format dates from add/edit modals
