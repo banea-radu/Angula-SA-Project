@@ -1,0 +1,7 @@
+.card-table {
+  font-size: 0.68rem;
+
+  .cart-product {
+    max-height: 40vh;
+  }
+}

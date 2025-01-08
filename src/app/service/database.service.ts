@@ -89,6 +89,35 @@ export class DatabaseService {
     );
   }
 
+  getClientSubscriptionsData(id: string): Observable<DbSubscriptionSession[]> {
+    const completeUrl = this.constructUrl('subscriptions/sessions');
+    return this.http.get<Record<string, DbSubscriptionSession>>(completeUrl, {
+
+      // const endDate = new Date();
+      // const startDate = new Date();
+      // startDate.setMonth(endDate.getMonth() - 2);
+
+      // /* Firebase Realtime Database can only filter by one field per query. 
+      //   If you want to filter by clientId and datePaid together, you'll need a composite key or manual filtering. */
+      //   params: {
+      //   orderBy: '"datePaid"',             // Property to filter by (must be indexed)
+      //   startAt: `"${startDate.toISOString()}"`,    // Convert date to ISO string
+      //   endAt: `"${endDate.toISOString()}"`,        // Convert date to ISO string
+      //   // equalTo: `"${id}"`                          // Value to match, in double quotes to make it a JSON string
+      // }
+
+      params: {
+        orderBy: '"clientId"',             // Property to filter by (must be indexed)
+        equalTo: `"${id}"`                 // Value to match, in double quotes to make it a JSON string
+      }
+    }).pipe(
+      map((response: Record<string, DbSubscriptionSession>) => {
+        // Convert the response object into an array an keep original order
+        return Object.values(response || {}).sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+      })
+    );
+  }
+
   addSubscriptionSessions(sessionsData: SessionsData) {
     const uniqueId = this.createUniqueId(sessionsData.name, true);
     const completeUrl = this.constructUrl(`subscriptions/sessions`);
@@ -110,6 +139,11 @@ export class DatabaseService {
     }
     
     return this.http.patch(completeUrl, payload);
+  }
+
+  deleteSubscriptionSession(id: string) {
+    const completeUrl = this.constructUrl(`subscriptions/sessions/${id}`);
+    return this.http.delete(completeUrl);
   }
 
 

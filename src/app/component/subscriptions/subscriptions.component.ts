@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { delay, finalize, forkJoin, Observable } from 'rxjs';
+import { delay, forkJoin, Observable } from 'rxjs';
 import { DatabaseService } from 'src/app/service/database.service';
 import { DbSubscriptionSession, DbSubscriptionClient, DbSubscriptionSessionStatus } from 'src/app/types/database';
 import { DatePipe } from '@angular/common';
@@ -31,6 +31,8 @@ export class SubscriptionsComponent {
   sessions: DbSubscriptionSession[];
   tableClientsData: TableClientData[];
   selectedClientName: string | null = null;
+  clientSessions: DbSubscriptionSession[];
+  sessionIdToDelete: string;
   isLoading = true;
   today = this.datePipe.transform(new Date(), "yyyy-MM-dd"); // get today's date for datepicker
   isSaveNameButtonVisible = false;
@@ -69,6 +71,7 @@ export class SubscriptionsComponent {
     name: new FormControl(null),
     oldestPayDate: new FormControl(new Date()), // not used in form, just for type checking
     sessionsLeft: new FormControl({value: 0, disabled: true}),
+    sessionsList: new FormControl([]),
   });
   deleteForm = this.formbuilder.group({
     id: new FormControl(''),
@@ -162,14 +165,19 @@ export class SubscriptionsComponent {
 
   openEditModal(client: TableClientData) {
     const {id, name, oldestPayDate, sessionsLeft} = client;
-    this.editForm = this.formbuilder.group({
-      id: new FormControl(id),
-      name: new FormControl(name),
-      oldestPayDate: new FormControl(oldestPayDate),
-      sessionsLeft: new FormControl({value: sessionsLeft, disabled: true}),
-    });
     this.editForm.get('name').valueChanges.subscribe(value => {
       this.isSaveNameButtonVisible = value !== name;
+    });
+    // Get all sessions for client to view in sessions table
+    this.databaseService.getClientSubscriptionsData(id).subscribe((res) => {
+      this.clientSessions = res;
+      this.editForm = this.formbuilder.group({
+        id: new FormControl(id),
+        name: new FormControl(name),
+        oldestPayDate: new FormControl(oldestPayDate),
+        sessionsLeft: new FormControl({value: sessionsLeft, disabled: true}),
+        sessionsList: new FormControl(this.clientSessions),
+      });
     });
   }
 
@@ -193,17 +201,32 @@ export class SubscriptionsComponent {
     });
   }
 
-  openDeleteModal() {
+  setSessionIdToDelete(sessionId: string) {
+    this.sessionIdToDelete = sessionId;
+  }
+
+  deleteClientSession(sessionId: string) {
+    this.isLoading = true;
+    this.databaseService.deleteSubscriptionSession(sessionId).subscribe(() => {
+      console.log('session deleted');
+      this.getSessionsData('AVAILABLE').subscribe((res)=> {
+        this.sessions = res;
+        this.setTableClientsData();
+        this.isLoading = false;
+      });
+    });
+  }
+
+  openDeleteClientModal() {
     this.deleteForm = this.formbuilder.group({
       id: new FormControl(this.editForm.value.id),
       name: new FormControl(this.editForm.value.name),
     });
   }
 
-  deleteClient() {
-    const { id } = this.editForm.value;
+  deleteClient(clientId: string) {
     this.isLoading = true;
-    this.databaseService.deleteSubscriptionClient(id)
+    this.databaseService.deleteSubscriptionClient(clientId)
       .subscribe(() => {
         console.log('subscription deleted');
         // refresh table clients object

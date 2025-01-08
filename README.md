@@ -77,17 +77,22 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO:
 -> NEXT: sessions - list table with edit/delete
+Critical:
+- Fix "401 Unauthorized" from firebase issue when opening app
+- Fix safari issue: cannot open datepicker
+- log for every db action
+
 - Subscriptions
 	- sessions
 		- list table with edit/delete
+		- freeze table header
+		- filter sessions by clientId and datePaid
 	- freeze table headers
-	- log for every db action
-- Refactor API calls from all previous section in my account
 - PWA
+- Refactor API calls from all previous section in my account
 - Hide Newsletter and Links footer when in My Account page
 - Loading screen on API calls
 - Toast messages with status on actions
-- Refactor all 'any' type usages
 - Create reusable modal with message, custom Proceed button (Delete/Logout) and cancel button
 	- My Account (Logout)
 	- Programs
@@ -95,7 +100,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	- Newsletter
 	- Users
 - Nice to have's:
-	- refactor and reset the reactive forms without window reload
+	- Refactor all 'any' type usages
+	- rename all translations without hierarchy structure
+	- reset the reactive forms without window reload
+	- restructuring of components and pages
 	- routing rules for childrens of myaccount
 	- bootstrap carrousel
 	- home-card redesign as single, transfer *ngFor to parent component
