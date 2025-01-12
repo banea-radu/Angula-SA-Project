@@ -198,6 +198,7 @@
     "Users" : "Utilizatori",
     "My-Profile" : "Profilul meu",
     "Modal-Logout" : {
+      "Title" : "Deconectare cont",
       "Are-You-Sure" : "Ești sigur că vrei să te deconectezi de la contul tău?",
       "Button-Logout" :"Deconectare",
       "Button-Cancel" :"Anulare"
@@ -308,7 +309,7 @@
   "strSubscriptionsModalEditSessionsTableHeader1" : "Data plății",
   "strSubscriptionsModalEditSessionsTableHeader2" : "Status",
   "strSubscriptionsModalEditSessionsTableHeader3" : "Tip abonament",
-  "strSubscriptionsModalEditSessionsTableHeader4" : "Editează / Șterge",
+  "strSubscriptionsModalEditSessionsTableHeader4" : "Șterge",
 
   "strSubscriptionsModalDeleteSessionTitle" : "Șterge sesiune",
   "strSubscriptionsModalDeleteSessionContent" : "Ești sigur că dorești să ștergi sesiunea?",

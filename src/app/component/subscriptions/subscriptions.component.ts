@@ -165,11 +165,11 @@ export class SubscriptionsComponent {
 
   openEditModal(client: TableClientData) {
     const {id, name, oldestPayDate, sessionsLeft} = client;
-    this.editForm.get('name').valueChanges.subscribe(value => {
-      this.isSaveNameButtonVisible = value !== name;
-    });
+    this.isLoading = true;
     // Get all sessions for client to view in sessions table
-    this.databaseService.getClientSubscriptionsData(id).subscribe((res) => {
+    this.databaseService.getClientSubscriptionsData(id).pipe(
+      delay(350)
+    ).subscribe((res) => {
       this.clientSessions = res;
       this.editForm = this.formbuilder.group({
         id: new FormControl(id),
@@ -178,6 +178,10 @@ export class SubscriptionsComponent {
         sessionsLeft: new FormControl({value: sessionsLeft, disabled: true}),
         sessionsList: new FormControl(this.clientSessions),
       });
+      this.editForm.get('name').valueChanges.subscribe(value => {
+        this.isSaveNameButtonVisible = value !== name;
+      });
+      this.isLoading = false;
     });
   }
 
@@ -187,7 +191,7 @@ export class SubscriptionsComponent {
     this.isSaveNameLoading = true;
     this.databaseService.editSubscriptionClientName(id, name)
       .subscribe(() => {
-        console.log('subscription edited');
+        console.log('subscription name edited');
         const editedClientData = this.editForm.getRawValue() as TableClientData; // Fetch all values, including those from disabled controls.
         // refresh table clients object
         this.isLoading = true;
@@ -201,20 +205,24 @@ export class SubscriptionsComponent {
     });
   }
 
-  setSessionIdToDelete(sessionId: string) {
-    this.sessionIdToDelete = sessionId;
-  }
-
-  deleteClientSession(sessionId: string) {
+  toggleSessionStatus(session: DbSubscriptionSession) {
+    session.status = session.status === 'AVAILABLE' ? 'USED' : 'AVAILABLE';
     this.isLoading = true;
-    this.databaseService.deleteSubscriptionSession(sessionId).subscribe(() => {
-      console.log('session deleted');
+    this.databaseService.setSubscriptionSessionStatus(session.id, session.status)
+    .subscribe(() => {
+      console.log('session status edited');
       this.getSessionsData('AVAILABLE').subscribe((res)=> {
         this.sessions = res;
         this.setTableClientsData();
+        const sessionsLeft = this.editForm.get('sessionsLeft').value;
+        this.editForm.get('sessionsLeft').setValue(session.status === 'AVAILABLE' ? sessionsLeft + 1 : sessionsLeft - 1);
         this.isLoading = false;
       });
-    });
+  });
+  }
+
+  setSessionIdToDelete(id: string) {
+    this.sessionIdToDelete = id;
   }
 
   openDeleteClientModal() {
@@ -236,6 +244,20 @@ export class SubscriptionsComponent {
           this.setTableClientsData();
           this.isLoading = false;
         });
+    });
+  }
+
+  deleteClientSession(id: string) {
+    this.isLoading = true;
+    this.databaseService.deleteSubscriptionSession(id).subscribe(() => {
+      console.log('session deleted');
+      this.getSessionsData('AVAILABLE').subscribe((res)=> {
+        this.sessions = res;
+        this.setTableClientsData();
+        const sessionsLeft = this.editForm.get('sessionsLeft').value;
+        this.editForm.get('sessionsLeft').setValue(sessionsLeft - 1);
+        this.isLoading = false;
+      });
     });
   }
 

@@ -198,6 +198,7 @@
     "Users" : "Users",
     "My-Profile" : "My profile",
     "Modal-Logout" : {
+      "Title" : "Logout",
       "Are-You-Sure" : "Are you sure you want to logout from your account?",
       "Button-Logout" :"Logout",
       "Button-Cancel" :"Cancel"
@@ -305,10 +306,10 @@
   "strSubscriptionsModalEditSubscriptionField2" : "Sessions left",
   "strSubscriptionsModalEditSubscriptionButton1" : "Delete client",
 
-  "strSubscriptionsModalEditSessionsTableHeader1" : "Data plății",
+  "strSubscriptionsModalEditSessionsTableHeader1" : "Date paid",
   "strSubscriptionsModalEditSessionsTableHeader2" : "Status",
-  "strSubscriptionsModalEditSessionsTableHeader3" : "Tip abonament",
-  "strSubscriptionsModalEditSessionsTableHeader4" : "Editează / Șterge",
+  "strSubscriptionsModalEditSessionsTableHeader3" : "Subscription type",
+  "strSubscriptionsModalEditSessionsTableHeader4" : "Delete",
 
   "strSubscriptionsModalDeleteSessionTitle" : "Delete session",
   "strSubscriptionsModalDeleteSessionContent" : "Are you sure you want to delete the session?",

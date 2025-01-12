@@ -35,7 +35,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { SubscriptionsComponent } from './component/subscriptions/subscriptions.component';
-import { SessionsTableComponent } from './component/subscriptions/sessions-table/sessions-table.component';
 import { ModalDeleteComponent } from './component/modal-delete/modal-delete.component';
 
 // AoT requires an exported function for factories
@@ -66,8 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MyProfileComponent,
     PageNotFoundComponent,
     SubscriptionsComponent,
-    SessionsTableComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
   ],
   imports: [
     BrowserModule,

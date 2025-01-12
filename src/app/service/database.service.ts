@@ -141,6 +141,14 @@ export class DatabaseService {
     return this.http.patch(completeUrl, payload);
   }
 
+  setSubscriptionSessionStatus(id: string, status: string) {
+    const completeUrl = this.constructUrl(`subscriptions/sessions/${id}`);
+    const payload = {
+      status,
+    };
+    return this.http.patch(completeUrl, payload);
+  }
+
   deleteSubscriptionSession(id: string) {
     const completeUrl = this.constructUrl(`subscriptions/sessions/${id}`);
     return this.http.delete(completeUrl);
