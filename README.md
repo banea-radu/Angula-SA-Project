@@ -110,6 +110,13 @@ Critical:
 	- about-card redesign as single, transfer *ngFor to parent component
 
 ## TO DOne (Date descending):
+- Subscriptions
+	- client
+		- create
+		- list table with edit/delete
+	- sessions
+		- add sessions to client
+		- list table with edit/delete
 	- format dates from add/edit modals
 - General:
 	- deploy build on netlify

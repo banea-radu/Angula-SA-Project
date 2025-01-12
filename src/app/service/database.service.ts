@@ -11,23 +11,16 @@ import { SessionsData } from '../component/subscriptions/subscriptions.component
 export class DatabaseService {
   startBaseUrl = 'https://sa-project-11a2c-default-rtdb.europe-west1.firebasedatabase.app';
   endBaseUrl = 'json';
-  accessToken: string = JSON.parse(localStorage.getItem('user')).stsTokenManager.accessToken;
-  userEmail: string = JSON.parse(localStorage.getItem('user')).email;
+  localStorageUserData: string | null = localStorage.getItem('user');
+  isLocalStorageUserData = this.localStorageUserData !== 'null' && this.localStorageUserData !== null;
+  accessToken: string = this.isLocalStorageUserData ? JSON.parse(this.localStorageUserData).stsTokenManager.accessToken: '';
+  userEmail: string =  this.isLocalStorageUserData ? JSON.parse( this.localStorageUserData).email : '';
 
   constructor(
     private http: HttpClient,
   ) {}
 
-  constructUrl(endpoint: string, id?: string) {
-    // let partialUrl = `${this.startBaseUrl}/${endpoint}`;
-    // /* 
-    //   Check if id was passed to this function.
-    //   If yes, it is needed for a patch/delete request and we need to add it to the full path
-    // */
-    // if (id) {
-    //   partialUrl = `${this.startBaseUrl}/${endpoint}/${id}`;
-    // }
-    // return `${partialUrl}.${this.endBaseUrl}?auth=${this.accessToken}`;
+  constructUrl(endpoint: string) {
     return `${this.startBaseUrl}/${endpoint}.${this.endBaseUrl}?auth=${this.accessToken}`;
   }
 
