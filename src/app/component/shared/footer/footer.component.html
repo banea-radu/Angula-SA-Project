@@ -1,5 +1,5 @@
 <footer [ngClass]="{'menu-open': (menuService.menuOpened$ | async)}" class="text-white">
-  <div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="areNewsletterAndLinksVisible">
 
     <form
       id="newsletter-form"

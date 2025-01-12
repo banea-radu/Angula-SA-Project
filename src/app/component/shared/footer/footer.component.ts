@@ -4,6 +4,7 @@ import { ViewportScroller } from '@angular/common';
 import { MenuService } from 'src/app/service/menu.service';
 import { DatabaseService } from 'src/app/service/database.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -14,6 +15,7 @@ export class FooterComponent {
   ownerName:string = "SC Believe IT SRL";
   currentYear:number = new Date().getFullYear();
   newsletterFormSubmitted = false;
+  areNewsletterAndLinksVisible: boolean = true;
 
   newsletterForm = this.formbuilder.group({
     name: [null, Validators.compose(
@@ -36,8 +38,17 @@ export class FooterComponent {
     private formbuilder: FormBuilder,
     private databaseService: DatabaseService,
     private viewportScroller: ViewportScroller,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private router: Router,
   ) {}
+
+  ngOnInit() {
+    // Listen to route changes
+    this.router.events.subscribe(() => {
+      const currentUrl = this.router.url;
+      this.areNewsletterAndLinksVisible = !currentUrl.includes('/my-account');
+    });
+  }
    
   scrollToTop() {
     this.viewportScroller.scrollToPosition([0, 0]);
