@@ -5,4 +5,34 @@
   #hiddenDateInputAddModal, #hiddenDateInputEditModal {
     width: 0;
   }
+
+  .height-55px {
+    height: 55px;
+  }
+
+  .spinner-border.text-success {
+    --bs-spinner-width: 1.5rem;
+    --bs-spinner-height: 1.5rem;
+    margin: 0 12px;
+  }
+
+  .card-table {
+    font-size: 0.68rem;
+  
+    .cart-product {
+      max-height: 40vh;
+    }
+  }
+
+  .form-check {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    min-width: 90px;
+
+    .form-check-input {
+      height: 1.3em;
+    }
+  }
 }

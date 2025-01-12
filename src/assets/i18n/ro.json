@@ -198,34 +198,12 @@
     "Users" : "Utilizatori",
     "My-Profile" : "Profilul meu",
     "Modal-Logout" : {
+      "Title" : "Deconectare cont",
       "Are-You-Sure" : "Ești sigur că vrei să te deconectezi de la contul tău?",
       "Button-Logout" :"Deconectare",
       "Button-Cancel" :"Anulare"
     },
     "Log-Out" : "Deconectare"
-  },
-  "Subscriptions" : {
-    "Title": "Lista Abonamente",
-    "Button-Add": "Adaugă",
-    "Name": "Nume",
-    "Sessions": "Ședințe rămase",
-    "Last-Paid": "Ultima plată",
-    "Edit-Delete": "Editează/Șterge",
-    "Modal-Add-Title": "Adaugă abonament",
-    "Modal-Add-Name": "Nume",
-    "Modal-Add-Sessions-Left": "Ședințe",
-    "Modal-Add-Last-Paid": "Data plății",
-    "Modal-Add-Button-Save" : "Salvează",
-    "Modal-Add-Button-Cancel" : "Anulare",
-    "Modal-Edit-Title": "Editează abonament",
-    "Modal-Edit-Name": "Nume",
-    "Modal-Edit-Sessions-Left": "Ședințe rămase",
-    "Modal-Edit-Last-Paid": "Ultima plată",
-    "Modal-Edit-Button-Save" : "Salvează",
-    "Modal-Edit-Button-Cancel" : "Anulare",
-    "Modal-Delete-Title": "Ești sigur că dorești să ștergi abonamentul lui {{name}} ?",
-    "Modal-Delete-Button-Delete" : "Șterge",
-    "Modal-Delete-Button-Cancel" : "Anulare"
   },
   "Programs" : {
     "Title" : "Programe",
@@ -302,5 +280,40 @@
     "Title" : "Pagina nu a fost găsită (404)",
     "Message" : "Pagina pe care ai încercat să o accesezi nu există!",
     "Go-Back" : "Întoarce-te pe Pagina Principală"
-  }
+  },
+
+  "strAdd" : "Adaugă",
+  "strCancel" : "Anulare",
+  "strClose" : "Închide",
+  "strDelete" : "Șterge",
+  "strName" : "Nume",
+  "strTableNumberAbbreviation" : "Nr.",
+
+  "strSubscriptionsTableTitle" : "Lista Abonamente",
+  "strSubscriptionsTableHeader3" : "Ședințe rămase",
+  "strSubscriptionsTableHeader4" : "Data celei mai vechi sesiuni",
+  "strSubscriptionsTableHeader5" : "Editează",
+
+  "strSubscriptionsModalAddSubscriptionsTitle" : "Adaugă abonament",
+  "strSubscriptionsModalAddSubscriptionsField2" : "Ședințe",
+  "strSubscriptionsModalAddSubscriptionsField3" : "Data plății",
+  "strSubscriptionsModalAddSubscriptionsButton1" : "Client nou",
+
+  "strSubscriptionsModalAddClientTitle" : "Adaugă client",
+  "strSubscriptionsModalAddClientField": "Nume și prenume",
+
+  "strSubscriptionsModalEditSubscriptionTitle" : "Editează abonament",
+  "strSubscriptionsModalEditSubscriptionField2" : "Ședințe rămase",
+  "strSubscriptionsModalEditSubscriptionButton1" : "Șterge client",
+
+  "strSubscriptionsModalEditSessionsTableHeader1" : "Data plății",
+  "strSubscriptionsModalEditSessionsTableHeader2" : "Status",
+  "strSubscriptionsModalEditSessionsTableHeader3" : "Tip abonament",
+  "strSubscriptionsModalEditSessionsTableHeader4" : "Șterge",
+
+  "strSubscriptionsModalDeleteSessionTitle" : "Șterge sesiune",
+  "strSubscriptionsModalDeleteSessionContent" : "Ești sigur că dorești să ștergi sesiunea?",
+
+  "strSubscriptionsModalDeleteClientTitle" : "Șterge client",
+  "strSubscriptionsModalDeleteClientContent" : "Ești sigur că dorești să ștergi clientul {{name}} ?"
 }

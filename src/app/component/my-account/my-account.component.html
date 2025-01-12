@@ -69,19 +69,20 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5"> </h1>
+        <h1 class="modal-title fs-5">{{'My-Account.Modal-Logout.Title' | translate}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <h2 class="fs-5 justify-content-center align-items-center"> {{ 'My-Account.Modal-Logout.Are-You-Sure' | translate }} </h2>
-      <div class="modal-footer">
-        <!-- Call SignOut() Api from AuthService -->
-        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="authService.SignOut()">
-          {{ 'My-Account.Modal-Logout.Button-Logout' | translate }}
-        </button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          {{ 'My-Account.Modal-Logout.Button-Cancel' | translate }}
-        </button>
+        <p class="justify-content-center align-items-center">{{'My-Account.Modal-Logout.Are-You-Sure' | translate}}</p>
+        <div class="modal-footer">
+          <!-- Call SignOut() Api from AuthService -->
+          <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="authService.SignOut()">
+            {{ 'My-Account.Modal-Logout.Button-Logout' | translate }}
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            {{ 'My-Account.Modal-Logout.Button-Cancel' | translate }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

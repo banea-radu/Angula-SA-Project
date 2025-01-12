@@ -1,9 +1,23 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { delay, forkJoin, Observable } from 'rxjs';
 import { DatabaseService } from 'src/app/service/database.service';
-import { DbSubscription } from 'src/app/types/database';
+import { DbSubscriptionSession, DbSubscriptionClient, DbSubscriptionSessionStatus } from 'src/app/types/database';
 import { DatePipe } from '@angular/common';
+
+export type SessionsData = {
+  clientId: string;
+  datePaid: string;
+  name: string;
+  sessionsToAdd: number;
+}
+
+type TableClientData = {
+  id: string;
+  name: string;
+  oldestPayDate: Date;
+  sessionsLeft: number;
+}
 
 @Component({
   selector: 'app-subscriptions',
@@ -13,21 +27,53 @@ import { DatePipe } from '@angular/common';
 export class SubscriptionsComponent {
   @ViewChild('hiddenDateInputAddModal') hiddenDateInputAddModal!: ElementRef;
   @ViewChild('hiddenDateInputEditModal') hiddenDateInputEditModal!: ElementRef;
-  subscriptions$: Observable<DbSubscription[]>;
+  clients: DbSubscriptionClient[];
+  sessions: DbSubscriptionSession[];
+  tableClientsData: TableClientData[];
+  selectedClientName: string | null = null;
+  clientSessions: DbSubscriptionSession[];
+  sessionIdToDelete: string;
+  isLoading = true;
   today = this.datePipe.transform(new Date(), "yyyy-MM-dd"); // get today's date for datepicker
-  addForm: FormGroup= new FormGroup({
+  isSaveNameButtonVisible = false;
+  isSaveNameLoading = false;
+  addClientForm = this.formbuilder.group({
+    name: [null, Validators.compose(
+      [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern('[a-zA-Z ]*')
+      ]
+    )],
+  });
+  addClientFormInitialValues = this.addClientForm.value;
+  addSessionsForm = this.formbuilder.group({
+    clientId: ['', Validators.required],
+    datePaid: [this.today, Validators.required],
+    name: ['', Validators.compose(
+      [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern('[a-zA-Z ]*')
+      ]
+    )],
+    sessionsToAdd: [0, Validators.compose(
+      [
+        Validators.required,
+        Validators.min(1),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+      ]
+    )],
+  });
+  addSessionsFormInitialValues = this.addSessionsForm.value;
+  editForm = this.formbuilder.group({
     id: new FormControl(''),
     name: new FormControl(null),
-    datePaid: new FormControl(this.today),
-    sessionsToAdd: new FormControl(0),
+    oldestPayDate: new FormControl(new Date()), // not used in form, just for type checking
+    sessionsLeft: new FormControl({value: 0, disabled: true}),
+    sessionsList: new FormControl([]),
   });
-  editForm: FormGroup= new FormGroup({
-    id: new FormControl(''),
-    name: new FormControl(null),
-    lastPaid: new FormControl(new Date()),
-    sessionsLeft: new FormControl(0),
-  });
-  deleteForm: FormGroup= new FormGroup({
+  deleteForm = this.formbuilder.group({
     id: new FormControl(''),
     name: new FormControl(null),
   });
@@ -35,79 +81,191 @@ export class SubscriptionsComponent {
   constructor(
     private databaseService: DatabaseService,
     private datePipe: DatePipe,
-  ) {};
+    private formbuilder: FormBuilder,
+  ) {}
 
   ngOnInit() {
-    this.getSubscriptions();
-  };
+    this.isLoading = true;
 
-  getSubscriptions() {
-    this.subscriptions$ = this.databaseService.getData('subscriptions');
-  };
-
-  openAddModal() {
-    this.addForm = new FormGroup({
-      id: new FormControl(''),
-      name: new FormControl(null),
-      datePaid: new FormControl(this.today),
-      sessionsToAdd: new FormControl(0),
+    forkJoin([
+      this.getClients(),
+      this.getSessionsData('AVAILABLE')
+    ]).subscribe(([clients, sessions]) => {
+      this.clients = clients;
+      this.sessions = sessions;
+      this.setTableClientsData();
+      this.isLoading = false;
     });
-  };
+  }
+
+  getClients(): Observable<DbSubscriptionClient[]> {
+    return this.databaseService.getSubscriptionsClients().pipe(
+      delay(350)
+    );
+  }
+
+  addClient() {
+    if (this.addClientForm.valid) {
+      this.isLoading = true;
+      this.databaseService.addSubscriptionClient(this.addClientForm.value.name).subscribe(() => {
+        console.log('client added');
+        this.addClientForm.reset(this.addClientFormInitialValues);
+        this.getClients().subscribe((res)=> {
+          this.clients = res;
+          this.setTableClientsData();
+          this.isLoading = false;
+        });
+      });
+    }  
+  }
+
+  setSelectedClientName() {
+    const selectedId = this.addSessionsForm.value.clientId;
+    const selectedClientName = this.clients.find(client => client.id === selectedId).name;
+    this.addSessionsForm.get('name').setValue(selectedClientName);
+  }
+
+  getSessionsData(status: DbSubscriptionSessionStatus): Observable<DbSubscriptionSession[]> {
+    return this.databaseService.getSubscriptionsData(status).pipe(
+      delay(350)
+    );
+  }
+
+  addSessions() {
+    if (this.addSessionsForm.valid) {
+      this.isLoading = true;
+      this.databaseService.addSubscriptionSessions(this.addSessionsForm.value as SessionsData).subscribe(() => {
+        console.log('sessions added');
+        this.addSessionsForm.reset(this.addSessionsFormInitialValues);
+        this.getSessionsData('AVAILABLE').subscribe((res)=> {
+          this.sessions = res;
+          this.setTableClientsData();
+          this.isLoading = false;
+        });
+      });
+    }
+  }
+
+  setTableClientsData() {
+    this.tableClientsData = this.clients.map(client => {
+      const clientSessions  = this.sessions.filter(session => session.clientId === client.id);
+      const sessionsCount = clientSessions.length;
+      const oldestDatePaid = sessionsCount > 0 
+        ? new Date(Math.min(...clientSessions.map(session => new Date(session.datePaid).getTime())))
+        : null;
+
+      return {
+        id: client.id,
+        name: client.name,
+        oldestPayDate: oldestDatePaid,
+        sessionsLeft: sessionsCount
+      };
+    });
+  }
+
+  openEditModal(client: TableClientData) {
+    const {id, name, oldestPayDate, sessionsLeft} = client;
+    this.isLoading = true;
+    // Get all sessions for client to view in sessions table
+    this.databaseService.getClientSubscriptionsData(id).pipe(
+      delay(350)
+    ).subscribe((res) => {
+      this.clientSessions = res;
+      this.editForm = this.formbuilder.group({
+        id: new FormControl(id),
+        name: new FormControl(name),
+        oldestPayDate: new FormControl(oldestPayDate),
+        sessionsLeft: new FormControl({value: sessionsLeft, disabled: true}),
+        sessionsList: new FormControl(this.clientSessions),
+      });
+      this.editForm.get('name').valueChanges.subscribe(value => {
+        this.isSaveNameButtonVisible = value !== name;
+      });
+      this.isLoading = false;
+    });
+  }
+
+  editClientName() {
+    const { id, name} = this.editForm.value;
+    this.isSaveNameButtonVisible = false;
+    this.isSaveNameLoading = true;
+    this.databaseService.editSubscriptionClientName(id, name)
+      .subscribe(() => {
+        console.log('subscription name edited');
+        const editedClientData = this.editForm.getRawValue() as TableClientData; // Fetch all values, including those from disabled controls.
+        // refresh table clients object
+        this.isLoading = true;
+        this.getClients().subscribe((res)=> {
+          this.clients = res;
+          this.setTableClientsData();
+          this.isLoading = false;
+          this.isSaveNameLoading = false;
+        });
+        this.openEditModal(editedClientData);
+    });
+  }
+
+  toggleSessionStatus(session: DbSubscriptionSession) {
+    session.status = session.status === 'AVAILABLE' ? 'USED' : 'AVAILABLE';
+    this.isLoading = true;
+    this.databaseService.setSubscriptionSessionStatus(session.id, session.status)
+    .subscribe(() => {
+      console.log('session status edited');
+      this.getSessionsData('AVAILABLE').subscribe((res)=> {
+        this.sessions = res;
+        this.setTableClientsData();
+        const sessionsLeft = this.editForm.get('sessionsLeft').value;
+        this.editForm.get('sessionsLeft').setValue(session.status === 'AVAILABLE' ? sessionsLeft + 1 : sessionsLeft - 1);
+        this.isLoading = false;
+      });
+  });
+  }
+
+  setSessionIdToDelete(id: string) {
+    this.sessionIdToDelete = id;
+  }
+
+  openDeleteClientModal() {
+    this.deleteForm = this.formbuilder.group({
+      id: new FormControl(this.editForm.value.id),
+      name: new FormControl(this.editForm.value.name),
+    });
+  }
+
+  deleteClient(clientId: string) {
+    this.isLoading = true;
+    this.databaseService.deleteSubscriptionClient(clientId)
+      .subscribe(() => {
+        console.log('subscription deleted');
+        // refresh table clients object
+        this.isLoading = true;
+        this.getClients().subscribe((res)=> {
+          this.clients = res;
+          this.setTableClientsData();
+          this.isLoading = false;
+        });
+    });
+  }
+
+  deleteClientSession(id: string) {
+    this.isLoading = true;
+    this.databaseService.deleteSubscriptionSession(id).subscribe(() => {
+      console.log('session deleted');
+      this.getSessionsData('AVAILABLE').subscribe((res)=> {
+        this.sessions = res;
+        this.setTableClientsData();
+        const sessionsLeft = this.editForm.get('sessionsLeft').value;
+        this.editForm.get('sessionsLeft').setValue(sessionsLeft - 1);
+        this.isLoading = false;
+      });
+    });
+  }
 
   openDatePickerAddModal() {
      this.hiddenDateInputAddModal.nativeElement.showPicker();
-  };
-
-  addSubscription() {
-    const body = {
-      id: this.addForm.value.id,
-      name: this.addForm.value.name,
-      lastPaid: this.addForm.value.datePaid,
-      sessionsLeft: this.addForm.value.sessionsToAdd,
-    };
-    this.databaseService.postData('subscriptions', body)
-      .subscribe(() => {
-        console.log('subscription added');
-        this.getSubscriptions();
-    });
-  };
-
-  openEditModal(subscription: DbSubscription) {
-    const {id, name, lastPaid, sessionsLeft} = subscription;
-    this.editForm = new FormGroup({
-      id: new FormControl(id),
-      name: new FormControl(name),
-      lastPaid: new FormControl(lastPaid),
-      sessionsLeft: new FormControl(sessionsLeft),
-    });
-  };
+  }
 
   openDatePickerEditModal() {
     this.hiddenDateInputEditModal.nativeElement.showPicker();
- };
-
-  saveEditedSubscription() {
-    const body = this.editForm.value;
-    this.databaseService.patchData('subscriptions', body, this.editForm.value.id)
-      .subscribe(() => {
-        console.log('subscription edited');
-        this.getSubscriptions();
-    });
-  };
-
-  openDeleteModal(subscription: DbSubscription) {
-    const {id, name} = subscription;
-    this.deleteForm = new FormGroup({
-      id: new FormControl(id),
-      name: new FormControl(name),
-    });
-  };
-
-  deleteSubscription() {
-    this.databaseService.deleteData('subscriptions', this.deleteForm.value.id)
-      .subscribe(() => {
-        console.log('subscription deleted');
-        this.getSubscriptions();
-      });
-  }
+ }
 };

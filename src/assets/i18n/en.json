@@ -198,34 +198,12 @@
     "Users" : "Users",
     "My-Profile" : "My profile",
     "Modal-Logout" : {
+      "Title" : "Logout",
       "Are-You-Sure" : "Are you sure you want to logout from your account?",
       "Button-Logout" :"Logout",
       "Button-Cancel" :"Cancel"
     },
     "Log-Out" : "Logout"
-  },
-  "Subscriptions" : {
-    "Title": "Subscriptions list",
-    "Button-Add": "Add",
-    "Name": "Name",
-    "Sessions": "Sessions left",
-    "Last-Paid": "Last Paid",
-    "Edit-Delete": "Edit/Delete",
-    "Modal-Add-Title": "Add subscription",
-    "Modal-Add-Name": "Name",
-    "Modal-Add-Sessions-Left": "Sessions",
-    "Modal-Add-Last-Paid": "Date paid",
-    "Modal-Add-Button-Save" : "Save",
-    "Modal-Add-Button-Cancel" : "Cancel",
-    "Modal-Edit-Title": "Edit subscription",
-    "Modal-Edit-Name": "Name",
-    "Modal-Edit-Sessions-Left": "Sessions left",
-    "Modal-Edit-Last-Paid": "Last Paid",
-    "Modal-Edit-Button-Save" : "Save",
-    "Modal-Edit-Button-Cancel" : "Cancel",
-    "Modal-Delete-Title": "Are you sure you want to delete {{name}}'s subscription?",
-    "Modal-Delete-Button-Delete" : "Delete",
-    "Modal-Delete-Button-Cancel" : "Cancel"
   },
   "Programs" : {
     "Title" : "Programs",
@@ -302,5 +280,40 @@
     "Title" : "Page Not Found (404)",
     "Message" : "The page you tried to open does not exist!",
     "Go-Back" : "Go Back to Home Page"
-  }
+  },
+
+  "strAdd" : "Add",
+  "strCancel" : "Cancel",
+  "strClose" : "Close",
+  "strDelete" : "Delete",
+  "strName" : "Name",
+  "strTableNumberAbbreviation" : "No.",
+
+  "strSubscriptionsTableTitle" : "Subscriptions list",
+  "strSubscriptionsTableHeader3" : "Sessions left",
+  "strSubscriptionsTableHeader4" : "Oldest session date",
+  "strSubscriptionsTableHeader5" : "Edit",
+
+  "strSubscriptionsModalAddSubscriptionsTitle" : "Add subscription",
+  "strSubscriptionsModalAddSubscriptionsField2" : "Sessions",
+  "strSubscriptionsModalAddSubscriptionsField3" : "Date paid",
+  "strSubscriptionsModalAddSubscriptionsButton1" : "New client",
+
+  "strSubscriptionsModalAddClientTitle" : "Add client",
+  "strSubscriptionsModalAddClientField": "Name",
+
+  "strSubscriptionsModalEditSubscriptionTitle" : "Edit subscription",
+  "strSubscriptionsModalEditSubscriptionField2" : "Sessions left",
+  "strSubscriptionsModalEditSubscriptionButton1" : "Delete client",
+
+  "strSubscriptionsModalEditSessionsTableHeader1" : "Date paid",
+  "strSubscriptionsModalEditSessionsTableHeader2" : "Status",
+  "strSubscriptionsModalEditSessionsTableHeader3" : "Subscription type",
+  "strSubscriptionsModalEditSessionsTableHeader4" : "Delete",
+
+  "strSubscriptionsModalDeleteSessionTitle" : "Delete session",
+  "strSubscriptionsModalDeleteSessionContent" : "Are you sure you want to delete the session?",
+
+  "strSubscriptionsModalDeleteClientTitle" : "Delete client",
+  "strSubscriptionsModalDeleteClientContent" : "Are you sure you want to delete client {{name}} ?"
 }
