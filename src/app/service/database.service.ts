@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, retryWhen, delay, scan } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { DbSubscriptionClient, DbSubscriptionSession, DbSubscriptionSessionStatus } from '../types/database';
 import { Observable } from 'rxjs';
 import { SessionsData } from '../component/subscriptions/subscriptions.component';
@@ -15,6 +15,7 @@ export class DatabaseService {
   isLocalStorageUserData = this.localStorageUserData !== 'null' && this.localStorageUserData !== null;
   accessToken: string = this.isLocalStorageUserData ? JSON.parse(this.localStorageUserData).stsTokenManager.accessToken: '';
   userEmail: string =  this.isLocalStorageUserData ? JSON.parse( this.localStorageUserData).email : '';
+  headers = { Authorization: `Bearer ${this.accessToken}` };
 
   constructor(
     private http: HttpClient,
@@ -22,6 +23,10 @@ export class DatabaseService {
 
   constructUrl(endpoint: string) {
     return `${this.startBaseUrl}/${endpoint}.${this.endBaseUrl}?auth=${this.accessToken}`;
+  }
+
+  constructUrl2(endpoint: string) {
+    return `${this.startBaseUrl}/${endpoint}.${this.endBaseUrl}`;
   }
 
   createUniqueId(originalText: string, descendingTimestamp = false): string {
@@ -35,24 +40,12 @@ export class DatabaseService {
   }
 
   getSubscriptionsClients(): Observable<DbSubscriptionClient[]> {
-    const completeUrl = this.constructUrl('subscriptions/clients');
-    return this.http.get<Record<string, DbSubscriptionClient>>(completeUrl).pipe(
+    const completeUrl = this.constructUrl2('subscriptions/clients');
+    return this.http.get<Record<string, DbSubscriptionClient>>(completeUrl, { headers: this.headers }).pipe(
       map((response: Record<string, DbSubscriptionClient>) => {
         // Convert the response object into an array
         return Object.values(response || {});
-      }),
-      retryWhen((errors) =>
-        errors.pipe(
-          scan((retryCount, err) => {
-            if (retryCount >= 3) {
-              throw err; // Stop retrying after 3 attempts
-            }
-            console.warn(`Retrying... Attempt #${retryCount + 1}`);
-            return retryCount + 1;
-          }, 0),
-          delay(1000) // 1 second between retries
-        )
-      )
+      })
     );
   }
 
@@ -80,8 +73,9 @@ export class DatabaseService {
   }
 
   getSubscriptionsData(status: DbSubscriptionSessionStatus): Observable<DbSubscriptionSession[]> {
-    const completeUrl = this.constructUrl('subscriptions/sessions');
+    const completeUrl = this.constructUrl2('subscriptions/sessions');
     return this.http.get<Record<string, DbSubscriptionSession>>(completeUrl, {
+      headers: this.headers,
       params: {
         orderBy: '"status"',      // Property to filter by (must be indexed)
         equalTo: `"${status}"`    // Value to match, in double quotes to make it a JSON string
@@ -90,19 +84,7 @@ export class DatabaseService {
       map((response: Record<string, DbSubscriptionSession>) => {
         // Convert the response object into an array an keep original order
         return Object.values(response || {}).sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
-      }),
-      retryWhen((errors) =>
-        errors.pipe(
-          scan((retryCount, err) => {
-            if (retryCount >= 3) {
-              throw err; // Stop retrying after 3 attempts
-            }
-            console.warn(`Retrying... Attempt #${retryCount + 1}`);
-            return retryCount + 1;
-          }, 0),
-          delay(1000) // 1 second between retries
-        )
-      )
+      })
     );
   }
 

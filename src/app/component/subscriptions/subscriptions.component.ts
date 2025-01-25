@@ -26,7 +26,6 @@ type TableClientData = {
 })
 export class SubscriptionsComponent {
   @ViewChild('hiddenDateInputAddModal') hiddenDateInputAddModal!: ElementRef;
-  @ViewChild('hiddenDateInputEditModal') hiddenDateInputEditModal!: ElementRef;
   clients: DbSubscriptionClient[];
   sessions: DbSubscriptionSession[];
   tableClientsData: TableClientData[];
@@ -90,7 +89,22 @@ export class SubscriptionsComponent {
     forkJoin([
       this.getClients(),
       this.getSessionsData('AVAILABLE')
-    ]).subscribe(([clients, sessions]) => {
+    ])
+    // .pipe(
+    //   retryWhen((errors) =>
+    //     errors.pipe(
+    //       scan((retryCount, err) => {
+    //         if (retryCount >= 3) {
+    //           throw err; // Stop retrying after 3 attempts
+    //         }
+    //         console.warn(`Retrying... Attempt #${retryCount + 1}`);
+    //         return retryCount + 1;
+    //       }, 0),
+    //       delay(2000) // 2 seconds between retries
+    //     )
+    //   )
+    // )
+    .subscribe(([clients, sessions]) => {
       this.clients = clients;
       this.sessions = sessions;
       this.setTableClientsData();
@@ -262,10 +276,7 @@ export class SubscriptionsComponent {
   }
 
   openDatePickerAddModal() {
-     this.hiddenDateInputAddModal.nativeElement.showPicker();
+      alert('click');
+      this.hiddenDateInputAddModal.nativeElement.showPicker();
   }
-
-  openDatePickerEditModal() {
-    this.hiddenDateInputEditModal.nativeElement.showPicker();
- }
 };
