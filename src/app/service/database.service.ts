@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, retryWhen, delay, scan } from 'rxjs/operators';
 import { DbSubscriptionClient, DbSubscriptionSession, DbSubscriptionSessionStatus } from '../types/database';
 import { Observable } from 'rxjs';
 import { SessionsData } from '../component/subscriptions/subscriptions.component';
@@ -40,7 +40,19 @@ export class DatabaseService {
       map((response: Record<string, DbSubscriptionClient>) => {
         // Convert the response object into an array
         return Object.values(response || {});
-      })
+      }),
+      retryWhen((errors) =>
+        errors.pipe(
+          scan((retryCount, err) => {
+            if (retryCount >= 3) {
+              throw err; // Stop retrying after 3 attempts
+            }
+            console.warn(`Retrying... Attempt #${retryCount + 1}`);
+            return retryCount + 1;
+          }, 0),
+          delay(1000) // 1 second between retries
+        )
+      )
     );
   }
 
@@ -78,7 +90,19 @@ export class DatabaseService {
       map((response: Record<string, DbSubscriptionSession>) => {
         // Convert the response object into an array an keep original order
         return Object.values(response || {}).sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
-      })
+      }),
+      retryWhen((errors) =>
+        errors.pipe(
+          scan((retryCount, err) => {
+            if (retryCount >= 3) {
+              throw err; // Stop retrying after 3 attempts
+            }
+            console.warn(`Retrying... Attempt #${retryCount + 1}`);
+            return retryCount + 1;
+          }, 0),
+          delay(1000) // 1 second between retries
+        )
+      )
     );
   }
 

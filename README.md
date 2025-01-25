@@ -59,8 +59,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     3. Contact
     	3.1. Header
     	 - Welcome section
-    	 - Informatii generale
-    	 - Formular
+    	 - General informations
+    	 - Contact form
     	3.2. Footer
 		4. My account - Login
 			4.1 Forgot password
@@ -76,19 +76,21 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO:
--> NEXT: sessions - list table with edit/delete
 Critical:
 - Fix "401 Unauthorized" from firebase issue when opening app
 - Fix safari issue: cannot open datepicker
 - log for every db action
 
 - Subscriptions
+	- clients table: freeze table headers
 	- sessions
-		- list table with edit/delete
 		- freeze table header
-		- filter sessions by clientId and datePaid
-	- freeze table headers
+		- filter sessions by clientId and datePaid (last 2 months only)
 - PWA
+- Feedback:
+	- QR code for client pressence
+	- negative sessions
+	- list of remaining sessions needed? easier way of consuming a session?
 - Refactor API calls from all previous section in my account
 - Hide Newsletter and Links footer when in My Account page
 - Loading screen on API calls
@@ -111,7 +113,7 @@ Critical:
 
 ## TO DOne (Date descending):
 - Subscriptions
-	- client
+	- clients
 		- create
 		- list table with edit/delete
 	- sessions
