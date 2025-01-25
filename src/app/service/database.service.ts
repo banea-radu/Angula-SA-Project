@@ -41,7 +41,11 @@ export class DatabaseService {
 
   getSubscriptionsClients(): Observable<DbSubscriptionClient[]> {
     const completeUrl = this.constructUrl2('subscriptions/clients');
-    return this.http.get<Record<string, DbSubscriptionClient>>(completeUrl, { headers: this.headers }).pipe(
+    return this.http.get<Record<string, DbSubscriptionClient>>(completeUrl, {
+      params: {
+        auth: this.accessToken,
+      }
+    }).pipe(
       map((response: Record<string, DbSubscriptionClient>) => {
         // Convert the response object into an array
         return Object.values(response || {});
@@ -75,8 +79,8 @@ export class DatabaseService {
   getSubscriptionsData(status: DbSubscriptionSessionStatus): Observable<DbSubscriptionSession[]> {
     const completeUrl = this.constructUrl2('subscriptions/sessions');
     return this.http.get<Record<string, DbSubscriptionSession>>(completeUrl, {
-      headers: this.headers,
       params: {
+        auth: this.accessToken,
         orderBy: '"status"',      // Property to filter by (must be indexed)
         equalTo: `"${status}"`    // Value to match, in double quotes to make it a JSON string
       }
