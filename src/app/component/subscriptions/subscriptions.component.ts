@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { delay, forkJoin, Observable } from 'rxjs';
+import { delay, forkJoin, Observable, switchMap } from 'rxjs';
 import { DatabaseService } from 'src/app/service/database.service';
 import { DbSubscriptionSession, DbSubscriptionClient, DbSubscriptionSessionStatus } from 'src/app/types/database';
 import { DatePipe } from '@angular/common';
@@ -85,32 +85,21 @@ export class SubscriptionsComponent {
 
   ngOnInit() {
     this.isLoading = true;
-    this.databaseService.refreshAccessToken().subscribe(() => {
-      forkJoin([
-        this.getClients(),
-        this.getSessionsData('AVAILABLE')
-      ])
-      // .pipe(
-      //   retryWhen((errors) =>
-      //     errors.pipe(
-      //       scan((retryCount, err) => {
-      //         if (retryCount >= 3) {
-      //           throw err; // Stop retrying after 3 attempts
-      //         }
-      //         console.warn(`Retrying... Attempt #${retryCount + 1}`);
-      //         return retryCount + 1;
-      //       }, 0),
-      //       delay(2000) // 2 seconds between retries
-      //     )
-      //   )
-      // )
+    this.databaseService.refreshAccessToken()
+      .pipe(
+        switchMap(() => 
+          forkJoin([
+            this.getClients(),
+            this.getSessionsData('AVAILABLE')
+          ])
+        )
+      )
       .subscribe(([clients, sessions]) => {
         this.clients = clients;
         this.sessions = sessions;
         this.setTableClientsData();
         this.isLoading = false;
       });
-    });
   }
 
   getClients(): Observable<DbSubscriptionClient[]> {
