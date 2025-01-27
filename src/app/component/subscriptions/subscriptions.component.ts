@@ -97,7 +97,7 @@ export class SubscriptionsComponent {
         this.isLoading = false;
       },
       error: () => {
-        window.location.reload();
+        this.isLoading = false;
       }
     });
   }
