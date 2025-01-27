@@ -92,6 +92,7 @@ Critical:
 	- negative sessions
 	- list of remaining sessions needed? easier way of consuming a session?
 - Refactor API calls from all previous section in my account
+	- Add headers with access token for API calls
 - Hide Newsletter and Links footer when in My Account page
 - Loading screen on API calls
 - Toast messages with status on actions

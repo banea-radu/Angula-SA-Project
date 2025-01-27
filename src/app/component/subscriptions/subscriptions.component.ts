@@ -85,30 +85,31 @@ export class SubscriptionsComponent {
 
   ngOnInit() {
     this.isLoading = true;
-
-    forkJoin([
-      this.getClients(),
-      this.getSessionsData('AVAILABLE')
-    ])
-    // .pipe(
-    //   retryWhen((errors) =>
-    //     errors.pipe(
-    //       scan((retryCount, err) => {
-    //         if (retryCount >= 3) {
-    //           throw err; // Stop retrying after 3 attempts
-    //         }
-    //         console.warn(`Retrying... Attempt #${retryCount + 1}`);
-    //         return retryCount + 1;
-    //       }, 0),
-    //       delay(2000) // 2 seconds between retries
-    //     )
-    //   )
-    // )
-    .subscribe(([clients, sessions]) => {
-      this.clients = clients;
-      this.sessions = sessions;
-      this.setTableClientsData();
-      this.isLoading = false;
+    this.databaseService.refreshAccessToken().subscribe(() => {
+      forkJoin([
+        this.getClients(),
+        this.getSessionsData('AVAILABLE')
+      ])
+      // .pipe(
+      //   retryWhen((errors) =>
+      //     errors.pipe(
+      //       scan((retryCount, err) => {
+      //         if (retryCount >= 3) {
+      //           throw err; // Stop retrying after 3 attempts
+      //         }
+      //         console.warn(`Retrying... Attempt #${retryCount + 1}`);
+      //         return retryCount + 1;
+      //       }, 0),
+      //       delay(2000) // 2 seconds between retries
+      //     )
+      //   )
+      // )
+      .subscribe(([clients, sessions]) => {
+        this.clients = clients;
+        this.sessions = sessions;
+        this.setTableClientsData();
+        this.isLoading = false;
+      });
     });
   }
 

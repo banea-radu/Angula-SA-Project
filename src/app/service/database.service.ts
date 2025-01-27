@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { DbSubscriptionClient, DbSubscriptionSession, DbSubscriptionSessionStatus } from '../types/database';
 import { Observable } from 'rxjs';
 import { SessionsData } from '../component/subscriptions/subscriptions.component';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,21 @@ export class DatabaseService {
   localStorageUserData: string | null = localStorage.getItem('user');
   isLocalStorageUserData = this.localStorageUserData !== 'null' && this.localStorageUserData !== null;
   accessToken: string = this.isLocalStorageUserData ? JSON.parse(this.localStorageUserData).stsTokenManager.accessToken: '';
+  refreshToken: string = this.isLocalStorageUserData ? JSON.parse(this.localStorageUserData).stsTokenManager.refreshToken: '';
   userEmail: string =  this.isLocalStorageUserData ? JSON.parse( this.localStorageUserData).email : '';
-  headers = { Authorization: `Bearer ${this.accessToken}` };
 
   constructor(
     private http: HttpClient,
   ) {}
+
+  refreshAccessToken() {
+    const url : string = `https://securetoken.googleapis.com/v1/token?key=${environment.firebase.apiKey}`;
+    const body : any = {
+      grant_type : 'refresh_token',
+      refresh_token: this.refreshToken
+    }  
+    return this.http.post(url, body, {withCredentials : false});
+  }
 
   constructUrl(endpoint: string) {
     return `${this.startBaseUrl}/${endpoint}.${this.endBaseUrl}?auth=${this.accessToken}`;
