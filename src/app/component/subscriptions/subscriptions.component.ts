@@ -96,8 +96,8 @@ export class SubscriptionsComponent {
         this.setTableClientsData();
         this.isLoading = false;
       },
-      error: (err) => {
-        console.error('Error occurred during data fetching:', err);
+      error: () => {
+        window.location.reload();
       }
     });
   }
