@@ -97,17 +97,11 @@
                 {{'strSubscriptionsModalAddSubscriptionsField3' | translate}}
               </label>
               <input
-                id="hiddenDateInputAddModal"
-                #hiddenDateInputAddModal
                 type="date"
                 name="datePaid"
                 formControlName="datePaid"
-                class="invisible border-0 p-0"
+                class="form-control"
               >
-              <div (click)="openDatePickerAddModal()" class="custom-datepicker form-control d-flex justify-content-center align-items-center">
-                <span class="px-2">{{addSessionsForm.value.datePaid | date: 'dd/MM/yyyy'}}</span>
-                <i class="fa fa-calendar px-2"></i>
-              </div>
             </div>
           </div>
           <div class="modal-footer align-self-end">

@@ -264,15 +264,4 @@ export class SubscriptionsComponent {
       });
     });
   }
-
-  openDatePickerAddModal() {
-    const inputElement = this.hiddenDateInputAddModal.nativeElement;
-    // For browsers that support showPicker()
-    if (typeof inputElement.showPicker === 'function') {
-      inputElement.showPicker();
-    } else {
-      // Fallback for Safari: focus the input
-      inputElement.focus();
-    }
-  }
 };
