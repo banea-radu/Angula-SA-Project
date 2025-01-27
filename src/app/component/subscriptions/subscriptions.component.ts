@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { delay, forkJoin, Observable, switchMap } from 'rxjs';
+import { delay, forkJoin, Observable, retryWhen } from 'rxjs';
 import { DatabaseService } from 'src/app/service/database.service';
 import { DbSubscriptionSession, DbSubscriptionClient, DbSubscriptionSessionStatus } from 'src/app/types/database';
 import { DatePipe } from '@angular/common';
@@ -85,21 +85,21 @@ export class SubscriptionsComponent {
 
   ngOnInit() {
     this.isLoading = true;
-    this.databaseService.refreshAccessToken()
-      .pipe(
-        switchMap(() => 
-          forkJoin([
-            this.getClients(),
-            this.getSessionsData('AVAILABLE')
-          ])
-        )
-      )
-      .subscribe(([clients, sessions]) => {
+    forkJoin([
+      this.getClients(),
+      this.getSessionsData('AVAILABLE')
+    ])
+    .subscribe({
+      next: ([clients, sessions]) => {
         this.clients = clients;
         this.sessions = sessions;
         this.setTableClientsData();
         this.isLoading = false;
-      });
+      },
+      error: (err) => {
+        console.error('Error occurred during data fetching:', err);
+      }
+    });
   }
 
   getClients(): Observable<DbSubscriptionClient[]> {

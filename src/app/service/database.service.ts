@@ -15,21 +15,21 @@ export class DatabaseService {
   localStorageUserData: string | null = localStorage.getItem('user');
   isLocalStorageUserData = this.localStorageUserData !== 'null' && this.localStorageUserData !== null;
   accessToken: string = this.isLocalStorageUserData ? JSON.parse(this.localStorageUserData).stsTokenManager.accessToken: '';
-  refreshToken: string = this.isLocalStorageUserData ? JSON.parse(this.localStorageUserData).stsTokenManager.refreshToken: '';
+  // refreshToken: string = this.isLocalStorageUserData ? JSON.parse(this.localStorageUserData).stsTokenManager.refreshToken: '';
   userEmail: string =  this.isLocalStorageUserData ? JSON.parse( this.localStorageUserData).email : '';
 
   constructor(
     private http: HttpClient,
   ) {}
 
-  refreshAccessToken() {
-    const url : string = `https://securetoken.googleapis.com/v1/token?key=${environment.firebase.apiKey}`;
-    const body : any = {
-      grant_type : 'refresh_token',
-      refresh_token: this.refreshToken
-    }  
-    return this.http.post(url, body, {withCredentials : false});
-  }
+  // refreshAccessToken() {
+  //   const url : string = `https://securetoken.googleapis.com/v1/token?key=${environment.firebase.apiKey}`;
+  //   const body : any = {
+  //     grant_type : 'refresh_token',
+  //     refresh_token: this.refreshToken
+  //   }  
+  //   return this.http.post(url, body, {withCredentials : false});
+  // }
 
   constructUrl(endpoint: string) {
     return `${this.startBaseUrl}/${endpoint}.${this.endBaseUrl}?auth=${this.accessToken}`;
