@@ -11,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AuthService {
   userData: any;
-  idToken: any;
 
   constructor(
     public router: Router,
@@ -24,11 +23,9 @@ export class AuthService {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')!);
+        localStorage.setItem('user', JSON.stringify(user));
       } else {
         localStorage.setItem('user', 'null');
-        JSON.parse(localStorage.getItem('user')!);
       }
     });
   }

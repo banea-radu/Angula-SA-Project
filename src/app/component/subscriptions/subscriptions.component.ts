@@ -1,9 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { delay, forkJoin, Observable, retryWhen } from 'rxjs';
+import { delay, forkJoin, Observable, switchMap } from 'rxjs';
 import { DatabaseService } from 'src/app/service/database.service';
 import { DbSubscriptionSession, DbSubscriptionClient, DbSubscriptionSessionStatus } from 'src/app/types/database';
 import { DatePipe } from '@angular/common';
+import { AuthService } from 'src/app/service/auth.service';
 
 export type SessionsData = {
   clientId: string;
@@ -81,24 +82,29 @@ export class SubscriptionsComponent {
     private databaseService: DatabaseService,
     private datePipe: DatePipe,
     private formbuilder: FormBuilder,
+    private authService: AuthService,
   ) {}
 
   ngOnInit() {
     this.isLoading = true;
-    forkJoin([
-      this.getClients(),
-      this.getSessionsData('AVAILABLE')
-    ])
-    .subscribe({
-      next: ([clients, sessions]) => {
-        this.clients = clients;
-        this.sessions = sessions;
-        this.setTableClientsData();
-        this.isLoading = false;
-      },
-      error: () => {
-        this.isLoading = false;
-      }
+    this.authService.angularFireAuth.authState.subscribe((user) => {
+      this.databaseService.refreshLocalStorage(user);
+      forkJoin([
+        this.getClients(),
+        this.getSessionsData('AVAILABLE')
+      ])
+      .subscribe({
+        next: ([clients, sessions]) => {
+          this.clients = clients;
+          this.sessions = sessions;
+          this.setTableClientsData();
+          this.isLoading = false;
+        },
+        error: (err) => {
+          console.warn(err);
+          this.isLoading = false;
+        }
+      })
     });
   }
 
