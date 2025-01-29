@@ -22,8 +22,11 @@ export class DatabaseService {
   ) {}
 
   refreshLocalStorage(user: any) {
+    console.log('##### refreshLocalStorage', user._delegate.accessToken);
+    console.log('##### refreshLocalStorage', this.accessToken);
     localStorage.setItem('user', JSON.stringify(user));
-    this.accessToken = JSON.parse(this.localStorageUserData).stsTokenManager.accessToken;
+    this.accessToken = user._delegate.accessToken;
+    console.log('##### refreshLocalStorage', this.accessToken);
   }
 
   constructUrl(endpoint: string) {
@@ -45,6 +48,7 @@ export class DatabaseService {
   }
 
   getSubscriptionsClients(): Observable<DbSubscriptionClient[]> {
+    console.log('##### getSubscriptionsClients', this.accessToken);
     const completeUrl = this.constructUrl2('subscriptions/clients');
     return this.http.get<Record<string, DbSubscriptionClient>>(completeUrl, {
       params: {
