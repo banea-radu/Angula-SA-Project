@@ -76,18 +76,16 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO:
-Critical:
-- Fix "401 Unauthorized" from firebase issue when opening app
-- Fix safari issue: cannot open datepicker
-- log for every db action
-
 - Subscriptions
 	- clients table: freeze table headers
 	- sessions
+		- opening modal with session table should wait for data to be loaded
 		- freeze table header
 		- filter sessions by clientId and datePaid (last 2 months only)
 - PWA
 - Feedback:
+	- session expiration logic
+	- used session / expiration date column
 	- QR code for client pressence
 	- negative sessions
 	- list of remaining sessions needed? easier way of consuming a session?
@@ -122,6 +120,8 @@ Critical:
 		- list table with edit/delete
 	- format dates from add/edit modals
 - General:
+	- Fix "401 Unauthorized" from firebase issue when opening app
+	- Fix safari issue: cannot open datepicker
 	- deploy build on netlify
 	- add netlify link to readme
 	- routing:

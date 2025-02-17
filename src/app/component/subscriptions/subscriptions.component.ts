@@ -87,12 +87,7 @@ export class SubscriptionsComponent {
 
   ngOnInit() {
     this.isLoading = true;
-    console.log('##### ngOnInit', this.databaseService.accessToken);
-    this.authService.angularFireAuth.user.subscribe((res) => {
-      console.log('##### user', res);
-    })
     this.authService.angularFireAuth.authState.subscribe((user) => {
-      console.log('##### authState', user);
       this.databaseService.refreshLocalStorage(user);
       forkJoin([
         this.getClients(),
@@ -114,7 +109,6 @@ export class SubscriptionsComponent {
   }
 
   getClients(): Observable<DbSubscriptionClient[]> {
-    console.log('##### getClients', this.databaseService.accessToken);
     return this.databaseService.getSubscriptionsClients().pipe(
       delay(350)
     );
